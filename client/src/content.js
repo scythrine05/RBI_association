@@ -1,6 +1,6 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
-import "./content.css";
+import "./css/content.css";
 
 export default function content() {
   return (

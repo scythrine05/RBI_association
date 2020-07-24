@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Log from "./log";
-import "./navbar.css";
+import "./css/navbar.css";
 
 export default function navbar() {
   return (
@@ -10,8 +10,8 @@ export default function navbar() {
         <Navbar.Brand href="#home">
           <img
             src="icon.png"
-            width="30"
-            height="30"
+            width="75"
+            height="50"
             className="icon d-inline-block align-top"
             alt="React Bootstrap logo"
           />

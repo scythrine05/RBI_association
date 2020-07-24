@@ -5,7 +5,7 @@ import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "./photos";
 import { Button } from "react-bootstrap";
-import "./gallery.css";
+import "./css/gallery.css";
 
 export default function Pgallery() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -44,7 +44,7 @@ export default function Pgallery() {
         <Button
           size="lg"
           style={{ textAlign: "center", marginTop: "20px" }}
-          variant="success"
+          variant=""
         >
           See all Photos
         </Button>

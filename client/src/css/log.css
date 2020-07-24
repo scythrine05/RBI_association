@@ -1,3 +1,9 @@
+.btn {
+  color: black;
+  font-weight: 600;
+  background: #ffd700;
+}
+
 a {
   color: rgba(0, 0, 0, 0.68);
   transition: all 0.3s ease;

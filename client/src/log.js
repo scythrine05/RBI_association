@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import "./log.css";
+import "./css/log.css";
 
 export default function Log() {
   const [show, setShow] = useState(false);
@@ -10,7 +10,7 @@ export default function Log() {
 
   return (
     <>
-      <Button size="m" variant="success" onClick={handleShow}>
+      <Button size="m" variant="" onClick={handleShow}>
         login
       </Button>
 
@@ -30,7 +30,7 @@ export default function Log() {
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox"></Form.Group>
-            <Button variant="success" type="submit">
+            <Button variant="" type="submit">
               login
             </Button>
             <a href="#signup">

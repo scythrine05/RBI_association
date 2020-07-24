@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Col, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 import Fade from "react-reveal/Fade";
 
@@ -26,7 +26,7 @@ const FormPage = () => {
             <Form.Label>Message</Form.Label>
             <Form.Control as="textarea" rows="3" placeholder="Message" />
           </Form.Group>
-          <Button type="submit" variant="success" size="lg">
+          <Button type="submit" variant="" size="lg">
             Send
           </Button>{" "}
         </Form>

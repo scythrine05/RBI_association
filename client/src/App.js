@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./navbar";
 
 import Parallax from "./parallax";
-import "./App.css";
+import "./css/App.css";
 import { Container } from "react-bootstrap";
 import Content from "./content";
 import Gallery from "./gallery";
@@ -19,7 +19,7 @@ export default function App() {
         </nav>
       </header>{" "}
       <div>
-        <Parallax />
+        <Parallax name={["We Create", <br />, "You Rule"]} />
       </div>
       <Container className="content my-0">
         <Content />
@@ -33,7 +33,12 @@ export default function App() {
       <section>
         <Contact />
       </section>
-      <footer className="gallery my-0" style={{ background: "black" }}>
+      <footer
+        className="gallery my-0"
+        style={{
+          background: "url(https://wallpapercave.com/wp/wp3400418.jpg)",
+        }}
+      >
         <Footer />
       </footer>
     </React.Fragment>

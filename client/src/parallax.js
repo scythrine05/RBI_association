@@ -1,15 +1,14 @@
 import React from "react";
 import { Parallax } from "react-parallax";
-import "./parallax.css";
+import "./css/parallax.css";
 
 const styles = {
   fontFamily: "sans-serif",
   textAlign: "center",
 };
 
-const image =
-  "https://c0.wallpaperflare.com/preview/440/715/681/dark-green-green-elaf-dark-background.jpg";
-export default function parallax() {
+const image = "https://wallpapercave.com/wp/wp3400418.jpg";
+export default function parallax(props) {
   return (
     <div style={styles}>
       <Parallax
@@ -20,7 +19,7 @@ export default function parallax() {
             <div
               style={{
                 position: "absolute",
-                background: `rgba(50,205,50, ${percentage * 1})`,
+                background: `rgb(255,215,0, ${percentage * 1})`,
                 left: "50%",
                 top: "50%",
                 borderRadius: "50%",
@@ -34,7 +33,7 @@ export default function parallax() {
         )}
       >
         <div style={{ height: 700 }}>
-          <div className="title">Something </div>
+          <div className="title">{props.name}</div>
         </div>
       </Parallax>
     </div>
