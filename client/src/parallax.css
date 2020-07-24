@@ -1,0 +1,16 @@
+.title {
+  background: transparent;
+  padding: 20;
+  position: absolute;
+  font-size: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 25px;
+  }
+}

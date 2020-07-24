@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./navbar";
 
-function App() {
+import Parallax from "./parallax";
+import "./App.css";
+import { Container } from "react-bootstrap";
+import Content from "./content";
+import Gallery from "./gallery";
+import Team from "./teams";
+import Contact from "./contact";
+import Footer from "./footer";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <header>
+        <nav>
+          <Navbar />
+        </nav>
+      </header>{" "}
+      <div>
+        <Parallax />
+      </div>
+      <Container className="content my-0">
+        <Content />
+      </Container>
+      <Container className="gallery my-0">
+        <Gallery />
+      </Container>
+      <Container className="gallery my-0">
+        <Team />
+      </Container>
+      <section>
+        <Contact />
+      </section>
+      <footer className="gallery my-0" style={{ background: "black" }}>
+        <Footer />
+      </footer>
+    </React.Fragment>
   );
 }
-
-export default App;

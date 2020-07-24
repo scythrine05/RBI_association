@@ -1,0 +1,17 @@
+a {
+  color: rgba(0, 0, 0, 0.68);
+  transition: all 0.3s ease;
+}
+
+.modal-title {
+  color: rgba(0, 0, 0, 0.68);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.form-text {
+  font-size: large;
+  font-weight: 500;
+}
