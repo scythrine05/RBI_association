@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "RBI_Association backend api",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "startDev": "nodemon app.js"
+  },
+  "author": "Hardik and Rohan",
+  "license": "ISC"
+}
