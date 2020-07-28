@@ -9,23 +9,25 @@ export default function navbar() {
   return (
     <nav>
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
-          <img
-            src="icon.png"
-            width="75"
-            height="50"
-            className="icon d-inline-block align-top"
-            alt="React Bootstrap logo"
-          />
-        </Navbar.Brand>
+        <NavLink to="/" exact>
+          <Navbar.Brand>
+            <img
+              src="icon.png"
+              width="75"
+              height="50"
+              className="icon d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </Navbar.Brand>
+        </NavLink>
         <Log />
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <NavLink to="/" exact activeStyle={ {color : 'yellow'} }> Home </NavLink>
-            <NavLink to="/News" exact activeStyle={ {color : 'yellow'} }> News </NavLink>
-            <NavLink to="/Polls" exact activeStyle={ {color : 'yellow'} }> Polls </NavLink>
-            <NavLink to="/Profile" exact activeStyle={ {color : 'yellow'} }> Profile </NavLink>
+            <NavLink className="nav-link" exact to="/" activeStyle={{ color: 'gold' }}> Home </NavLink>
+            <NavLink className="nav-link" exact to="/News" activeStyle={{ color: 'gold' }}> News </NavLink>
+            <NavLink className="nav-link" exact to="/Polls" activeStyle={{ color: 'gold' }}> Polls </NavLink>
+            <NavLink className="nav-link" exact to="/Profile" activeStyle={{ color: 'gold' }}> Profile </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
