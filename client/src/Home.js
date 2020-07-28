@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./navbar";
 
 import Parallax from "./parallax";
-import "./css/home.css";
+import "./css/Home.css";
 import { Container } from "react-bootstrap";
 import Content from "./content";
 import Gallery from "./gallery";
@@ -19,20 +19,16 @@ export default function Home() {
         </nav>
       </header>{" "}
       <div>
-        <Parallax name={["We Create", <br />, "You Rule"]} />
+        <Parallax name={["We Create", <br />, "You Rule"]} height={700} />
       </div>
-      <Container className="content my-0">
+      <Container className="my-3">
         <Content />
-      </Container>
-      <Container className="gallery my-0">
         <Gallery />
-      </Container>
-      <Container className="gallery my-0">
         <Team />
+        <section>
+          <Contact />
+        </section>
       </Container>
-      <section>
-        <Contact />
-      </section>
       <footer
         className="gallery my-0"
         style={{

@@ -8,12 +8,16 @@ const styles = {
 };
 
 const image = "https://wallpapercave.com/wp/wp3400418.jpg";
+
+parallax.defaultProps = {
+  height: 400,
+};
 export default function parallax(props) {
   return (
     <div style={styles}>
       <Parallax
         bgImage={image}
-        strength={200}
+        strength={100}
         renderLayer={(percentage) => (
           <div>
             <div
@@ -32,7 +36,7 @@ export default function parallax(props) {
           </div>
         )}
       >
-        <div style={{ height: 700 }}>
+        <div style={{ height: props.height }}>
           <div className="title">{props.name}</div>
         </div>
       </Parallax>

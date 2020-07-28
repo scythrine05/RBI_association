@@ -13,7 +13,7 @@ export default function footer() {
       <img
         src="icon.png"
         width="75"
-        height="50"
+        height="75"
         className="icon d-inline-block align-top"
         alt="React Bootstrap logo"
       />{" "}
