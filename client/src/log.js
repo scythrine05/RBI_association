@@ -11,7 +11,7 @@ export default function Log() {
   return (
     <>
       <Button size="m" variant="" onClick={handleShow}>
-        login
+        Login
       </Button>
 
       <Modal show={show} onHide={handleClose}>

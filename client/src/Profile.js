@@ -2,11 +2,11 @@ import React from "react";
 import Navbar from "./navbar";
 
 import Parallax from "./parallax";
-import "./css/Newsletter.css";
+import "./css/Profile.css";
 import { Container } from "react-bootstrap";
 import Footer from "./footer";
 
-export default function Newsletter() {
+export default function Profile() {
   return (
     <React.Fragment>
       <header>
@@ -15,7 +15,7 @@ export default function Newsletter() {
         </nav>
       </header>{" "}
       <div>
-        <Parallax name={["Here's Your", <br />, "Newsletter"]} />
+        <Parallax name={["Your Profile", <br />, "Info"]} />
       </div>
       <footer>
         <Footer />

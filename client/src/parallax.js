@@ -7,7 +7,7 @@ const styles = {
   textAlign: "center",
 };
 
-const image = "https://wallpapercave.com/wp/wp3400418.jpg";
+const image = "RBI.jpeg";
 
 parallax.defaultProps = {
   height: 400,

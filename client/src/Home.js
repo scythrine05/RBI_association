@@ -29,12 +29,7 @@ export default function Home() {
           <Contact />
         </section>
       </Container>
-      <footer
-        className="gallery my-0"
-        style={{
-          background: "url(https://wallpapercave.com/wp/wp3400418.jpg)",
-        }}
-      >
+      <footer >
         <Footer />
       </footer>
     </React.Fragment>

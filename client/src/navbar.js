@@ -13,10 +13,10 @@ export default function navbar() {
           <Navbar.Brand>
             <img
               src="icon.png"
-              width="75"
-              height="75"
+              width="70"
+              height="55"
               className="icon d-inline-block align-top"
-              alt="React Bootstrap logo"
+              alt="RBIOA logo"
             />
           </Navbar.Brand>
         </NavLink>
