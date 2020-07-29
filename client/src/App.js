@@ -13,7 +13,7 @@ import Profile from "./Profile";
 export default function App() {
   return (
     <div>
-      <Sugar color="gold" animation="slide" time="3500" />
+      <Sugar color="gold" animation="slide" time={3500} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/news" component={Newsletter} />
