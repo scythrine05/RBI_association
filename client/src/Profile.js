@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "./navbar";
 import Info from "./info";
-
 import Parallax from "./parallax";
 import "./css/Profile.css";
 import { Container } from "react-bootstrap";
