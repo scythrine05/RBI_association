@@ -5,10 +5,17 @@
   height: 130px;
   position: relative;
   text-align: center;
+  padding-top: 20px;
 }
 
 .footer_text {
   font-weight: 600;
   color: white;
   text-shadow: 1px 1px black;
+}
+
+@media (max-width: 768px) {
+  .footer_text {
+    font-size: 12px;
+  }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./navbar";
+import Info from "./info";
 
 import Parallax from "./parallax";
 import "./css/Profile.css";
@@ -17,6 +18,9 @@ export default function Profile() {
       <div>
         <Parallax name={["Your Profile", <br />, "Info"]} />
       </div>
+      <Container>
+        <Info />
+      </Container>
       <footer>
         <Footer />
       </footer>

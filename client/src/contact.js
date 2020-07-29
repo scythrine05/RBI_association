@@ -24,7 +24,12 @@ const FormPage = () => {
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Message</Form.Label>
-            <Form.Control as="textarea" rows="3" placeholder="Message" />
+            <Form.Control
+              style={{ resize: "none" }}
+              as="textarea"
+              rows="7"
+              placeholder="Message"
+            />
           </Form.Group>
           <Button type="submit" variant="" size="lg">
             Send
