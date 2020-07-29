@@ -16,7 +16,7 @@ export default function Log() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Login User</Modal.Title>
+          <Modal.Title style={{ fontSize: "30px" }}>Login User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>

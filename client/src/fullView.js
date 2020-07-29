@@ -11,7 +11,10 @@ export function FullView(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title
+          style={{ fontSize: "15px" }}
+          id="contained-modal-title-vcenter"
+        >
           {props.date}
         </Modal.Title>
       </Modal.Header>

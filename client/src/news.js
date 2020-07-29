@@ -12,7 +12,10 @@ export function CreateNewsLetter(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title
+          style={{ fontSize: "30px" }}
+          id="contained-modal-title-vcenter"
+        >
           Create News Letter
         </Modal.Title>
       </Modal.Header>

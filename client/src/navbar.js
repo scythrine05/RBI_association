@@ -14,7 +14,7 @@ export default function navbar() {
             <img
               src="icon.png"
               width="70"
-              height="55"
+              height="65"
               className="icon d-inline-block align-top"
               alt="RBIOA logo"
             />

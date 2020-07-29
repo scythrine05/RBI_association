@@ -61,7 +61,7 @@ export default class CreatePoll extends React.Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Create Poll</Modal.Title>
+            <Modal.Title style={{ fontSize: "30px" }}>Create Poll</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Container>
