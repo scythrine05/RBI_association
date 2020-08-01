@@ -11,11 +11,6 @@ export default function teams() {
 
         <MDBCard className="my-5 px-5 pb-5 text-center">
           <MDBCardBody>
-            <p className="grey-text w-responsive mx-auto mb-5">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-              error amet numquam iure provident voluptate esse quasi, veritatis
-              totam voluptas nostrum quisquam eum porro a pariatur veniam.
-            </p>
             <MDBRow>
               <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
                 <img

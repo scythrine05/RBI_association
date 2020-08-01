@@ -45,6 +45,7 @@ export default function Pgallery() {
           size="lg"
           style={{ textAlign: "center", marginTop: "20px" }}
           variant=""
+          href="/gallery"
         >
           See all Photos
         </Button>

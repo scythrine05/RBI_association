@@ -5,9 +5,7 @@ export default function footer() {
   return (
     <div className="footer">
       <h6 className="footer_text">
-        Copyright © 2020 RBI Officer's Association India
-        <br />
-        Developed by Hardik and Rohan
+        © 2020<font color="#3498db"> RBIOA India </font>, All Rights Reserved
       </h6>
     </div>
   );

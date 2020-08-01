@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, Button, Modal } from "react-bootstrap";
 import { FullView } from "./fullView";
-import Draft from "./draft";
+import Editor from "./editor";
 
 export function CreateNewsLetter(props) {
   return (
     <Modal
       {...props}
       size="lg"
+      backdrop="static"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
@@ -20,9 +21,14 @@ export function CreateNewsLetter(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Draft />
+        <Editor />
       </Modal.Body>
-      <Modal.Footer></Modal.Footer>
+      <Modal.Footer>
+        {" "}
+        <Button style={{ margiTop: "20px" }} variant="">
+          Create
+        </Button>
+      </Modal.Footer>
     </Modal>
   );
 }

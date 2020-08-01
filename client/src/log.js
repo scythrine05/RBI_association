@@ -20,12 +20,18 @@ export default function Log() {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group
+              style={{ textAlign: "left" }}
+              controlId="formBasicEmail"
+            >
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" placeholder="Enter email" />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group
+              style={{ textAlign: "left" }}
+              controlId="formBasicPassword"
+            >
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
@@ -33,7 +39,7 @@ export default function Log() {
             <Button variant="" type="submit">
               login
             </Button>
-            <a href="#signup">
+            <a href="/signup">
               <Form.Text>Create an Account</Form.Text>
             </a>
           </Form>

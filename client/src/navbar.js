@@ -12,7 +12,7 @@ export default function navbar() {
         <NavLink to="/" exact>
           <Navbar.Brand>
             <img
-              src="icon.png"
+              src="/icon.png"
               width="70"
               height="65"
               className="icon d-inline-block align-top"
@@ -28,7 +28,7 @@ export default function navbar() {
               className="nav-link"
               exact
               to="/"
-              activeStyle={{ color: "gold" }}
+              activeStyle={{ color: "#3498db" }}
             >
               {" "}
               Home{" "}
@@ -37,7 +37,7 @@ export default function navbar() {
               className="nav-link"
               exact
               to="/news"
-              activeStyle={{ color: "gold" }}
+              activeStyle={{ color: "#3498db" }}
             >
               {" "}
               News{" "}
@@ -45,8 +45,17 @@ export default function navbar() {
             <NavLink
               className="nav-link"
               exact
+              to="/communication"
+              activeStyle={{ color: "#3498db" }}
+            >
+              {" "}
+              Communication{" "}
+            </NavLink>
+            <NavLink
+              className="nav-link"
+              exact
               to="/polls"
-              activeStyle={{ color: "gold" }}
+              activeStyle={{ color: "#3498db" }}
             >
               {" "}
               Polls{" "}
@@ -55,7 +64,7 @@ export default function navbar() {
               className="nav-link"
               exact
               to="/profile"
-              activeStyle={{ color: "gold" }}
+              activeStyle={{ color: "#3498db" }}
             >
               {" "}
               Profile{" "}

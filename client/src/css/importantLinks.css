@@ -1,0 +1,27 @@
+/* the slides */
+.slick-slide {
+  margin: 0 10px;
+}
+/* the parent */
+.slick-list {
+  margin: 0 -15px;
+}
+
+.img_slide {
+  border: 5px double #3498db;
+}
+
+.slider {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 768px) {
+  .slick-slide {
+    margin: 0 8px;
+  }
+
+  .img_slide {
+    width: 200px;
+  }
+}

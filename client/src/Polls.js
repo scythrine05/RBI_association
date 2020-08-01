@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import Navbar from "./navbar";
 import Poll from "react-polls";
 import CreatePoll from "./createPolls";
-import Parallax from "./parallax";
+import Jumbotron from "./jumbotron";
 import Footer from "./footer";
 import { Container } from "react-bootstrap";
 import Fade from "react-reveal/Fade";
+
+const styles = {
+  questionBold: false,
+};
 
 const polls = [
   {
@@ -66,7 +70,13 @@ export default class Polls extends Component {
           </nav>
         </header>{" "}
         <div>
-          <Parallax name={["Here's Your", <br />, "Polls"]} />
+          <Jumbotron
+            name={["Polls"]}
+            subname="Polls and Voting"
+            background={
+              '"https://www.regus.co.in/work-india/wp-content/uploads/sites/86/2019/11/shutterstock_633364835_How-to-open-meeting-with-impact_resize-to-1024px-x-400px-landscape.jpg"'
+            }
+          />
         </div>
         <Container>
           <Fade bottom>
@@ -76,6 +86,7 @@ export default class Polls extends Component {
               {polls.map((n, i) => {
                 return (
                   <Poll
+                    customStyles={styles}
                     question={polls[i].pollQuestion}
                     answers={polls[i].pollAnswers}
                     onVote={(e) => {

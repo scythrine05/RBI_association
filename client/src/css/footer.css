@@ -1,15 +1,15 @@
 .footer {
-  background-image: url("/carpet_footer.jpg");
+  background: #343a40;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  height: 130px;
+  height: 60px;
   position: relative;
   text-align: center;
   padding-top: 20px;
 }
 
 .footer_text {
-  font-weight: 600;
+  font-weight: 400;
   color: white;
   text-shadow: 1px 1px black;
 }

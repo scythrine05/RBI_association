@@ -1,7 +1,7 @@
 .btn {
-  color: black;
+  color: white;
   font-weight: 600;
-  background: #ffd700;
+  background: #3498db;
 }
 
 a {
@@ -20,4 +20,15 @@ a:hover {
 .form-text {
   font-size: large;
   font-weight: 500;
+}
+@media (max-width: 768px) {
+  .modal-title {
+    font-size: 18px;
+  }
+  .form-label {
+    font-size: 14x;
+  }
+  .btn {
+    font-size: 15px;
+  }
 }

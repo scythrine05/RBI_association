@@ -1,0 +1,42 @@
+.header {
+  height: 65vh;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.page-heading {
+  position: absolute;
+  top: 40%;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #aaa;
+  white-space: nowrap;
+}
+
+.page-heading-primary {
+  display: block;
+  font-size: 4rem;
+  font-weight: 300;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.page-heading-secondary {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4.5px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .page-heading-primary {
+    font-size: 45px;
+  }
+  .page-heading-secondary {
+    font-size: 12px;
+  }
+}

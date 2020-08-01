@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./navbar";
 import News from "./news";
 import { CreateNewsLetter } from "./news";
-import Parallax from "./parallax";
+import Jumbotron from "./jumbotron";
 import { Container, Button } from "react-bootstrap";
 import Footer from "./footer";
 import Fade from "react-reveal/Fade";
@@ -39,7 +39,13 @@ export default function Newsletter() {
         </nav>
       </header>{" "}
       <div>
-        <Parallax name={["Here's Your", <br />, "Newsletter"]} />
+        <Jumbotron
+          name={["News"]}
+          subname="NewsLetters and Updates"
+          background={
+            '"https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2020/03/gettyimages-1207482071_1_.jpg?itok=w_Wd5grM&c=b5c8b139082e3fa82aac026a4503c5bf"'
+          }
+        />
       </div>
       <Container>
         <Fade bottom>
