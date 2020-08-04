@@ -4,6 +4,7 @@ import "./css/App.css";
 import { Sugar } from "react-preloaders";
 
 import { Route, Switch, BrowserRouter } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 
 import NewAccount from "./NewAccount";
 import Home from "./Home";
@@ -23,13 +24,13 @@ export default function App() {
         <Switch>
           <Route exact path="/signup" component={NewAccount} />
           <Route exact path="/" component={Home} />
-          <Route exact path="/gallery" component={FullGallery} />
-          <Route exact path="/news" component={Newsletter} />
-          <Route exact path="/communication" component={Communication} />
-          <Route exact path="/polls" component={Polls} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/profile/new_password" component={NewPassword} />
-          <Route exact path="/members" component={Members} />
+          <PrivateRoute exact path="/gallery" component={FullGallery} />
+          <PrivateRoute exact path="/news" component={Newsletter} />
+          <PrivateRoute exact path="/communication" component={Communication} />
+          <PrivateRoute exact path="/polls" component={Polls} />
+          <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/profile/new_password" component={NewPassword} />
+          <PrivateRoute exact path="/members" component={Members} />
         </Switch>
       </BrowserRouter>
     </div>
