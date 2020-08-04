@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext } from "react";
 import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
 import "./css/Profile.css";
@@ -6,7 +6,17 @@ import { Container, Button } from "react-bootstrap";
 import Footer from "./footer";
 import Fade from "react-reveal/Fade";
 
+import { Link } from "react-router-dom";
+import { authContext } from './contexts/AuthContext';
+
 export default function Profile() {
+
+  const { setAuthData, auth } = useContext(authContext);
+
+  const onLogOut = () => {
+    setAuthData(null);
+  } //clearing the context
+
   return (
     <React.Fragment>
       <header>
@@ -45,6 +55,7 @@ export default function Profile() {
               </li>
             </ul>
             <div className="buttons">
+              <Link to="/profile/new_password">
               <Button
                 className="primary"
                 activeStyle="primary"
@@ -54,11 +65,11 @@ export default function Profile() {
                   lineHeight: "30px",
                   background: "transparent",
                 }}
-                href="/profile/new_password"
               >
                 Change Password
               </Button>
-              <button className="primary">Logout</button>
+              </Link>
+              <button className="primary" onClick={onLogOut} >Logout</button>
             </div>
             <div className="foot"></div>
           </div>
