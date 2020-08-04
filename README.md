@@ -6,9 +6,11 @@
 
 - [x] Static NavBar: Home, News, Polls, Profile
 - [x] Preloader
-- [ ] Login Button -> Logout Button (after logged in)
+- [x] Login Button -> Logout Button (after logged in)
+- [x] All Routes protected by authentication
 - [ ] Members button: Only for the logged in admin on Home Page
-- [ ] Pages:
+- [ ] Storing Cookie data in frontend to remember user
+- [x] Pages:
   - [x] Home: Description, Short_Gallery, Imp_Link, Team, Contact_Us_Suggestions, Details_Of_Association(If reqd.);
   - [x] Register: Form;
   - [x] Gallery: Photos onClicked Modal appears;
