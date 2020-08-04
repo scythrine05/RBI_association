@@ -7,6 +7,8 @@ import { photos } from "./photos";
 import { Button } from "react-bootstrap";
 import "./css/gallery.css";
 
+import { Link } from "react-router-dom";
+
 export default function Pgallery() {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
@@ -41,14 +43,15 @@ export default function Pgallery() {
           ) : null}
         </ModalGateway>
 
+        <Link to="/gallery">
         <Button
           size="lg"
           style={{ textAlign: "center", marginTop: "20px" }}
           variant=""
-          href="/gallery"
         >
           See all Photos
         </Button>
+        </Link>
       </Fade>
     </div>
   );

@@ -13,6 +13,8 @@ import SAssoc from "./sisterAssociation";
 import Contact from "./contact";
 import Footer from "./footer";
 
+import { Link } from "react-router-dom";
+
 export default function Home() {
   return (
     <React.Fragment>
@@ -31,9 +33,11 @@ export default function Home() {
         />
       </div>
       <Container className="my-3">
-        <Button variant="" size="lg" block href="/members">
+        <Link to="/members">
+        <Button variant="" size="lg" block >
           Checkout Members
         </Button>
+        </Link>
         <Latest />
         <Content />
         <Gallery />

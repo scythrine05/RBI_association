@@ -26,17 +26,6 @@ export default function teams() {
                   amet, consectetur, adipisci sed quia non numquam modi tempora
                   eius.
                 </p>
-                <ul className="list-unstyled mb-0">
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="facebook-f" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="twitter" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="instagram" className="blue-text" />
-                  </a>
-                </ul>
               </MDBCol>
 
               <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
@@ -52,14 +41,6 @@ export default function teams() {
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   ipsa accusantium doloremque rem laudantium totam aperiam.
                 </p>
-                <ul className="list-unstyled mb-0">
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="facebook-f" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="instagram" className="blue-text" />
-                  </a>
-                </ul>
               </MDBCol>
 
               <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
@@ -76,17 +57,6 @@ export default function teams() {
                   qui officia deserunt mollit anim est fugiat nulla id eu
                   laborum.
                 </p>
-                <ul className="list-unstyled mb-0">
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="facebook-f" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="instagram" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="dribbble" className="blue-text" />
-                  </a>
-                </ul>
               </MDBCol>
 
               <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
@@ -103,14 +73,6 @@ export default function teams() {
                   nisi qui consectetur totam officia voluptates perferendis
                   voluptatibus aut.
                 </p>
-                <ul className="list-unstyled mb-0">
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="facebook-f" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="github" className="blue-text" />
-                  </a>
-                </ul>
               </MDBCol>
             </MDBRow>
           </MDBCardBody>
