@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./css/sisterAssociation.css";
-import { Container } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 
 import Fade from "react-reveal/Fade";
 
@@ -14,23 +14,24 @@ export default class SimpleSlider extends React.Component {
       dots: true,
       autoplay: true,
       infinite: true,
-      speed: 2000,
-      slidesToShow: 4,
-      slidesToScroll: 3,
-      arrows: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 2,
+      arrows: false,
+      centerMode: true,
       responsive: [
         {
           breakpoint: 800,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
+            slidesToScroll: 1,
             initialSlide: 2,
           },
         },
         {
           breakpoint: 400,
           settings: {
-            centerMode: true,
+            initialSlide: 1,
             slidesToShow: 1,
             slidesToScroll: 1,
           },
@@ -43,17 +44,21 @@ export default class SimpleSlider extends React.Component {
           <Fade bottom>
             <h1 style={{ textAlign: "center" }}>Sister Association</h1>
             <Slider {...settings}>
-              <h4 className="title_slide">SisterAssociation 1</h4>
-
-              <h4 className="title_slide">SisterAssociation 2</h4>
-
-              <h4 className="title_slide">SisterAssociation 3</h4>
-
-              <h4 className="title_slide">SisterAssociation 4</h4>
-
-              <h4 className="title_slide">SisterAssociation 5</h4>
-
-              <h4 className="title_slide">SisterAssociation 6</h4>
+              <Alert className="title_slide" variant="warning">
+                Association 1
+              </Alert>
+              <Alert className="title_slide" variant="warning">
+                Association 2
+              </Alert>
+              <Alert className="title_slide" variant="warning">
+                Association 3
+              </Alert>
+              <Alert className="title_slide" variant="warning">
+                Association 4
+              </Alert>
+              <Alert className="title_slide" variant="warning">
+                Association 5
+              </Alert>
             </Slider>
           </Fade>
         </Container>

@@ -41,7 +41,7 @@ export default function Newsletter() {
       <div>
         <Jumbotron
           name={["News"]}
-          subname="NewsLetters and Updates"
+          subname="NewsLetters and Events"
           background={
             '"https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2020/03/gettyimages-1207482071_1_.jpg?itok=w_Wd5grM&c=b5c8b139082e3fa82aac026a4503c5bf"'
           }

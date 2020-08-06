@@ -1,4 +1,4 @@
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
 import "./css/Profile.css";
@@ -7,15 +7,14 @@ import Footer from "./footer";
 import Fade from "react-reveal/Fade";
 
 import { Link } from "react-router-dom";
-import { authContext } from './contexts/AuthContext';
+import { authContext } from "./contexts/AuthContext";
 
 export default function Profile() {
-
-  const { setAuthData, auth } = useContext(authContext);
+  const { setAuthData } = useContext(authContext);
 
   const onLogOut = () => {
     setAuthData(null);
-  } //clearing the context
+  }; //clearing the context
 
   return (
     <React.Fragment>
@@ -56,20 +55,22 @@ export default function Profile() {
             </ul>
             <div className="buttons">
               <Link to="/profile/new_password">
-              <Button
-                className="primary"
-                activeStyle="primary"
-                style={{
-                  margin: "10px",
-                  height: "48px",
-                  lineHeight: "30px",
-                  background: "transparent",
-                }}
-              >
-                Change Password
-              </Button>
+                <Button
+                  className="primary"
+                  activeStyle="primary"
+                  style={{
+                    margin: "10px",
+                    height: "48px",
+                    lineHeight: "30px",
+                    background: "transparent",
+                  }}
+                >
+                  Change Password
+                </Button>
               </Link>
-              <button className="primary" onClick={onLogOut} >Logout</button>
+              <button className="primary" onClick={onLogOut}>
+                Logout
+              </button>
             </div>
             <div className="foot"></div>
           </div>

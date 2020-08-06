@@ -24,8 +24,12 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-slick": "^0.27.1",
+    "react-spring": "^8.0.27",
     "react-styled-carousel": "^0.5.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "react-spring-3d-carousel": "1.1.0",
+    "react-with-gesture": "4.0.8",
+    "uuid": "3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

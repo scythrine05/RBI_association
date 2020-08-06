@@ -2,15 +2,26 @@ nav {
   z-index: 1;
 }
 
+.latestContent {
+  display: flex;
+}
+
 section {
   margin: 0 30%;
   margin-bottom: 50px;
   padding-bottom: 100px;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
   section {
     margin: 12.5%;
+  }
+  .latestContent {
+    flex-direction: column;
+  }
+  .latest {
+    order: -1;
   }
 }
 

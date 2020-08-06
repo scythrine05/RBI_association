@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-right: 50px;
 }
 
 p {
@@ -16,10 +17,14 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  .content {
+    margin: 0 auto;
+  }
   p {
     font-size: 17px;
   }
   h1 {
+    margin-top: 50px;
     font-size: 30px;
   }
 }

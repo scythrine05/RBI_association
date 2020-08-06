@@ -40,7 +40,7 @@ export default function navbar() {
               activeStyle={{ color: "#3498db" }}
             >
               {" "}
-              News{" "}
+              News/Events{" "}
             </NavLink>
             <NavLink
               className="nav-link"
@@ -59,6 +59,24 @@ export default function navbar() {
             >
               {" "}
               Polls{" "}
+            </NavLink>
+            <NavLink
+              className="nav-link"
+              exact
+              to="/Gallery"
+              activeStyle={{ color: "#3498db" }}
+            >
+              {" "}
+              Gallery{" "}
+            </NavLink>
+            <NavLink
+              className="nav-link"
+              exact
+              to="/suggestion"
+              activeStyle={{ color: "#3498db" }}
+            >
+              {" "}
+              Suggestion{" "}
             </NavLink>
             <NavLink
               className="nav-link"

@@ -1,7 +1,10 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 import "./css/teams.css";
-import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon } from "mdbreact";
+import { Link } from "react-router-dom";
+import { MDBRow, MDBCard, MDBCardBody, MDBCardFooter } from "mdbreact";
+import { Button } from "react-bootstrap";
+import TeamMember from "./teamMember";
 
 export default function teams() {
   return (
@@ -12,70 +15,21 @@ export default function teams() {
         <MDBCard className="my-5 px-5 pb-5 text-center">
           <MDBCardBody>
             <MDBRow>
-              <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-                <img
-                  tag="img"
-                  src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
-                  className="rounded-circle z-depth-1 img-fluid"
-                  alt="Sample avatar"
-                />
-                <h5 className="font-weight-bold mt-4 mb-3">Anna Williams</h5>
-                <p className="text-uppercase blue-text">Graphic designer</p>
-                <p className="grey-text">
-                  Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                  amet, consectetur, adipisci sed quia non numquam modi tempora
-                  eius.
-                </p>
-              </MDBCol>
-
-              <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-                <img
-                  tag="img"
-                  src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg"
-                  className="rounded-circle z-depth-1 img-fluid"
-                  alt="Sample avatar"
-                />
-                <h5 className="font-weight-bold mt-4 mb-3">John Doe</h5>
-                <p className="text-uppercase blue-text">Web Developer</p>
-                <p className="grey-text">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  ipsa accusantium doloremque rem laudantium totam aperiam.
-                </p>
-              </MDBCol>
-
-              <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-                <img
-                  tag="img"
-                  src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
-                  className="rounded-circle z-depth-1 img-fluid"
-                  alt="Sample avatar"
-                />
-                <h5 className="font-weight-bold mt-4 mb-3">Maria Smith</h5>
-                <p className="text-uppercase blue-text">Photographer</p>
-                <p className="grey-text">
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                  qui officia deserunt mollit anim est fugiat nulla id eu
-                  laborum.
-                </p>
-              </MDBCol>
-
-              <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-                <img
-                  tag="img"
-                  src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
-                  className="rounded-circle z-depth-1 img-fluid"
-                  alt="Sample avatar"
-                />
-                <h5 className="font-weight-bold mt-4 mb-3">Tom Adams</h5>
-                <p className="text-uppercase blue-text">Backend Developer</p>
-                <p className="grey-text">
-                  Perspiciatis repellendus ad odit consequuntur, eveniet earum
-                  nisi qui consectetur totam officia voluptates perferendis
-                  voluptatibus aut.
-                </p>
-              </MDBCol>
+              <TeamMember />
+              <TeamMember />
+              <TeamMember />
+              <TeamMember />
             </MDBRow>
           </MDBCardBody>
+          <MDBCardFooter>
+            <Link exact to="/fullteam">
+              <div style={{ margin: "0 auto" }}>
+                <Button size="m" variant="">
+                  Meet All Team
+                </Button>
+              </div>
+            </Link>
+          </MDBCardFooter>
         </MDBCard>
       </Fade>
     </div>

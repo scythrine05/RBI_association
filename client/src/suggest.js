@@ -8,7 +8,6 @@ const FormPage = () => {
     <React.Fragment>
       <Fade botton>
         {" "}
-        <h1 style={{ textAlign: "center" }}>Contact Us</h1>
         <Form>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>Full Name</Form.Label>
@@ -20,7 +19,13 @@ const FormPage = () => {
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>Subject</Form.Label>
-            <Form.Control type="email" placeholder="Subject" />
+            <Form.Control as="select" custom>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </Form.Control>
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Message</Form.Label>

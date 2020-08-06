@@ -78,8 +78,8 @@ export default class Polls extends Component {
             }
           />
         </div>
-        <Container>
-          <Fade bottom>
+        <Fade bottom>
+          <Container>
             <CreatePoll createPoll={this.createNewPoll} />
             <div>
               {" "}
@@ -96,8 +96,8 @@ export default class Polls extends Component {
                 );
               })}
             </div>
-          </Fade>
-        </Container>
+          </Container>
+        </Fade>
         <footer>
           <Footer />
         </footer>

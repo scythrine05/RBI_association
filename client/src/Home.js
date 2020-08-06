@@ -3,16 +3,13 @@ import Navbar from "./navbar";
 
 import Jumbotron from "./jumbotron";
 import "./css/Home.css";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Alert } from "react-bootstrap";
 import Content from "./content";
 import Latest from "./latest";
-import Gallery from "./gallery";
 import Team from "./teams";
 import ILinks from "./importantLinks";
 import SAssoc from "./sisterAssociation";
-import Contact from "./contact";
 import Footer from "./footer";
-
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -26,7 +23,7 @@ export default function Home() {
       <div>
         <Jumbotron
           name={["Welcome To"]}
-          subname="RBI Officer's Association"
+          subname="RBI Officers' Association"
           background={
             '"https://cdn2.hubspot.net/hubfs/3987289/microsoft_teams_top_business_benefits-2.jpg"'
           }
@@ -34,18 +31,31 @@ export default function Home() {
       </div>
       <Container className="my-3">
         <Link to="/members">
-        <Button variant="" size="lg" block >
-          Checkout Members
-        </Button>
+          <Button variant="" size="lg" block>
+            Checkout Members
+          </Button>
         </Link>
-        <Latest />
-        <Content />
-        <Gallery />
+        <div className="latestContent">
+          <Content />
+          <Container className="latest">
+            <Latest />
+          </Container>
+        </div>
         <Team />
         <ILinks />
         <SAssoc />
         <section>
-          <Contact />
+          {" "}
+          <h1 syle={{ textAlign: "center" }}>Contact Us</h1>
+          <Alert variant="success">
+            <p style={{ fontSize: "16.7px" }}>Email: abc@gmail.com </p>
+            <hr />
+            <p style={{ fontSize: "16.7px" }}>Phone: 729310310884 </p>
+            <hr />
+            <p style={{ fontSize: "16.7px" }}>
+              Headquarter: near jj shop, Andheri, Mumbai, Maharastra, 830023{" "}
+            </p>
+          </Alert>
         </section>
       </Container>
       <footer>
