@@ -3,6 +3,8 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { authContext } from "./contexts/AuthContext";
 import "./css/log.css";
 
+import { Link } from "react-router-dom";
+
 export default function Log() {
   const [show, setShow] = useState(false);
 
@@ -65,9 +67,9 @@ export default function Log() {
             <Button variant="" type="submit">
               Login
             </Button>
-            <a href="/signup">
+            <Link to="/signup">
               <Form.Text>Create an Account</Form.Text>
-            </a>
+            </Link>
           </Form>
         </Modal.Body>
       </Modal>
