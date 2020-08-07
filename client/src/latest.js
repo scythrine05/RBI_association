@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import Cards from "./communicationCards";
-import Fade from "react-reveal/Fade";
 import "./css/latest.css";
 
 export default class MultipleItems extends Component {
@@ -20,20 +19,15 @@ export default class MultipleItems extends Component {
       verticalSwiping: true,
     };
     return (
-      <Fade bottom>
-        <div>
-          <h1 style={{ marginTop: "41px", textAlign: "center" }}>
-            {" "}
-            What's New{" "}
-          </h1>
+      <div>
+        <h1 style={{ marginTop: "41px", textAlign: "center" }}> What's New </h1>
 
-          <Slider {...settings}>
-            <Cards heading="1" paragraph="hey" date="2000" />
-            <Cards heading="2" paragraph="hey" date="2003" />
-            <Cards heading="3" paragraph="hey" date="2004" />
-          </Slider>
-        </div>
-      </Fade>
+        <Slider {...settings}>
+          <Cards heading="1" paragraph="hey" date="2000" />
+          <Cards heading="2" paragraph="hey" date="2003" />
+          <Cards heading="3" paragraph="hey" date="2004" />
+        </Slider>
+      </div>
     );
   }
 }

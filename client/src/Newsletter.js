@@ -5,7 +5,6 @@ import { CreateNewsLetter } from "./news";
 import Jumbotron from "./jumbotron";
 import { Container, Button } from "react-bootstrap";
 import Footer from "./footer";
-import Fade from "react-reveal/Fade";
 
 const news = [
   {
@@ -48,25 +47,20 @@ export default function Newsletter() {
         />
       </div>
       <Container>
-        <Fade bottom>
-          <Button size="lg" variant="" onClick={() => setModalShow(true)}>
-            Create News
-          </Button>
+        <Button size="lg" variant="" onClick={() => setModalShow(true)}>
+          Create News
+        </Button>
 
-          <CreateNewsLetter
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
-          {news.map((n, i) => {
-            return (
-              <News
-                heading={news[i].heading}
-                paragraph={news[i].paragraph}
-                date={news[i].date}
-              />
-            );
-          })}
-        </Fade>
+        <CreateNewsLetter show={modalShow} onHide={() => setModalShow(false)} />
+        {news.map((n, i) => {
+          return (
+            <News
+              heading={news[i].heading}
+              paragraph={news[i].paragraph}
+              date={news[i].date}
+            />
+          );
+        })}
       </Container>
       <footer>
         <Footer />

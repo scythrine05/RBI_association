@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import Fade from "react-reveal/Fade";
 import { Container, Tabs, Tab } from "react-bootstrap";
 import NewMember from "./newMember";
 import ExistingMember from "./existingMember";
@@ -15,20 +14,18 @@ export default function NewAccount() {
         </nav>
       </header>{" "}
       <Container style={{ marginTop: "12em", marginBottom: "12em" }}>
-        <Fade bottom>
-          <Tabs
-            defaultActiveKey="existingMember"
-            variant="pills"
-            id="uncontrolled-tab-example"
-          >
-            <Tab eventKey="newMember" title="New Member">
-              <NewMember />
-            </Tab>
-            <Tab eventKey="existingMember" title="Existing Member">
-              <ExistingMember />
-            </Tab>
-          </Tabs>
-        </Fade>
+        <Tabs
+          defaultActiveKey="existingMember"
+          variant="pills"
+          id="uncontrolled-tab-example"
+        >
+          <Tab eventKey="newMember" title="New Member">
+            <NewMember />
+          </Tab>
+          <Tab eventKey="existingMember" title="Existing Member">
+            <ExistingMember />
+          </Tab>
+        </Tabs>
       </Container>
       <footer>
         <Footer />

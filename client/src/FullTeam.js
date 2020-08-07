@@ -1,7 +1,5 @@
 import React from "react";
 import Navbar from "./navbar";
-
-import Fade from "react-reveal/Fade";
 import Jumbotron from "./jumbotron";
 import "./css/Home.css";
 import { Container } from "react-bootstrap";
@@ -27,18 +25,16 @@ export default function Home() {
         />
       </div>
       <Container className="my-3">
-        <Fade bottom>
-          <MDBCard className="my-5 px-5 pb-5 text-center">
-            <MDBCardBody>
-              <MDBRow>
-                <TeamMember />
-                <TeamMember />
-                <TeamMember />
-                <TeamMember />
-              </MDBRow>
-            </MDBCardBody>
-          </MDBCard>
-        </Fade>
+        <MDBCard className="my-5 px-5 pb-5 text-center">
+          <MDBCardBody>
+            <MDBRow>
+              <TeamMember />
+              <TeamMember />
+              <TeamMember />
+              <TeamMember />
+            </MDBRow>
+          </MDBCardBody>
+        </MDBCard>
       </Container>
       <footer>
         <Footer />

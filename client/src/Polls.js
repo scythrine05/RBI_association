@@ -5,7 +5,6 @@ import CreatePoll from "./createPolls";
 import Jumbotron from "./jumbotron";
 import Footer from "./footer";
 import { Container } from "react-bootstrap";
-import Fade from "react-reveal/Fade";
 
 const styles = {
   questionBold: false,
@@ -78,26 +77,24 @@ export default class Polls extends Component {
             }
           />
         </div>
-        <Fade bottom>
-          <Container>
-            <CreatePoll createPoll={this.createNewPoll} />
-            <div>
-              {" "}
-              {polls.map((n, i) => {
-                return (
-                  <Poll
-                    customStyles={styles}
-                    question={polls[i].pollQuestion}
-                    answers={polls[i].pollAnswers}
-                    onVote={(e) => {
-                      this.handleVote(e, i);
-                    }}
-                  />
-                );
-              })}
-            </div>
-          </Container>
-        </Fade>
+        <Container>
+          <CreatePoll createPoll={this.createNewPoll} />
+          <div>
+            {" "}
+            {polls.map((n, i) => {
+              return (
+                <Poll
+                  customStyles={styles}
+                  question={polls[i].pollQuestion}
+                  answers={polls[i].pollAnswers}
+                  onVote={(e) => {
+                    this.handleVote(e, i);
+                  }}
+                />
+              );
+            })}
+          </div>
+        </Container>
         <footer>
           <Footer />
         </footer>

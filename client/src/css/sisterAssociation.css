@@ -1,6 +1,11 @@
 .title_slide {
   width: 90%;
   margin: 0 auto;
+  text-align: center;
+}
+.sisLinks {
+  width: 90%;
+  margin: 0 auto;
 }
 @media (max-width: 768px) {
   .title_slide {

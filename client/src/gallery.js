@@ -1,6 +1,4 @@
 import React, { useState, useCallback } from "react";
-
-import Fade from "react-reveal/Fade";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "./photos";
@@ -25,25 +23,24 @@ export default function Pgallery() {
 
   return (
     <div className="gallery">
-      <Fade bottom>
-        <h1 style={{ textAlign: "center" }}>Gallery</h1>
-        <Gallery photos={photos} onClick={openLightbox} />
-        <ModalGateway>
-          {viewerIsOpen ? (
-            <Modal onClose={closeLightbox}>
-              <Carousel
-                currentIndex={currentImage}
-                views={photos.map((x) => ({
-                  ...x,
-                  srcset: x.srcSet,
-                  caption: x.title,
-                }))}
-              />
-            </Modal>
-          ) : null}
-        </ModalGateway>
+      <h1 style={{ textAlign: "center" }}>Gallery</h1>
+      <Gallery photos={photos} onClick={openLightbox} />
+      <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={photos.map((x) => ({
+                ...x,
+                srcset: x.srcSet,
+                caption: x.title,
+              }))}
+            />
+          </Modal>
+        ) : null}
+      </ModalGateway>
 
-        <Link to="/gallery">
+      <Link to="/gallery">
         <Button
           size="lg"
           style={{ textAlign: "center", marginTop: "20px" }}
@@ -51,8 +48,7 @@ export default function Pgallery() {
         >
           See all Photos
         </Button>
-        </Link>
-      </Fade>
+      </Link>
     </div>
   );
 }

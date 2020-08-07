@@ -6,9 +6,12 @@
 .slick-list {
   margin: 0 -15px;
 }
-
+.impLinks {
+  width: 90%;
+  margin: 0 auto;
+}
 .img_slide {
-  border: 5px double #3498db;
+  border: 1px double #3498db;
 }
 
 .slider {
@@ -22,6 +25,5 @@
   }
 
   .img_slide {
-    width: 200px;
   }
 }

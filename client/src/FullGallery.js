@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import Fade from "react-reveal/Fade";
 import Jumbotron from "./jumbotron";
 
 import Gallery from "react-photo-gallery";
@@ -42,40 +41,38 @@ export default function FullGallery() {
         />
       </div>
       <Container style={{ marginBottom: "12em" }}>
-        <Fade bottom>
-          <Button size="lg" variant="" onClick={() => setModalShow(true)}>
-            Add Photo
-          </Button>
+        <Button size="lg" variant="" onClick={() => setModalShow(true)}>
+          Add Photo
+        </Button>
 
-          <Form>
-            <Form.Group controlId="exampleForm.SelectCustom">
-              <Form.Label>Year</Form.Label>
-              <Form.Control as="select" size="lg" custom>
-                <option>2015</option>
-                <option>2013</option>
-                <option>2019</option>
-                <option>2017</option>
-                <option selected={true}>2020</option>
-              </Form.Control>
-            </Form.Group>
-          </Form>
-          <AddPhoto show={modalShow} onHide={() => setModalShow(false)} />
-          <Gallery photos={photos} onClick={openLightbox} />
-          <ModalGateway>
-            {viewerIsOpen ? (
-              <Modal onClose={closeLightbox}>
-                <Carousel
-                  currentIndex={currentImage}
-                  views={photos.map((x) => ({
-                    ...x,
-                    srcset: x.srcSet,
-                    caption: x.title,
-                  }))}
-                />
-              </Modal>
-            ) : null}
-          </ModalGateway>
-        </Fade>
+        <Form>
+          <Form.Group controlId="exampleForm.SelectCustom">
+            <Form.Label>Year</Form.Label>
+            <Form.Control as="select" size="lg" custom>
+              <option>2015</option>
+              <option>2013</option>
+              <option>2019</option>
+              <option>2017</option>
+              <option selected={true}>2020</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
+        <AddPhoto show={modalShow} onHide={() => setModalShow(false)} />
+        <Gallery photos={photos} onClick={openLightbox} />
+        <ModalGateway>
+          {viewerIsOpen ? (
+            <Modal onClose={closeLightbox}>
+              <Carousel
+                currentIndex={currentImage}
+                views={photos.map((x) => ({
+                  ...x,
+                  srcset: x.srcSet,
+                  caption: x.title,
+                }))}
+              />
+            </Modal>
+          ) : null}
+        </ModalGateway>
       </Container>
       <footer>
         <Footer />
