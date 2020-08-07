@@ -9,7 +9,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(routeProps) =>
         auth.data == null ? (
-          (alert("You are not logged in"), (<Redirect to="/" />))
+          (alert("You are logged out"), (<Redirect to="/" />))
         ) : (
           <Component {...routeProps} />
         )

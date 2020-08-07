@@ -3,7 +3,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { authContext } from "./contexts/AuthContext";
 import "./css/log.css";
 
-export default function Log({ history }) {
+export default function Log() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);

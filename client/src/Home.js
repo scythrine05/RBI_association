@@ -32,7 +32,7 @@ export default function Home() {
       <Container className="my-3">
         <Link to="/members">
           <Button variant="" size="lg" block>
-            Checkout Members
+            Association Members List
           </Button>
         </Link>
         <div className="latestContent">
