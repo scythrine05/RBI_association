@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import Log from "./log";
+import Log from "./login";
 import "./css/navbar.css";
 
 import { NavLink } from "react-router-dom";

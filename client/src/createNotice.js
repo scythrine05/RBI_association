@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import Editor from "./editor";
+import EditorJs from "react-editor-js";
+import { EDITOR_JS_TOOLS } from "./editorTools";
 
 export default function createNotice(props) {
   return (
@@ -20,7 +21,7 @@ export default function createNotice(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Editor />
+        <EditorJs tools={EDITOR_JS_TOOLS} />;
       </Modal.Body>
       <Modal.Footer>
         {" "}

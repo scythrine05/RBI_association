@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./navbar";
-import News from "./news";
-import { CreateNewsLetter } from "./news";
+import News from "./createNews";
+import { CreateNewsLetter } from "./createNews";
 import Jumbotron from "./jumbotron";
 import { Container, Button } from "react-bootstrap";
 import Footer from "./footer";

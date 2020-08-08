@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, Button, Modal } from "react-bootstrap";
 import { FullView } from "./fullView";
-import Editor from "./editor";
+import EditorJs from "react-editor-js";
+import { EDITOR_JS_TOOLS } from "./editorTools";
 
 export function CreateNewsLetter(props) {
   return (
@@ -21,7 +22,7 @@ export function CreateNewsLetter(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Editor />
+        <EditorJs tools={EDITOR_JS_TOOLS} />
       </Modal.Body>
       <Modal.Footer>
         {" "}
