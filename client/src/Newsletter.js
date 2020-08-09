@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./navbar";
+import ScrollToTop from "react-scroll-up";
 import News from "./createNews";
 import { CreateNewsLetter } from "./createNews";
 import Jumbotron from "./jumbotron";
@@ -65,6 +66,15 @@ export default function Newsletter() {
       <footer>
         <Footer />
       </footer>
+      <ScrollToTop showUnder={160}>
+        <img
+          src="/scrollTop.png"
+          width="60"
+          height="60"
+          className="scrollTop d-inline-block align-top"
+          alt="RBIOA logo"
+        />
+      </ScrollToTop>
     </React.Fragment>
   );
 }

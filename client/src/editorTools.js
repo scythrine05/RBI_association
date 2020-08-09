@@ -1,4 +1,3 @@
-import React from "react";
 import Embed from "@editorjs/embed";
 import Table from "@editorjs/table";
 import Paragraph from "@editorjs/paragraph";

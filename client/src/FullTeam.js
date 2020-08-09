@@ -6,6 +6,7 @@ import { Container } from "react-bootstrap";
 import Footer from "./footer";
 import { MDBRow, MDBCard, MDBCardBody } from "mdbreact";
 import TeamMember from "./teamMember";
+import ScrollToTop from "react-scroll-up";
 
 export default function Home() {
   return (
@@ -39,6 +40,15 @@ export default function Home() {
       <footer>
         <Footer />
       </footer>
+      <ScrollToTop showUnder={160}>
+        <img
+          src="/scrollTop.png"
+          width="70"
+          height="65"
+          className="icon d-inline-block align-top"
+          alt="RBIOA logo"
+        />
+      </ScrollToTop>
     </React.Fragment>
   );
 }

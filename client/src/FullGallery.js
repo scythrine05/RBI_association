@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import Jumbotron from "./jumbotron";
-
+import ScrollToTop from "react-scroll-up";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "./photos";
@@ -77,6 +77,15 @@ export default function FullGallery() {
       <footer>
         <Footer />
       </footer>
+      <ScrollToTop showUnder={160}>
+        <img
+          src="/scrollTop.png"
+          width="60"
+          height="60"
+          className="scrollTop d-inline-block align-top"
+          alt="RBIOA logo"
+        />
+      </ScrollToTop>
     </React.Fragment>
   );
 }

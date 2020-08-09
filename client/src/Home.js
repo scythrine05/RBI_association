@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./navbar";
-
+import ScrollToTop from "react-scroll-up";
 import Jumbotron from "./jumbotron";
 import "./css/Home.css";
 import { Container, Button, Alert } from "react-bootstrap";
@@ -61,6 +61,15 @@ export default function Home() {
       <footer>
         <Footer />
       </footer>
+      <ScrollToTop showUnder={160}>
+        <img
+          src="/scrollTop.png"
+          width="60"
+          height="60"
+          className="scrollTop d-inline-block align-top"
+          alt="RBIOA logo"
+        />
+      </ScrollToTop>
     </React.Fragment>
   );
 }

@@ -23,6 +23,10 @@ section {
   .latest {
     order: -1;
   }
+  .scrollTop {
+    height: 45px;
+    width: 45px;
+  }
 }
 
 .container {

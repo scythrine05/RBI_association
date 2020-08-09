@@ -43,7 +43,9 @@ export default function News(props) {
           marginBottom: "50px",
         }}
       >
-        <Card.Header style={{ textAlign: "center" }}>{props.date}</Card.Header>
+        <Card.Header className="card-header" style={{ textAlign: "center" }}>
+          {props.date}
+        </Card.Header>
         <Card.Body>
           <Card.Title style={{ textAlign: "center" }}>
             {props.heading}

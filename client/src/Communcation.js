@@ -5,6 +5,7 @@ import Footer from "./footer";
 import { Container, Button, Form } from "react-bootstrap";
 import Cards from "./communicationCards";
 import CreateNotice from "./createNotice";
+import ScrollToTop from "react-scroll-up";
 
 export default function Communcation() {
   const [modalShow, setModalShow] = React.useState(false);
@@ -51,6 +52,15 @@ export default function Communcation() {
       <footer>
         <Footer />
       </footer>
+      <ScrollToTop showUnder={160}>
+        <img
+          src="/scrollTop.png"
+          width="60"
+          height="60"
+          className="scrollTop d-inline-block align-top"
+          alt="RBIOA logo"
+        />
+      </ScrollToTop>
     </React.Fragment>
   );
 }

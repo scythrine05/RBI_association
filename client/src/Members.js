@@ -5,6 +5,7 @@ import Footer from "./footer";
 import AMembers from "./approvedMembers";
 import PMembers from "./pendingMembers";
 import { Container, Tab, Table, Tabs } from "react-bootstrap";
+import ScrollToTop from "react-scroll-up";
 
 export default function members() {
   return (
@@ -70,6 +71,15 @@ export default function members() {
       <footer>
         <Footer />
       </footer>
+      <ScrollToTop showUnder={160}>
+        <img
+          src="/scrollTop.png"
+          width="60"
+          height="60"
+          className="scrollTop d-inline-block align-top"
+          alt="RBIOA logo"
+        />
+      </ScrollToTop>
     </React.Fragment>
   );
 }

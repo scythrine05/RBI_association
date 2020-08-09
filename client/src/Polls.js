@@ -4,6 +4,7 @@ import Poll from "react-polls";
 import CreatePoll from "./createPolls";
 import Jumbotron from "./jumbotron";
 import Footer from "./footer";
+import ScrollToTop from "react-scroll-up";
 import { Container } from "react-bootstrap";
 
 const styles = {
@@ -98,6 +99,15 @@ export default class Polls extends Component {
         <footer>
           <Footer />
         </footer>
+        <ScrollToTop showUnder={160}>
+          <img
+            src="/scrollTop.png"
+            width="60"
+            height="60"
+            className="scrollTop d-inline-block align-top"
+            alt="RBIOA logo"
+          />
+        </ScrollToTop>
       </React.Fragment>
     );
   }
