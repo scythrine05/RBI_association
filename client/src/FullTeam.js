@@ -43,9 +43,9 @@ export default function Home() {
       <ScrollToTop showUnder={160}>
         <img
           src="/scrollTop.png"
-          width="70"
-          height="65"
-          className="icon d-inline-block align-top"
+          width="60"
+          height="60"
+          className="scrollTop d-inline-block align-top"
           alt="RBIOA logo"
         />
       </ScrollToTop>
