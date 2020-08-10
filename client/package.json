@@ -5,6 +5,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^21.0.0",
     "@ckeditor/ckeditor5-react": "^2.1.0",
+    "@editorjs/attaches": "^1.0.1",
     "@editorjs/checklist": "^1.1.0",
     "@editorjs/editorjs": "^2.18.0",
     "@editorjs/embed": "^2.3.1",

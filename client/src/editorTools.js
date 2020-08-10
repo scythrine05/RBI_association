@@ -6,6 +6,7 @@ import LinkTool from "@editorjs/link";
 import Header from "@editorjs/header";
 import CheckList from "@editorjs/checklist";
 import SimpleImage from "@editorjs/simple-image";
+import Attaches from "@editorjs/attaches";
 
 export const EDITOR_JS_TOOLS = {
   embed: Embed,
@@ -16,4 +17,5 @@ export const EDITOR_JS_TOOLS = {
   header: Header,
   checklist: CheckList,
   simpleImage: SimpleImage,
+  attaches: Attaches,
 };
