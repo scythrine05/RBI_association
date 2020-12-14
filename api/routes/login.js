@@ -44,8 +44,7 @@ router.post("/", passport.authenticate("local", {session : false}) ,async(req, r
   // Configuring Payload
   let userData = {
     id: req.user.id,
-    name: req.user.name,  
-    email: req.user.email
+    type: req.user.type
   }
 
   //Getting Access and Refresh Tokens from handleJWT( getAccessToken and getRefreshToken function)

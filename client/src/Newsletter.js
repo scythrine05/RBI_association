@@ -4,7 +4,7 @@ import ScrollToTop from "react-scroll-up";
 import News from "./createNews";
 import { CreateNewsLetter } from "./createNews";
 import Jumbotron from "./jumbotron";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Form } from "react-bootstrap";
 import Footer from "./footer";
 
 const news = [
@@ -51,7 +51,18 @@ export default function Newsletter() {
         <Button size="lg" variant="" onClick={() => setModalShow(true)}>
           Create News
         </Button>
-
+         <Form>
+          <Form.Group controlId="exampleForm.SelectCustom">
+            <Form.Label>Year</Form.Label>
+            <Form.Control as="select" size="lg" custom>
+              <option>2015</option>
+              <option>2013</option>
+              <option>2019</option>
+              <option>2017</option>
+              <option selected={true}>2020</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
         <CreateNewsLetter show={modalShow} onHide={() => setModalShow(false)} />
         {news.map((n, i) => {
           return (

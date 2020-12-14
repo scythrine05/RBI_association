@@ -12,33 +12,29 @@ router.use(express.urlencoded({
     extended : true
 }));
 
-
 //Routing
-router.get("/", (req, res)=>{
-    res.send("Welcome New User");
-});
 
-router.post("/", async(req, res)=>{
+router.post("/newuser", async(req, res)=>{
     
     try{
-    //New Object to store in userData
-        let newData = {
-            id : Date.now(),
-            name : req.body.name,
-            password : req.body.password,
-            code : req.body.code,
-            email : req.body.email,
-            type : "E"
-    };
-
     //Signing User with signUser function
-        await signUser(newData);
+        await signUser.newUser(req.body);
+        res.status(201).send("User Created : " + req.body.name);
+    }
+    catch(e){
+        res.status(403).send(e);
+    }
+});
+
+router.post("/existinguser", async(req, res)=>{
+    try{
+    //Signing User with signUser function
+        await signUser.existingUser(req.body);
         res.status(201).send("User Created");
     }
     catch(e){
         res.status(403).send(e);
     }
-    
 });
 
 //Exporting

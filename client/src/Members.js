@@ -4,7 +4,8 @@ import Jumbotron from "./jumbotron";
 import Footer from "./footer";
 import AMembers from "./approvedMembers";
 import PMembers from "./pendingMembers";
-import { Container, Tab, Table, Tabs } from "react-bootstrap";
+import AdMembers from "./adminMembers";
+import {Container, Tab, Table, Tabs, Form } from "react-bootstrap";
 import ScrollToTop from "react-scroll-up";
 
 export default function members() {
@@ -30,7 +31,36 @@ export default function members() {
           variant="pills"
           id="uncontrolled-tab-example"
         >
+          <Tab eventKey="admin" title="Admin Members">
+            &nbsp;
+            <Form>
+    <Form.Group controlId="formBasicSearch">
+    <Form.Control type="text" placeholder="Search" />
+     </Form.Group>
+    </Form>
+            <Table striped bordered hover responsive>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <AdMembers />
+                <AdMembers />
+                <AdMembers />
+                <AdMembers />
+              </tbody>
+            </Table>
+          </Tab>
           <Tab eventKey="approved" title="Approved Members">
+            &nbsp;
+            <Form>
+    <Form.Group controlId="formBasicSearch">
+    <Form.Control type="text" placeholder="Search" />
+     </Form.Group>
+    </Form>
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
@@ -49,6 +79,12 @@ export default function members() {
             </Table>
           </Tab>
           <Tab eventKey="pending" title="Pending Members">
+             &nbsp;
+            <Form>
+    <Form.Group controlId="formBasicSearch">
+    <Form.Control type="text" placeholder="Search" />
+     </Form.Group>
+    </Form>
             <Table striped bordered hover responsive>
               <thead>
                 <tr>

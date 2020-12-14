@@ -1,16 +1,12 @@
 //SIGNING USER 
 
 //Importing
-const handleData = require("./handleData");
-const bcrypt = require("bcrypt");
+const handleData = require("./handleUserData");
 
-//Exporting
-module.exports = async function signUser(userData) {
+const newUser = async (userData) => {
+
     try {
-        //Hashing Password usign Bcrypt
-        let hashedPassword = await bcrypt.hash(userData.password, 10);
-        userData.password = hashedPassword;
-        //Creating New User with handleData(newUser function)
+        //Creating New User with handleUserData(newUser function)
         handleData.newUser(userData);
         return;
     }
@@ -18,4 +14,21 @@ module.exports = async function signUser(userData) {
         console.log(e);
         return new Error(e);
     }
+}
+const existingUser = async (userData) => {
+
+    try{
+        //Creating Existing with handleUserData(existingUser function)
+        handleData.existingUser(userData);
+        return;
+    }
+    catch(e){
+        console.log(e);
+        return new Error(e);
+    }
+    
+}
+module.exports  = {
+    newUser,
+    existingUser
 }

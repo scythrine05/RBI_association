@@ -4,11 +4,10 @@
 require("dotenv").config({ path: __dirname + "/../.env" });
 
 //Importing
-const handleData = require("./handleData");
+const handleData = require("./handleUserData");
 const localStratergy = require("passport-local").Strategy;
 const jwtStratergy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
-const bcrypt = require("bcrypt");
 
 //Exporting
 module.exports  = (passport) => {
@@ -26,19 +25,18 @@ module.exports  = (passport) => {
 
 async function authenticateUser (email, password, done) {
     try{
-    //Getting User Data with Email with handleData(findByEmail function)
+    //Getting User Data with Email with handleUserData(findByEmail function)
     let userData = handleData.findByEmail(email);
     if(userData == null  || userData < 1)
         return done(null, false);
-        //Comparing the password with Bcrypt
-        if(await bcrypt.compare(password, userData.password)) return done(null, userData);
+        //Comparing the password 
+        if(password == userData.password) return done(null, userData);
         else done(null, false);
     }
     catch(e){
         return done(e);
     }
 } 
-
    //JWT Stratergy
    const opts = {}; //JWT Stratergy Options 
     opts.secretOrKey = process.env.ACCESS_TOKEN;

@@ -7,8 +7,8 @@ const handleJWT = require("../functions/handleJWT");
 const router = Router();
 
 //Routing
-router.get( '/' , async(req, res)=>{
-
+router.post( '/' , async(req, res)=>{
+    
     try{
         //Getting Refersh Token from Authorization Header
         let refreshToken = req.headers.authorization.split(' ')[1];
@@ -21,6 +21,7 @@ router.get( '/' , async(req, res)=>{
             id: userData.id,
             name: userData.name,
             email: userData.email
+
         }
 
         // Getting New Access Token from handleJWT (getAccessToken Function)
@@ -29,11 +30,11 @@ router.get( '/' , async(req, res)=>{
         //Responsing with New Access Token
         res.send(newAccessToken);
     }
+
     catch(e){
         res.status(404).send(e);
     }
 });
-
 
 //Exporting
 module.exports = router;

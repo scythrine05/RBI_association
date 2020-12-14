@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 //Get Access Token 
 const getAccessToken = async(userData) => {
     try{
-    return await jwt.sign(userData, process.env.ACCESS_TOKEN, { expiresIn : "20s" });
+        return await jwt.sign(userData, process.env.ACCESS_TOKEN, { expiresIn : "20s" });
     }
     catch(e){
         return new Error(e);
@@ -19,7 +19,7 @@ const getAccessToken = async(userData) => {
 //Get Refresh Token
 const getRefreshToken = async(userData) => {
     try{
-    return await  jwt.sign(userData, process.env.REFRESH_TOKEN);
+        return await  jwt.sign(userData, process.env.REFRESH_TOKEN, {expiresIn : "20d" });
     }
     catch(e){
         return new Error(e);
@@ -36,5 +36,4 @@ module.exports = {
     getAccessToken,
     getRefreshToken,
     validateRefreshToken
-
 } 

@@ -7,7 +7,7 @@ export default function CommunicationCards(props) {
   const [modalShow, setModalShow] = React.useState(false);
   return (
     <div>
-      <Alert variant="info">
+      <Alert variant="info" style={{ borderRadius: "0px" }}>
         <Alert.Heading style={{ fontSize: "15px" }}>{props.date}</Alert.Heading>
         <h2 style={{ textAlign: "center" }}>{props.heading}</h2>
         <p>{props.paragraph}</p>
