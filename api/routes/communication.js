@@ -3,6 +3,7 @@
 const Router = require("router");
 const express = require("express");
 const comms = require('../functions/handleCommunication')
+const passport = require('passport');
 
 const router = Router();
 
@@ -11,6 +12,7 @@ router.use(express.json());
 router.use(express.urlencoded({
     extended: true
 }));
+router.use(passport.initialize())
 
 //Routing
 router.get('/front', (req, res)=>{

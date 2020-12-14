@@ -12,6 +12,7 @@ const initPassport = require("../functions/handlePassport")
 const handleJWT = require("../functions/handleJWT");
 const session = require("express-session");
 
+
 //Import passport from passport function
 initPassport(passport);
 

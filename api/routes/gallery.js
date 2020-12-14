@@ -3,6 +3,7 @@
 const Router = require("router");
 const express = require("express");
 const gallery = require("../functions/handleGallery");
+const passport = require('passport');
 
 const router = Router();
 
@@ -11,7 +12,9 @@ router.use(express.json());
 router.use(express.urlencoded({
     extended: true
 }));
+router.use(passport.initialize());
 router.use(passport.authenticate('jwt', {session: false}));
+
 
 //Routing
 
