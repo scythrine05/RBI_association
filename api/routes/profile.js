@@ -17,7 +17,7 @@ router.use(passport.authenticate('jwt', {session: false}));
 
 router.get('/', (req, res)=>{
 
-    res.json(handleUser.findApprovedById(req.user.id));
+       handleUser.findApprovedById(req.user.Id).then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 
 });
 

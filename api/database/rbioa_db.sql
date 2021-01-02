@@ -46,13 +46,17 @@ CREATE TABLE `rbioa_db`.`polls` (
   `PollsID` INT NOT NULL,
   `Question` TINYTEXT NOT NULL,
   `Date` DATETIME NULL,
-  PRIMARY KEY (`PollsID`));
+  PRIMARY KEY (`PollsID`),
+  INDEX `SamadhanID_idx` (`AuthorID` ASC) VISIBLE,
+  FOREIGN KEY (`AuthorID`)
+  REFERENCES `rbioa_db`.`approvedmember` (`SamadhanID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION);
 
 CREATE TABLE `rbioa_db`.`pollsoption` (
   `PollsID` INT NOT NULL,
   `PollsOptions` VARCHAR(64) NOT NULL,
   `Votes` INT NULL DEFAULT 0,
-  PRIMARY KEY (`PollsID`),
   FOREIGN KEY (`PollsID`)
   REFERENCES `rbioa_db`.`polls` (`PollsID`)
   ON DELETE NO ACTION

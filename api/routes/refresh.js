@@ -11,29 +11,29 @@ router.post( '/' , async(req, res)=>{
     
     try{
         //Getting Refersh Token from Authorization Header
+        
         let refreshToken = req.headers.authorization.split(' ')[1];
         let userData = await handleJWT.validateRefreshToken(refreshToken); 
 
         //Configuring payload from RefreshToken payload
-
         let newUserData = {
 
-            id: userData.id,
-            name: userData.name,
-            email: userData.email
-
+            Id: userData.Id,
+            IsAdmin: userData.IsAdmin
         }
-
         // Getting New Access Token from handleJWT (getAccessToken Function)
-        let newAccessToken = await  handleJWT.getAccessToken(newUserData);
+
+        let newAccessToken = await handleJWT.getAccessToken(newUserData);
 
         //Responsing with New Access Token
-        res.send(newAccessToken);
-    }
-
-    catch(e){
+        let token = {
+            AccessToken : newAccessToken,
+        }
+        res.status(200).json(token);
+        }
+        catch(e){
         res.status(404).send(e);
-    }
+        }
 });
 
 //Exporting

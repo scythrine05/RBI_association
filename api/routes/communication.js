@@ -12,18 +12,15 @@ router.use(express.json());
 router.use(express.urlencoded({
     extended: true
 }));
-router.use(passport.initialize())
+router.use(passport.initialize());
 
 //Routing
-router.get('/front', (req, res)=>{
+router.get('/front',(req, res)=>{
+   
+    //Get Front Communications with hadleCommunications(getFComms function)
+    comms.getFComms().then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 
-   //Get Front Communications with hadleCommunications(getFComms function)
-    let FComms =  comms.getFComms();
-    res.json(FComms);
-
-    
 });
-
 //Global Middleware
 router.use(passport.authenticate('jwt', {session: false}));
 
@@ -32,14 +29,20 @@ router.use(passport.authenticate('jwt', {session: false}));
 router.get('/', (req, res)=>{
     
     //Get All Communications with hadleCommunication(getAllComms function)
-    res.json(comms.getAllComms());
+      comms.getAllComms().then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
+});
+
+router.get('/year/:year', (req, res)=>{
+    
+    //Get All Communications of Particular year with hadleCommunication(getAllYearComms function)
+      comms.getAllYearComms(req.params.year).then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 });
 
 router.post('/',(req,res, next)=>{
     
-    if(req.user.type == 'A') next();
+    //MiddleWare to check if user is Admin
+    if(req.user.IsAdmin == 1) next();
     else res.sendStatus(404);
-    
     }  , async(req, res)=>{
 
     //Post Communication hadleCommunication(postComms function)
@@ -51,6 +54,5 @@ router.post('/',(req,res, next)=>{
         res.sendStatus(401);
     }
 });
-
 
 module.exports = router;

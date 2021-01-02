@@ -1,6 +1,6 @@
 //Importing
 const Router = require("router");
-const handleTeam = require("../functions/handleTeamData")
+const team = require("../functions/handleTeamData")
 
 const router = Router();
 
@@ -9,18 +9,14 @@ const router = Router();
 router.get('/front', (req, res)=>{
 
     //Get Front Team Members with hadleTeamData(getFTeams function)
-    let FTeamData =  handleTeam.getFTeams();
-    res.json(FTeamData);
-
+    team.getFTeams().then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 });
 
 //Get all Team Members 
 router.get('/', (req, res) => {
 
     //Get all Team Members with hadleTeamData(getAllTeams function)
-    let allTeamData =  handleTeam.getAllTeams();
-    res.json(allTeamData);
-
+    team.getAllTeams().then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 });
 
 module.exports = router;

@@ -1,29 +1,44 @@
 //NEWS DATA HANDLER
 
 //Importing
-const fs = require('fs');
+const pool = require('../database/dbPool');
 
 //Get All News
-const getAllNews = () => {
-    let requiredData =  fs.readFileSync('./data/news.json');
-    return JSON.parse(requiredData);
+const getAllNews = async() => {
+
+    let sql = 'select * from news order by Date desc';
+    try{
+        let requiredData = await pool.query(sql);
+        return requiredData;
+    }
+    catch(e){
+        return new Error(e);
+    }
 };
 
 
-const postNews = async(newsData) => {
+//Get All News of Particular Year
+const getAllYearNews = async(year) => {
 
-    let rawNewsData = fs.readFileSync('./data/news.json');
-    let jsonNewsData =  JSON.parse(rawNewsData);
-    jsonNewsData.push(newsData);
-    rawNewsData = JSON.stringify(jsonNewsData)
-    fs.writeFile('./data/news.json', rawNewsData , (err)=>{
-        if(err) throw err;
-        else return;
-    });
+    let sql = 'select * from news where Year(Date) = ? order by Date desc';
+    try{
+        let requiredData = await pool.query(sql, [year]);
+        return requiredData;
+    }
+    catch(e){
+        return new Error(e);
+    }
+
+};
+
+//Post the Newz
+const postNews = async(newsData) => {
+    
 }
 
 module.exports = {
     getAllNews,
+    getAllYearNews,
     postNews
 }
 

@@ -15,7 +15,7 @@ export default function NewAccount() {
       </header>{" "}
       <Container style={{ marginTop: "12em", marginBottom: "12em" }}>
         <Tabs
-          defaultActiveKey="existingMember"
+          defaultActiveKey="newMember"
           variant="pills"
           id="uncontrolled-tab-example"
         >

@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const util = require('util');
 
 const dbPool = mysql.createPool({
     port: process.env.DB_PORT,
@@ -8,5 +9,7 @@ const dbPool = mysql.createPool({
     database: process.env.DB,
     connectionLimit: 15
 });
+
+dbPool.query = util.promisify(dbPool.query);
 
 module.exports = dbPool;

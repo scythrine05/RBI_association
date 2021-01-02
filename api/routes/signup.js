@@ -4,6 +4,7 @@
 const express = require('express');
 const Router = require('router');
 const router = Router();
+const handleData = require('../functions/handleUserData');
 const signUser = require("../functions/signUser");
 
 //Global Middlewares
@@ -14,27 +15,19 @@ router.use(express.urlencoded({
 
 //Routing
 
-router.post("/newuser", async(req, res)=>{
-    
-    try{
-    //Signing User with signUser function
-        await signUser.newUser(req.body);
-        res.status(201).send("User Created : " + req.body.name);
-    }
-    catch(e){
-        res.status(403).send(e);
-    }
+router.get('/getemail', (req, res)=>{
+    handleData.findApprovedById(req.body.SamadhanID).then((results)=> res.status(200).send(results[0].Email)).catch(e => res.status(404).send(e));
 });
 
-router.post("/existinguser", async(req, res)=>{
-    try{
-    //Signing User with signUser function
-        await signUser.existingUser(req.body);
-        res.status(201).send("User Created");
-    }
-    catch(e){
-        res.status(403).send(e);
-    }
+router.post("/newuser", (req, res)=>{
+
+    signUser.newUser(req.body).then(() => res.sendStatus(200)).catch(e => res.status(404).send(e));
+
+});
+
+router.post("/existinguser", (req, res)=>{
+
+     signUser.existingUser(req.body).then(() => res.sendStatus(200)).catch(e => res.status(404).send(e));
 });
 
 //Exporting

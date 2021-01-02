@@ -5,7 +5,7 @@ import CreatePoll from "./createPolls";
 import Jumbotron from "./jumbotron";
 import Footer from "./footer";
 import ScrollToTop from "react-scroll-up";
-import { Container } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 
 const styles = {
   questionBold: false,
@@ -80,6 +80,18 @@ export default class Polls extends Component {
         </div>
         <Container>
           <CreatePoll createPoll={this.createNewPoll} />
+            <Form>
+          <Form.Group controlId="exampleForm.SelectCustom">
+            <Form.Label>Year</Form.Label>
+            <Form.Control as="select" size="lg" custom>
+              <option>2015</option>
+              <option>2013</option>
+              <option>2019</option>
+              <option>2017</option>
+              <option selected={true}>2020</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
           <div>
             {" "}
             {polls.map((n, i) => {

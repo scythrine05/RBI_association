@@ -44,15 +44,22 @@ router.post("/", passport.authenticate("local", {session : false}) ,async(req, r
 
   // Configuring Payload
   let userData = {
-    id: req.user.id,
-    type: req.user.type
+    Id: req.user.SamadhanID,
+    IsAdmin: req.user.IsAdmin
   }
 
   //Getting Access and Refresh Tokens from handleJWT( getAccessToken and getRefreshToken function)
   try {
   let accessToken = await handleJWT.getAccessToken(userData);
   let refreshToken = await handleJWT.getRefreshToken(userData);
-  res.send("Access: " +  accessToken + " \nRefresh: " + refreshToken);
+  
+  let token = {
+
+    AccessToken : accessToken,
+    RefreshToken: refreshToken
+    
+  }
+  res.status(200).json(token);
   }
   catch(e){
     res.status(404).send(e);

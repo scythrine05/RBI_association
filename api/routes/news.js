@@ -22,15 +22,21 @@ router.use(passport.authenticate('jwt', {session: false}));
 router.get('/', (req, res)=>{
 
     //Get All News with hadleNews(getAllNews function)
-    res.json(news.getAllNews());
+    news.getAllNews().then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 
+});
+
+router.get('/year/:year', (req, res)=>{
+    
+    //Get All News of Particular year with hadleNews(getAllYearNews function)
+      news.getAllYearNews(req.params.year).then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 });
 
 router.post('/', (req,res, next)=>{
     
-    if(req.user.type == 'A') next();
+    //Check if user is Admin
+    if(req.user.IsAdmin == 1) next();
     else res.sendStatus(404);
-    
     } ,async(req, res)=>{
 
     //Post News with hadleNews(postNews function)

@@ -1,29 +1,42 @@
 //NEWS POLLS HANDLER
 
 //Importing
-const fs = require('fs');
+const pool = require('../database/dbPool');
 
-//Get All News
-const getAllPolls = () => {
-    let requiredData =  fs.readFileSync('./data/polls.json');
-    return JSON.parse(requiredData);
+//Get All Polls
+const getAllPolls = async() => {
+
+    let sql = 'select polls.PollsID, polls.Question, pollsoption.Answer, polls.Date, polls.AuthorID from polls inner join (select PollsID,  JSON_ARRAYAGG(JSON_OBJECT ("option", PollsOptions, "votes", Votes)) Answer from pollsoption group by PollsID) pollsoption on polls.PollsID = pollsoption.PollsID order by Date desc';
+    try{
+        let requiredData = await pool.query(sql);
+        return requiredData;
+    }
+    catch(e){
+        return new Error(e);
+    }
 };
 
+//Get All Polls with Specific Year
+const getAllYearPolls = async(year) => {
 
+    let sql = 'select polls.PollsID, polls.Question, pollsoption.Answer, polls.Date, polls.AuthorID from polls inner join (select PollsID,  JSON_ARRAYAGG(JSON_OBJECT ("option", PollsOptions, "votes", Votes)) Answer from pollsoption group by PollsID) pollsoption on polls.PollsID = pollsoption.PollsID where Year(Date) = ?  order by Date desc';
+     try{
+        let requiredData = await pool.query(sql, [year]);
+        return requiredData;
+    }
+    catch(e){
+        return new Error(e);
+    }
+}
+
+//Post poll
 const postPolls = async(pollsData) => {
-
-    let rawPollsData = fs.readFileSync('./data/polls.json');
-    let jsonPollsData =  JSON.parse(rawPollsData);
-    jsonPollsData.push(pollsData);
-    rawPollsData = JSON.stringify(jsonPollsData)
-    fs.writeFile('./data/polls.json', rawPollsData , (err)=>{
-        if(err) throw err;
-        else return;
-    });
+    
 }
 
 module.exports = {
     getAllPolls,
+    getAllYearPolls,
     postPolls
 }
 

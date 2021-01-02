@@ -13,22 +13,30 @@ router.use(express.json());
 router.use(express.urlencoded({
     extended: true
 }));
-router.use(passport.initialize());
-router.use(passport.authenticate('jwt', {session: false}));
+// router.use(passport.initialize());
+// router.use(passport.authenticate('jwt', {session: false}));
 
 
 //Routing
 
 router.get('/', (req, res)=>{
-
+    
     //Get All Polls with hadlePolls(getAllPolls function)
-    res.json(polls.getAllPolls());
+    polls.getAllPolls().then(results => res.status(200).send(results)).catch(e => res.status(404).send(e));
+    
+});
+
+router.get('/year/:year', (req, res)=>{
+    
+    //Get All Polls of Particular year with hadlePolls (getAllYearPolls function)
+      polls.getAllYearPolls(req.params.year).then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 
 });
 
+
 router.post('/',(req,res, next)=>{
     
-    if(req.user.type == 'A') next();
+    if(req.user.IsAdmin == 1) next();
     else res.sendStatus(404);
     
     } , async(req, res)=>{

@@ -20,8 +20,14 @@ router.use(passport.authenticate('jwt', {session: false}));
 
 router.get('/', (req, res)=>{
     
-    //Get All Image with handleGallery(getAllImages function)
-    res.json(gallery.getAllImages());
+    //Get All Images with handleGallery(getAllImages function)
+    gallery.getAllImages().then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
+});
+
+router.get('/year/:year', (req, res)=>{
+    
+    //Get All Images of Particular year with hadleGallery (getAllYearImages function)
+      gallery.getAllYearImages(req.params.year).then(results => res.status(200).json(results)).catch(e => res.status(404).send(e));
 });
 
 router.post('/', async(req, res)=>{
