@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function approvedMembers() {
+export default function approvedMembers(props) {
   return (
     <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>marksmail@gmail.com</td>
+      <td>{props.Id}</td>
+      <td>{props.Name}</td>
+      <td>{props.Email}</td>
     </tr>
   );
 }

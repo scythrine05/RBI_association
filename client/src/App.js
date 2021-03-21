@@ -7,7 +7,6 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import { authContext } from "./contexts/AuthContext";
 
-
 import NewAccount from "./NewAccount";
 import Home from "./Home";
 import FullGallery from "./FullGallery";
@@ -28,7 +27,11 @@ export default function App() {
       <Sugar color="#3498db" animation="slide" time={500} />
       <BrowserRouter>
         <Switch>
-          <Route exact path="/signup" component={ auth.data==null ? (NewAccount) : (Home) } />
+          <Route
+            exact
+            path="/signup"
+            component={auth === 0 ? NewAccount : Home}
+          />
           <Route exact path="/" component={Home} />
           <Route exact path="/fullteam" component={FullTeam} />
           <PrivateRoute exact path="/gallery" component={FullGallery} />

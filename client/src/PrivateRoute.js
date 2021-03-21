@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { authContext } from "./contexts/AuthContext";
+import Swal from "sweetalert2";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const { auth } = useContext(authContext);
@@ -8,8 +9,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(routeProps) =>
-        auth.data == null ? (
-          (alert("You are logged out"), (<Redirect to="/" />))
+        auth === 0 ? (
+          (Swal.fire("You are logged out", "", "error"), (<Redirect to="/" />))
         ) : (
           <Component {...routeProps} />
         )

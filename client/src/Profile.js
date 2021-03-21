@@ -1,18 +1,51 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Navbar from "./navbar";
+import Loader from "react-loader-spinner";
 import Jumbotron from "./jumbotron";
 import "./css/Profile.css";
 import { Container, Button } from "react-bootstrap";
 import Footer from "./footer";
-
+import { userProfile } from "./axios/profile";
+import { logoutUser } from "./axios/login";
 import { Link } from "react-router-dom";
 import { authContext } from "./contexts/AuthContext";
 
 export default function Profile() {
+  const [userData, setUserData] = useState("");
   const { setAuthData } = useContext(authContext);
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        let data = await userProfile();
+        setUserData(data);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchData();
+  }, [userData]);
+
+  const CheckAdmin = () => {
+    if (userData.IsAdmin === 1)
+      return (
+        <span className="pro" style={{ background: "#febb0b" }}>
+          Admin
+        </span>
+      );
+    return (
+      <Loader
+        type="TailSpin"
+        color="#00BFFF"
+        height={50}
+        width={50}
+        timeout={3000} //3 secs
+      />
+    );
+  };
   const onLogOut = () => {
-    setAuthData(null);
+    logoutUser();
+    setAuthData(0);
   }; //clearing the context
 
   return (
@@ -33,23 +66,10 @@ export default function Profile() {
       </div>
       <Container>
         <div className="card-container">
-          <span className="pro">Admin</span>
-          <img
-            className="round"
-            src="https://upload.wikimedia.org/wikipedia/commons/4/43/Shaktikanta_Das%2C_IAS.jpg"
-            alt="user"
-            height="180px"
-            width="220px"
-          />
-          <h3 className="name">Shaktikanta Das</h3>
-          <h6 className="post">CEO RBI</h6>
+          <CheckAdmin />
+          <h3 className="name">{userData.Name}</h3>
           <ul className="points_ul" style={{ listStyleType: "none" }}>
-            <li className="points">
-              Chief Executive Officer of India's central bank
-            </li>
-            <li className="points">
-              the ex-officio chairperson of its Central Board of Directors
-            </li>
+            <li className="Email"> {userData.Email}</li>
           </ul>
           <div className="buttons">
             <Link to="/profile/new_password">

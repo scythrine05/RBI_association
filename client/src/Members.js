@@ -1,14 +1,140 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
+import Loader from "react-loader-spinner";
 import Footer from "./footer";
 import AMembers from "./approvedMembers";
 import PMembers from "./pendingMembers";
 import AdMembers from "./adminMembers";
-import {Container, Tab, Table, Tabs, Form } from "react-bootstrap";
+import { pendingMembers, admin, approvedMembers } from "./axios/members";
+import { Container, Tab, Table, Tabs } from "react-bootstrap";
 import ScrollToTop from "react-scroll-up";
+import "./css/members.css";
 
-export default function members() {
+export default function Members() {
+  const [pData, setPData] = useState([]);
+  const [aData, setAData] = useState([]);
+  const [aDData, setADData] = useState([]);
+
+  const PendingData = async () => {
+    try {
+      let data = await pendingMembers();
+      if (!data.length) setPData([]);
+      else setPData(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const Pending = () => {
+    if (!pData.length)
+      return (
+        <React.Fragment>
+          <td />
+          <td />
+          <td>
+            <Loader
+              type="TailSpin"
+              color="#00BFFF"
+              height={50}
+              width={50}
+              timeout={3000} //3 secs
+            />
+          </td>
+        </React.Fragment>
+      );
+    else
+      return pData.map((data, i) => {
+        return (
+          <PMembers
+            key={i}
+            Id={data.SamadhanID}
+            Name={data.Name}
+            Email={data.Email}
+          />
+        );
+      });
+  };
+  const Approved = () => {
+    if (!pData.length)
+      return (
+        <React.Fragment>
+          <td />
+          <td />
+          <td>
+            <Loader
+              type="TailSpin"
+              color="#00BFFF"
+              height={50}
+              width={50}
+              timeout={3000} //3 secs
+            />
+          </td>
+        </React.Fragment>
+      );
+    else
+      return aData.map((data, i) => {
+        return (
+          <AMembers
+            key={i}
+            Id={data.SamadhanID}
+            Name={data.Name}
+            Email={data.Email}
+          />
+        );
+      });
+  };
+  const Admin = () => {
+    if (!pData.length)
+      return (
+        <React.Fragment>
+          <td />
+          <td />
+          <td>
+            <Loader
+              type="TailSpin"
+              color="#00BFFF"
+              height={50}
+              width={50}
+              timeout={3000} //3 secs
+            />
+          </td>
+        </React.Fragment>
+      );
+    else
+      return aDData.map((data, i) => {
+        return (
+          <AdMembers
+            key={i}
+            Id={data.SamadhanID}
+            Name={data.Name}
+            Email={data.Email}
+          />
+        );
+      });
+  };
+  const ApprovedData = async () => {
+    try {
+      let data = await approvedMembers();
+      if (!data.length) setAData([]);
+      else setAData(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const AdminData = async () => {
+    try {
+      let data = await admin();
+      if (!data.length) setADData([]);
+      else setADData(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(() => {
+    PendingData();
+    ApprovedData();
+    AdminData();
+  }, [pData, aData, aDData]);
   return (
     <React.Fragment>
       <header>
@@ -33,11 +159,6 @@ export default function members() {
         >
           <Tab eventKey="admin" title="Admin Members">
             &nbsp;
-            <Form>
-    <Form.Group controlId="formBasicSearch">
-    <Form.Control type="text" placeholder="Search" />
-     </Form.Group>
-    </Form>
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
@@ -47,20 +168,12 @@ export default function members() {
                 </tr>
               </thead>
               <tbody>
-                <AdMembers />
-                <AdMembers />
-                <AdMembers />
-                <AdMembers />
+                <Admin />
               </tbody>
             </Table>
           </Tab>
           <Tab eventKey="approved" title="Approved Members">
             &nbsp;
-            <Form>
-    <Form.Group controlId="formBasicSearch">
-    <Form.Control type="text" placeholder="Search" />
-     </Form.Group>
-    </Form>
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
@@ -71,20 +184,12 @@ export default function members() {
                 </tr>
               </thead>
               <tbody>
-                <AMembers />
-                <AMembers />
-                <AMembers />
-                <AMembers />
+                <Approved />
               </tbody>
             </Table>
           </Tab>
           <Tab eventKey="pending" title="Pending Members">
-             &nbsp;
-            <Form>
-    <Form.Group controlId="formBasicSearch">
-    <Form.Control type="text" placeholder="Search" />
-     </Form.Group>
-    </Form>
+            &nbsp;
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
@@ -95,10 +200,7 @@ export default function members() {
                 </tr>
               </thead>
               <tbody>
-                <PMembers />
-                <PMembers />
-                <PMembers />
-                <PMembers />
+                <Pending />
               </tbody>
             </Table>
           </Tab>

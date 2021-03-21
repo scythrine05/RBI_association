@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal, Form, Alert } from "react-bootstrap";
 import { authContext } from "./contexts/AuthContext";
+import { loginUser, logoutUser } from "./axios/login";
 import "./css/log.css";
 
 import { Link } from "react-router-dom";
@@ -12,28 +13,38 @@ export default function Log() {
   const handleShow = () => setShow(true);
 
   const [email, setEmail] = useState();
-  // const [password, setPassword] = useState();
+  const [password, setPassword] = useState("");
+  const [msgState, setMsgState] = useState(0);
 
   const { setAuthData, auth } = useContext(authContext);
-
-  const onFormSubmit = (e) => {
+  const onFormSubmit = async (e) => {
     e.preventDefault();
-    setAuthData(email); // Here we send a request to our API and in response, we receive the user token.
-    handleClose(); //after saving email the user will be sent to Home
+    try {
+      await loginUser(email, password);
+      setMsgState(0);
+      setAuthData(1);
+      handleClose();
+    } catch (error) {
+      setMsgState(1);
+    }
+    setPassword("");
+  };
+
+  const Msg = (props) => {
+    if (props.state === 1)
+      return <Alert variant="danger"> Email/Password is incorrect </Alert>;
+    return null;
   };
 
   const onLogOut = () => {
-    setAuthData(null);
+    logoutUser();
+    setAuthData(0);
   }; //clearing the context
 
   return (
     <>
-      <Button
-        size="m"
-        variant=""
-        onClick={auth.data == null ? handleShow : onLogOut}
-      >
-        {auth.data == null ? "Login" : "Logout"}
+      <Button size="m" variant="" onClick={auth === 0 ? handleShow : onLogOut}>
+        {auth === 0 ? "Login" : "Logout"}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -41,6 +52,7 @@ export default function Log() {
           <Modal.Title style={{ fontSize: "30px" }}>Login User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <Msg state={msgState} />
           <Form onSubmit={onFormSubmit}>
             <Form.Group
               style={{ textAlign: "left" }}
@@ -55,13 +67,19 @@ export default function Log() {
                 }}
               />
             </Form.Group>
-
             <Form.Group
               style={{ textAlign: "left" }}
               controlId="formBasicPassword"
             >
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                value={password}
+                placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox"></Form.Group>
             <Button variant="" type="submit">

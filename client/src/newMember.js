@@ -1,50 +1,89 @@
-import React from "react";
-import { Form, Button, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
+import { newUser } from "./axios/signup";
+import Swal from "sweetalert2";
 
-export default function newMember() {
+export default function NewMember() {
+  let initState = {
+    SamadhanID: null,
+    Name: null,
+    OfficeLocation: null,
+    Email: null,
+  };
+
+  const [userData, setUserData] = useState(initState);
+  const [msgState, setMsgState] = useState(0);
+  const [message, setMessage] = useState("");
+
+  const setData = (e) => {
+    setUserData({ ...userData, [e.target.id]: e.target.value });
+  };
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    let emptyField = false;
+    Object.entries(userData).map(([key, value]) => {
+      if (value == null || value === "") emptyField = true;
+      return null;
+    });
+    if (emptyField) {
+      setMsgState(1);
+      setMessage("Fields should not be Empty");
+      return null;
+    } else {
+      e.target.reset();
+      let idCheck = await newUser(userData);
+      if (idCheck !== 409) {
+        setUserData(initState);
+        setMsgState(0);
+        Swal.fire("Form submitted", "Check your Email", "success");
+      } else {
+        setUserData(initState);
+        setMsgState(0);
+        Swal.fire(
+          "Account Exists",
+          "The account with SamadhanID already registered",
+          "error"
+        );
+      }
+    }
+  };
+  const Msg = (props) => {
+    if (props.state === 1) return <Alert variant="danger"> {message} </Alert>;
+    else if (props.state === 2)
+      return <Alert variant="success"> {message} </Alert>;
+    return null;
+  };
+
   return (
     <React.Fragment>
       <h1 style={{ textAlign: "center" }}>New Member</h1>
-      <Form>
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-        </Form.Row>
-        <Form.Group controlId="formGridAddress1">
-          <Form.Label>Address</Form.Label>
-          <Form.Control placeholder="1234 Main St" />
+      <Msg state={msgState} />
+      <Form onSubmit={submitForm}>
+        <Form.Group controlId="SamadhanID">
+          <Form.Label>Samadhan ID</Form.Label>
+          <Form.Control
+            type="text"
+            onChange={setData}
+            placeholder="Samadhan ID"
+          />
         </Form.Group>
-        <Form.Group controlId="formGridAddress2">
-          <Form.Label>Address 2</Form.Label>
-          <Form.Control placeholder="Apartment, studio, or floor" />
+        <Form.Group controlId="Name">
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="text" onChange={setData} placeholder="Name" />
         </Form.Group>
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>City</Form.Label>
-            <Form.Control />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridState">
-            <Form.Label>State</Form.Label>
-            <Form.Control as="select" defaultValue="Choose...">
-              <option>Choose...</option>
-              <option>...</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridZip">
-            <Form.Label>Zip</Form.Label>
-            <Form.Control />
-          </Form.Group>
-        </Form.Row>
-
+        <Form.Group controlId="Email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" onChange={setData} placeholder="Email" />
+        </Form.Group>
+        <Form.Group controlId="OfficeLocation">
+          <Form.Label>Office Location</Form.Label>
+          <Form.Control
+            type="text"
+            onChange={setData}
+            placeholder="Office Location"
+          />
+        </Form.Group>
         <Button variant="primary" type="submit">
           Create an Account
         </Button>
