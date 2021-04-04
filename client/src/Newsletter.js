@@ -1,35 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./navbar";
 import ScrollToTop from "react-scroll-up";
-import News from "./createNews";
-import { CreateNewsLetter } from "./createNews";
 import Jumbotron from "./jumbotron";
-import { Container, Button, Form } from "react-bootstrap";
+import { Container, Form, Spinner } from "react-bootstrap";
 import Footer from "./footer";
-
-const news = [
-  {
-    date: "29th July 1987",
-    heading: "RBI ranked the Top amongst all India",
-    paragraph:
-      "Deserunt aute tempor nulla mollit mollit quis elit aliquip occaecat nisi qui. Duis sunt irure do dolore culpa ad veniam nulla. Sunt mollit nisi sit sunt laboris deserunt minim ad incididunt Lorem. Reprehenderit labore ut velit nisi anim ullamco pariatur ad voluptate sint. Adipisicing fugiat non fugiat do laboris laboris quis labore.",
-  },
-  {
-    date: "29th July 2004",
-    heading: "RBI ranked the Top amongst all World",
-    paragraph:
-      "Deserunt aute tempor nulla mollit mollit quis elit aliquip occaecat nisi qui. Duis sunt irure do dolore culpa ad veniam nulla. Sunt mollit nisi sit sunt laboris deserunt minim ad incididunt Lorem. Reprehenderit labore ut velit nisi anim ullamco pariatur ad voluptate sint. Adipisicing fugiat non fugiat do laboris laboris quis labore.",
-  },
-  {
-    date: "29th July 2019",
-    heading: "RBI ranked the Top amongst all Universe",
-    paragraph:
-      "Deserunt aute tempor nulla mollit mollit quis elit aliquip occaecat nisi qui. Duis sunt irure do dolore culpa ad veniam nulla. Sunt mollit nisi sit sunt laboris deserunt minim ad incididunt Lorem. Reprehenderit labore ut velit nisi anim ullamco pariatur ad voluptate sint. Adipisicing fugiat non fugiat do laboris laboris quis labore.",
-  },
-];
+import { getNews } from "./axios/news";
+import { News } from "./newsTools";
 
 export default function Newsletter() {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [nData, setNData] = useState([]);
+  const [year, setYear] = useState("2021");
+
+  const Newz = () => {
+    if (!nData.length)
+      return (
+        <React.Fragment>
+          <div style={{ textAlign: "center", marginBottom: "2%" }}>
+            <Spinner animation="grow" />
+          </div>
+        </React.Fragment>
+      );
+    else {
+      let data = nData.filter((e) => {
+        return e.Date.split("-")[0] === year;
+      });
+      if (data.length > 0)
+        return data.map((data, i) => {
+          return (
+            <News
+              key={i}
+              heading={data.Heading}
+              paragraph={data.Body}
+              date={data.Date.split("T")[0]}
+              attach={data.Attach}
+            />
+          );
+        });
+      else {
+        return (
+          <React.Fragment>
+            <div style={{ textAlign: "center", marginTop: "5%" }}>
+              <p style={{ fontSize: "3vh" }}>No post</p>
+            </div>
+          </React.Fragment>
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    const NewsData = async () => {
+      try {
+        let data = await getNews();
+        return data;
+      } catch (e) {
+        throw e;
+      }
+    };
+    NewsData().then((data) => {
+      setNData(data);
+    });
+  }, []);
 
   return (
     <React.Fragment>
@@ -48,31 +79,21 @@ export default function Newsletter() {
         />
       </div>
       <Container>
-        <Button size="lg" variant="" onClick={() => setModalShow(true)}>
-          Create News
-        </Button>
-         <Form>
+        <Form>
           <Form.Group controlId="exampleForm.SelectCustom">
             <Form.Label>Year</Form.Label>
-            <Form.Control as="select" size="lg" custom>
-              <option>2015</option>
-              <option>2013</option>
-              <option>2019</option>
-              <option>2017</option>
-              <option selected={true}>2020</option>
+            <Form.Control
+              as="select"
+              size="lg"
+              onChange={(e) => setYear(e.target.value)}
+              custom
+            >
+              <option>2022</option>
+              <option selected={true}>2021</option>
             </Form.Control>
           </Form.Group>
         </Form>
-        <CreateNewsLetter show={modalShow} onHide={() => setModalShow(false)} />
-        {news.map((n, i) => {
-          return (
-            <News
-              heading={news[i].heading}
-              paragraph={news[i].paragraph}
-              date={news[i].date}
-            />
-          );
-        })}
+        <Newz />
       </Container>
       <footer>
         <Footer />

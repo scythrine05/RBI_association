@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { getData, existingUser } from "./axios/signup";
+import Loading from "react-fullscreen-loading";
 import Swal from "sweetalert2";
 
 export default function NewMember() {
@@ -14,6 +15,7 @@ export default function NewMember() {
   const [userData, setUserData] = useState(initState);
   const [message, setMessage] = useState("");
   const [msgState, setMsgState] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const setData = (e) => {
     setUserData({ ...userData, [e.target.id]: e.target.value });
@@ -22,7 +24,7 @@ export default function NewMember() {
   const getUserData = async (e) => {
     let Id = e.target.value;
     let recvEmail = "";
-    if (Id.length === 3) recvEmail = await getData(Id); //Recieved Email
+    if (Id.length === 6) recvEmail = await getData(Id); //Recieved Email
     setUserData({ ...userData, Email: recvEmail, SamadhanID: Id });
   };
   const submitForm = async (e) => {
@@ -38,10 +40,17 @@ export default function NewMember() {
         setMessage("Fields should not be Empty");
         return null;
       } else {
-        existingUser(userData);
-        Swal.fire("Form verified", "Check your Email for password", "success");
+        setLoading(true);
+        await existingUser(userData);
+
+        Swal.fire(
+          "Form verified",
+          "Check your Email for password",
+          "success"
+        ).then(() => {
+          window.location.reload();
+        });
         //Reseting Form and State
-        e.target.reset();
         setUserData(initState);
         setMsgState(0);
       }
@@ -49,6 +58,7 @@ export default function NewMember() {
       setMessage("User not found");
       setMsgState(1);
     }
+    setLoading(false);
   };
 
   const Msg = (props) => {
@@ -59,6 +69,11 @@ export default function NewMember() {
   };
   return (
     <React.Fragment>
+      <Loading
+        loading={loading}
+        background="rgba(0,0,0,0.8)"
+        loaderColor="#3498db"
+      />
       <h1 style={{ textAlign: "center" }}>Existing Member</h1>
       <Msg state={msgState} />
       <Form onSubmit={submitForm}>
@@ -66,13 +81,20 @@ export default function NewMember() {
           <Form.Label>Samadhan ID</Form.Label>
           <Form.Control
             type="text"
+            value={userData.SamadhanID}
             placeholder="Samadhan ID"
             onChange={getUserData}
+            autoComplete="off"
           />
         </Form.Group>
         <Form.Group controlId="Name">
           <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Name" onChange={setData} />
+          <Form.Control
+            value={userData.Name}
+            type="text"
+            placeholder="Name"
+            onChange={setData}
+          />
         </Form.Group>
         <Form.Group controlId="Email">
           <Form.Label>Email</Form.Label>
@@ -81,6 +103,7 @@ export default function NewMember() {
         <Form.Group controlId="OfficeLocation">
           <Form.Label>Office Location</Form.Label>
           <Form.Control
+            value={userData.OfficeLocation}
             type="text"
             placeholder="Office Location"
             onChange={setData}

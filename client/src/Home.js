@@ -1,41 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "./navbar";
 import ScrollToTop from "react-scroll-up";
 import Jumbotron from "./jumbotron";
 import "./css/Home.css";
-import { Container, Button, Alert } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 import Content from "./content";
-import { userProfile } from "./axios/profile";
 import Latest from "./latest";
 import Team from "./teams";
 import ILinks from "./importantLinks";
 import SAssoc from "./sisterAssociation";
 import Footer from "./footer";
-import { Link } from "react-router-dom";
 export default function Home() {
-  const [userData, setUserData] = useState("");
-
-  const CheckAdmin = () => {
-    async function fetchData() {
-      try {
-        let data = await userProfile();
-        setUserData(data);
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchData();
-    if (userData.IsAdmin === 1)
-      return (
-        <Link to="/members">
-          <Button variant="" size="lg" block>
-            Association Members List
-          </Button>
-        </Link>
-      );
-    return null;
-  };
-
   return (
     <React.Fragment>
       <header>
@@ -60,7 +35,6 @@ export default function Home() {
           </Container>
         </div>
         <Team />
-        <CheckAdmin />
         <ILinks />
         <SAssoc />
         <section>

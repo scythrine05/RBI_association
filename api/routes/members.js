@@ -23,24 +23,6 @@ router.use((req, res, next) => {
 });
 
 //Routing
-//Get all Approved Members
-router.get("/approved", (req, res) => {
-  //Getting all the Approved Members with handleData(getAllApproved function)
-  handleData
-    .getAllApproved()
-    .then((results) => res.status(200).json(results))
-    .catch((e) => res.status(404).send(e));
-});
-
-//Remove a Approved Member
-router.post("/approved/remove/:id", (req, res) => {
-  //Remove a Approved Member with handleData(removeApproved function)
-
-  handleData
-    .removeApproved(req.params.id)
-    .then(() => res.sendStatus(200))
-    .catch((e) => res.status(404).send(e));
-});
 
 //Get all Pending Members
 router.get("/pending", (req, res) => {
@@ -52,29 +34,20 @@ router.get("/pending", (req, res) => {
 });
 
 //DisApproving a Pending Member
-router.post("/pending/disapprove/:id", (req, res) => {
+router.post("/pending/disapprove", (req, res) => {
   //DisApprove a Pending Member with handleData(disapprovePending function)
   handleData
-    .disapprovePending(req.params.id)
+    .disapprovePending(req.body.Id)
     .then(() => res.sendStatus(200))
     .catch((e) => res.status(404).send(e));
 });
 
 //Approving a Pending Member
-router.post("/pending/approve/:id", (req, res) => {
+router.post("/pending/approve", (req, res) => {
   //Approve a Pending with handleData(approvePending function)
   handleData
-    .approvePending(req.params.id)
+    .approvePending(req.body.Id)
     .then(() => res.sendStatus(200))
-    .catch((e) => res.status(404).send(e));
-});
-
-//Get all Admin Members
-router.get("/admin", (req, res) => {
-  //Getting all the Admin Members with handleData(getAllAdmin function)
-  handleData
-    .getAllAdmin()
-    .then((results) => res.status(200).json(results))
     .catch((e) => res.status(404).send(e));
 });
 

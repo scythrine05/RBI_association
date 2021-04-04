@@ -1,66 +1,11 @@
 import React, { Component } from "react";
 import Navbar from "./navbar";
-import Poll from "react-polls";
-import CreatePoll from "./createPolls";
 import Jumbotron from "./jumbotron";
 import Footer from "./footer";
 import ScrollToTop from "react-scroll-up";
-import { Container, Form } from "react-bootstrap";
-
-const styles = {
-  questionBold: false,
-};
-
-const polls = [
-  {
-    pollQuestion: "Is react-polls best ?",
-    pollAnswers: [
-      { option: "Yes", votes: 8 },
-      { option: "No", votes: 2 },
-    ],
-  },
-  {
-    pollQuestion: "Is there an ending to Pandemic ?",
-    pollAnswers: [
-      { option: "Yes", votes: 10 },
-      { option: "No", votes: 10 },
-    ],
-  },
-];
+import { Container } from "react-bootstrap";
 
 export default class Polls extends Component {
-  state = {
-    pollAnswers: polls.map((poll) => {
-      return poll.pollAnswers;
-    }),
-    polls: 2,
-  };
-
-  createNewPoll = (name, options) => {
-    const newPoll = {
-      pollQuestion: name,
-      pollAnswers: options,
-    };
-    polls.push(newPoll);
-    this.setState((prevState) => ({
-      polls: prevState + 1,
-    }));
-  };
-
-  handleVote = (voteAnswer, i) => {
-    const pollAnswer = polls[i].pollAnswers;
-    const newPollAnswer = pollAnswer.map((answer) => {
-      if (answer.option === voteAnswer) answer.votes++;
-      return answer;
-    });
-    this.setState((prevState) => ({
-      pollAnswers: {
-        ...prevState,
-        [pollAnswer]: newPollAnswer,
-      },
-    }));
-  };
-
   render() {
     return (
       <React.Fragment>
@@ -79,36 +24,9 @@ export default class Polls extends Component {
           />
         </div>
         <Container>
-          <CreatePoll createPoll={this.createNewPoll} />
-            <Form>
-          <Form.Group controlId="exampleForm.SelectCustom">
-            <Form.Label>Year</Form.Label>
-            <Form.Control as="select" size="lg" custom>
-              <option>2015</option>
-              <option>2013</option>
-              <option>2019</option>
-              <option>2017</option>
-              <option selected={true}>2020</option>
-            </Form.Control>
-          </Form.Group>
-        </Form>
-          <div>
-            {" "}
-            {polls.map((n, i) => {
-              return (
-                <Poll
-                  customStyles={styles}
-                  question={polls[i].pollQuestion}
-                  answers={polls[i].pollAnswers}
-                  onVote={(e) => {
-                    this.handleVote(e, i);
-                  }}
-                />
-              );
-            })}
-          </div>
+          <h1 style={{ textAlign: "center" }}>Not Available</h1>
         </Container>
-        <footer>
+        <footer style={{ position: "fixed", bottom: 0, width: "100%" }}>
           <Footer />
         </footer>
         <ScrollToTop showUnder={160}>

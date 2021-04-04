@@ -9,10 +9,13 @@ import { Link } from "react-router-dom";
 export default function Log() {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setMsgState(0);
+    setShow(false);
+  };
   const handleShow = () => setShow(true);
 
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msgState, setMsgState] = useState(0);
 
@@ -81,7 +84,6 @@ export default function Log() {
                 }}
               />
             </Form.Group>
-            <Form.Group controlId="formBasicCheckbox"></Form.Group>
             <Button variant="" type="submit">
               Login
             </Button>

@@ -1,47 +1,95 @@
 import React, { useContext, useState, useEffect } from "react";
 import Navbar from "./navbar";
-import Loader from "react-loader-spinner";
 import Jumbotron from "./jumbotron";
 import "./css/Profile.css";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Spinner } from "react-bootstrap";
 import Footer from "./footer";
 import { userProfile } from "./axios/profile";
 import { logoutUser } from "./axios/login";
 import { Link } from "react-router-dom";
+import { CreateNotice } from "./commsTools";
+import { CreateNewsLetter } from "./newsTools";
+import {
+  Newspaper,
+  People,
+  Sticky,
+  BarChart,
+  PatchCheckFill,
+} from "react-bootstrap-icons";
 import { authContext } from "./contexts/AuthContext";
 
 export default function Profile() {
   const [userData, setUserData] = useState("");
+  const [commsModalShow, setCommsModalShow] = useState(false);
+  const [newsModalShow, setNewsModalShow] = useState(false);
   const { setAuthData } = useContext(authContext);
 
+  const Loading = () => {
+    if (userData === "") return <Spinner animation="grow" />;
+    return null;
+  };
+
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         let data = await userProfile();
-        setUserData(data);
+        return data;
       } catch (e) {
         console.log(e);
       }
-    }
-    fetchData();
+    };
+
+    fetchData().then((data) => {
+      setUserData(data);
+    });
   }, [userData]);
 
   const CheckAdmin = () => {
     if (userData.IsAdmin === 1)
       return (
-        <span className="pro" style={{ background: "#febb0b" }}>
-          Admin
-        </span>
+        <React.Fragment>
+          <h1>
+            <PatchCheckFill color="#3498db" />
+          </h1>
+          <div className="post-area">
+            <div>
+              <Link to="/members">
+                <Button
+                  size="lg"
+                  variant=""
+                  onClick={() => setCommsModalShow(true)}
+                >
+                  <People />
+                </Button>
+              </Link>
+            </div>
+            <div>
+              <Button
+                size="lg"
+                variant=""
+                onClick={() => setNewsModalShow(true)}
+              >
+                <Newspaper />
+              </Button>
+            </div>
+            <div>
+              <Button
+                size="lg"
+                variant=""
+                onClick={() => setCommsModalShow(true)}
+              >
+                <Sticky />
+              </Button>
+            </div>
+            <div>
+              <Button size="lg" variant="">
+                <BarChart />
+              </Button>
+            </div>
+          </div>
+        </React.Fragment>
       );
-    return (
-      <Loader
-        type="TailSpin"
-        color="#00BFFF"
-        height={50}
-        width={50}
-        timeout={3000} //3 secs
-      />
-    );
+    return null;
   };
   const onLogOut = () => {
     logoutUser();
@@ -65,12 +113,21 @@ export default function Profile() {
         />
       </div>
       <Container>
+        <CreateNotice
+          show={commsModalShow}
+          onHide={() => setCommsModalShow(false)}
+        />
+        <CreateNewsLetter
+          show={newsModalShow}
+          onHide={() => setNewsModalShow(false)}
+        />
         <div className="card-container">
-          <CheckAdmin />
+          <Loading />
           <h3 className="name">{userData.Name}</h3>
           <ul className="points_ul" style={{ listStyleType: "none" }}>
             <li className="Email"> {userData.Email}</li>
           </ul>
+          <CheckAdmin />
           <div className="buttons">
             <Link to="/profile/new_password">
               <Button

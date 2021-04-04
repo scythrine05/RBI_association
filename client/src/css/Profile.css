@@ -30,17 +30,6 @@
   margin-bottom: 20px;
 }
 
-.card-container .pro {
-  color: #231e39;
-  border-radius: 3px;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 3px 7px;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
-
 .card-container .round {
   border: 1px solid #3498db;
   border-radius: 50%;
@@ -68,6 +57,16 @@ button.primary.ghost {
   height: 23px;
   padding: 15px;
   margin-top: 30px;
+}
+
+.post-area {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 5vh;
+}
+.post-area div {
+  margin-left: 2%;
 }
 
 @media (max-width: 768px) {

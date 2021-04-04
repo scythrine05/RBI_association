@@ -11,11 +11,13 @@ const newUser = async (userData) => {
     //Creating New User with handleUserData(newUser function)
     let d1 = await handleData.findApprovedById(userData.SamadhanID);
     let d2 = await handleData.findPendingById(userData.SamadhanID);
-    if (d1 == null && d2 == null) await handleData.newUser(userData);
-    else return 409;
+    if (d1 == null && d2 == null) {
+      await handleData.newUser(userData);
+      await handleMail.newUserEmail(userData.Email);
+    } else return 409;
     return;
   } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 const existingUser = async (userData) => {
@@ -29,7 +31,7 @@ const existingUser = async (userData) => {
     return;
   } catch (e) {
     console.log(e);
-    return new Error(e);
+    throw new Error(e);
   }
 };
 

@@ -1,8 +1,23 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
+import { Paperclip } from "react-bootstrap-icons";
 import "./css/fullView.css";
 
 export function FullView(props) {
+  const CheckAttach = () => {
+    if (props.attach)
+      return (
+        <a
+          href={process.env.PUBLIC_URL + `/uploads/${props.attach}`}
+          download={props.attach}
+        >
+          <Button>
+            <Paperclip />
+          </Button>
+        </a>
+      );
+    return null;
+  };
   return (
     <Modal
       {...props}
@@ -20,12 +35,10 @@ export function FullView(props) {
       </Modal.Header>
       <Modal.Body>
         <h2>{props.heading}</h2>
-        <p>{props.paragraph}</p>
+        <pre className="paragraph">{props.paragraph}</pre>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="" onClick={props.onHide}>
-          Close
-        </Button>
+        <CheckAttach />
       </Modal.Footer>
     </Modal>
   );

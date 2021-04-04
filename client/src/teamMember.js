@@ -12,10 +12,6 @@ export default function teamMember() {
       />
       <h5 className="font-weight-bold mt-4 mb-3">Tom Adams</h5>
       <p className="text-uppercase blue-text">Backend Developer</p>
-      <p className="grey-text">
-        Perspiciatis repellendus ad odit consequuntur, eveniet earum nisi qui
-        consectetur totam officia voluptates perferendis voluptatibus aut.
-      </p>
     </MDBCol>
   );
 }

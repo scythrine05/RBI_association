@@ -6,17 +6,6 @@ const handleMail = require("./hadleMailSystem");
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 
-//Get All Approved Members
-const getAllApproved = async () => {
-  let sql = "select Email, Name, SamadhanID from approvedmember";
-  try {
-    let requiredData = await pool.query(sql);
-    return requiredData;
-  } catch (e) {
-    return new Error(e);
-  }
-};
-
 //Get All Pending Members
 const getAllPending = async () => {
   let sql = "select Email, Name, SamadhanID from pendingmember";
@@ -24,19 +13,7 @@ const getAllPending = async () => {
     let requiredData = await pool.query(sql);
     return requiredData;
   } catch (e) {
-    return new Error(e);
-  }
-};
-
-//Get All Admin Members
-const getAllAdmin = async () => {
-  let sql =
-    "select Email, Name, SamadhanID from approvedmember where IsAdmin = 1";
-  try {
-    let requiredData = await pool.query(sql);
-    return requiredData;
-  } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
@@ -52,7 +29,7 @@ const newUser = async (newData) => {
     ]);
     return;
   } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
@@ -69,7 +46,7 @@ const existingUser = async (newData) => {
     ]);
     return;
   } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
@@ -81,7 +58,7 @@ const findApprovedById = async (id) => {
     if (requiredData.length <= 0) return null;
     return requiredData;
   } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
@@ -93,7 +70,7 @@ const findPendingById = async (id) => {
     if (requiredData.length <= 0) return null;
     return requiredData;
   } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
@@ -104,7 +81,7 @@ const findApprovedByEmail = async (email) => {
     let requiredData = await pool.query(sql, [email]);
     return requiredData;
   } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
@@ -115,21 +92,7 @@ const findPendingByEmail = async (email) => {
     let requiredData = await pool.query(sql, [email]);
     return requiredData;
   } catch (e) {
-    return new Error(e);
-  }
-};
-
-//Remove a Approved Member
-const removeApproved = async (id) => {
-  let sql = "delete from approvedmember where SamadhanID = ?";
-  try {
-    let results = await findApprovedById(id);
-    let email = results[0].Email;
-    await pool.query(sql, [id]);
-    await handleMail.removeExistingUserEmail(email);
-    return;
-  } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
@@ -142,7 +105,7 @@ const disapprovePending = async (id) => {
     await handleMail.newUserEmailDisapproved(results[0].Email);
     return;
   } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
@@ -160,22 +123,19 @@ const approvePending = async (id) => {
     await handleMail.newUserEmailApproved(results[0].Email, Password);
     return;
   } catch (e) {
-    return new Error(e);
+    throw new Error(e);
   }
 };
 
 //Exporting
 module.exports = {
-  getAllApproved,
   getAllPending,
-  getAllAdmin,
   newUser,
   existingUser,
   findApprovedById,
   findPendingById,
   findApprovedByEmail,
   findPendingByEmail,
-  removeApproved,
   disapprovePending,
   approvePending,
 };

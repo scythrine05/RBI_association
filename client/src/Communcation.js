@@ -1,14 +1,67 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
 import Footer from "./footer";
-import { Container, Button, Form } from "react-bootstrap";
-import Cards from "./communicationCards";
-import CreateNotice from "./createNotice";
+import { Container, Form, Spinner } from "react-bootstrap";
+import { Cards } from "./commsTools";
+import { getComms } from "./axios/communication";
 import ScrollToTop from "react-scroll-up";
 
 export default function Communcation() {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [cData, setCData] = useState([]);
+  const [year, setYear] = useState("2021");
+
+  const Comms = () => {
+    if (!cData.length)
+      return (
+        <React.Fragment>
+          <div style={{ textAlign: "center", marginBottom: "2%" }}>
+            <Spinner animation="grow" />
+          </div>
+        </React.Fragment>
+      );
+    else {
+      let data = cData.filter((e) => {
+        return e.Date.split("-")[0] === year;
+      });
+      if (data.length > 0)
+        return data.map((data, i) => {
+          return (
+            <Cards
+              key={i}
+              heading={data.Heading}
+              paragraph={data.Body}
+              date={data.Date.split("T")[0]}
+              attach={data.Attach}
+            />
+          );
+        });
+      else {
+        return (
+          <React.Fragment>
+            <div style={{ textAlign: "center", marginTop: "5%" }}>
+              <p style={{ fontSize: "3vh" }}>No post</p>
+            </div>
+          </React.Fragment>
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    const CommsData = async () => {
+      try {
+        let data = await getComms();
+        return data;
+      } catch (e) {
+        throw e;
+      }
+    };
+    CommsData().then((data) => {
+      setCData(data);
+    });
+  }, []);
+
   return (
     <React.Fragment>
       <header>
@@ -26,28 +79,21 @@ export default function Communcation() {
         />
       </div>
       <Container>
-        <Button size="lg" variant="" onClick={() => setModalShow(true)}>
-          Create Notice
-        </Button>
         <Form>
           <Form.Group controlId="exampleForm.SelectCustom">
             <Form.Label>Year</Form.Label>
-            <Form.Control as="select" size="lg" custom>
-              <option>2015</option>
-              <option>2013</option>
-              <option>2019</option>
-              <option>2017</option>
-              <option selected={true}>2020</option>
+            <Form.Control
+              as="select"
+              size="lg"
+              onChange={(e) => setYear(e.target.value)}
+              custom
+            >
+              <option>2022</option>
+              <option selected={true}>2021</option>
             </Form.Control>
           </Form.Group>
         </Form>
-        <CreateNotice show={modalShow} onHide={() => setModalShow(false)} />
-        <Cards heading="1" paragraph="hey" date="2000" />
-        <Cards heading="2" paragraph="hey" date="2003" />
-        <Cards heading="3" paragraph="hey" date="2004" />
-        <Cards heading="4" paragraph="hey" date="2010" />
-        <Cards heading="5" paragraph="hey" date="2018" />
-        <Cards heading="6" paragraph="hey" date="2020" />
+        <Comms />
       </Container>
       <footer>
         <Footer />

@@ -1,10 +1,10 @@
 import Axios from "axios";
 
-export const postComms = async (heading, body, file) => {
+export const postNews = async (heading, body, file) => {
   try {
     let fileData = await Axios({
       method: "post",
-      url: "http://localhost:5000/communication/upload",
+      url: "http://localhost:5000/news/upload",
       headers: "",
       data: file,
       withCredentials: true,
@@ -12,7 +12,7 @@ export const postComms = async (heading, body, file) => {
     fileData = fileData.data.filename ? fileData.data.filename : null;
     await Axios({
       method: "post",
-      url: "http://localhost:5000/communication",
+      url: "http://localhost:5000/news",
       headers: "",
       data: {
         Heading: heading,
@@ -26,23 +26,10 @@ export const postComms = async (heading, body, file) => {
   }
 };
 
-export const getComms = () =>
+export const getNews = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/communication",
-    withCredentials: true,
-  })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((e) => {
-      throw e;
-    });
-
-export const getFComms = () =>
-  Axios({
-    method: "get",
-    url: "http://localhost:5000/communication/front",
+    url: "http://localhost:5000/news",
     withCredentials: true,
   })
     .then((res) => {

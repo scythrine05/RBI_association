@@ -36,8 +36,10 @@ module.exports = (passport) => {
       let userData = await handleData.findApprovedByEmail(email);
       if (userData == null || userData < 1) return done(null, false);
       //Comparing the password
-      //let match = await bcrypt.compare(password, userData[0].Password);
-      if (password == userData[0].Password) return done(null, userData[0]);
+      let match = await bcrypt.compare(password, userData[0].Password);
+      //console.log(password, userData[0].Password);
+      //if (password === userData[0].Password) return done(null, userData[0]);
+      if (match) return done(null, userData[0]);
       else done(null, false);
     } catch (e) {
       return done(e);

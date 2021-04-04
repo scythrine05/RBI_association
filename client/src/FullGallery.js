@@ -5,6 +5,7 @@ import Jumbotron from "./jumbotron";
 import ScrollToTop from "react-scroll-up";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
+import { Image } from "react-bootstrap-icons";
 import { photos } from "./photos";
 import { Container, Button, Form } from "react-bootstrap";
 import AddPhoto from "./addPhoto";
@@ -42,7 +43,7 @@ export default function FullGallery() {
       </div>
       <Container style={{ marginBottom: "12em" }}>
         <Button size="lg" variant="" onClick={() => setModalShow(true)}>
-          Add Photo
+          <Image />
         </Button>
 
         <Form>

@@ -1,7 +1,12 @@
 const express = require("express");
 const cors = require("cors");
-const app = express();
 const cookieParser = require("cookie-parser");
+const path = require("path");
+const app = express();
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(__dirname + "/public"));
 
 app.use(
   cors({
@@ -22,7 +27,7 @@ app.use("/polls", require("./routes/polls"));
 app.use("/profile", require("./routes/profile"));
 
 app.get("/", (req, res) => {
-  res.send("Welcome to RBIOA backend");
+  res.render("home");
 });
 
 const port = process.env.PORT || 5000;
