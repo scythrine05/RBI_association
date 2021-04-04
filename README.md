@@ -24,11 +24,11 @@
 - [x] Session Authorization
 - [x] News CRUD
 - [x] Communication CRUD
-- [] Polls CRUD
+- [ ] Polls CRUD
 - [x] File Upload Functionality
-- [] Gallery Picture Upload
+- [ ] Gallery Picture Upload
 - [x] Members Page Functionality
 - [x] Crete an Account
 - [x] Contact Us Functionality
 - [x] Profile Page Functionality
-- [] Suggestion Page
+- [ ] Suggestion Page
