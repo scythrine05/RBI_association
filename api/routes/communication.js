@@ -4,39 +4,32 @@ const Router = require("router");
 const express = require("express");
 const comms = require("../functions/handleCommunication");
 const passport = require("passport");
+const aws = require("aws-sdk");
 const multer = require("multer");
+const multerS3 = require("multer-s3");
 const path = require("path");
 
 const router = Router();
 
 //Multer setup
 
-const storage = multer.diskStorage({
-  destination: "../client/build/uploads",
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
+const spacesEndpoint = new aws.Endpoint("sgp1.digitaloceanspaces.com/");
+const s3 = new aws.S3({
+  endpoint: spacesEndpoint,
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.ACCESS_KEY_SECRET,
 });
 
 const upload = multer({
-  storage: storage,
-  fileFilter: (req, file, cb) => {
-    checkFileType(file, cb);
-  },
+  storage: multerS3({
+    s3: s3,
+    bucket: "rbioa",
+    acl: "public-read",
+    key: (req, file, cb) => {
+      cb(null, Date.now() + path.extname(file.originalname));
+    },
+  }),
 }).single("file");
-
-function checkFileType(file, cb) {
-  const filetypes = /pdf|.docx|.doc|.odt|.ppt|.pptx|.txt/;
-  const extname = filetypes.test(path.extname(file.originalname));
-
-  const mimetype = filetypes.test(file.mimetype);
-
-  if (mimetype && extname) {
-    return cb(null, true);
-  } else {
-    cb("Unsupported file");
-  }
-}
 
 //Global Middlewares
 router.use(express.json());

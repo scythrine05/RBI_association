@@ -8,7 +8,7 @@ export function FullView(props) {
     if (props.attach)
       return (
         <a
-          href={process.env.PUBLIC_URL + `/uploads/${props.attach}`}
+          href={`https://rbioa.sgp1.digitaloceanspaces.com/${props.attach}`}
           download={props.attach}
         >
           <Button>
@@ -34,7 +34,9 @@ export function FullView(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h2>{props.heading}</h2>
+        <h2 style={{ whiteSpace: "pre-wrap", marginBottom: "3ch" }}>
+          {props.heading}
+        </h2>
         <pre className="paragraph">{props.paragraph}</pre>
       </Modal.Body>
       <Modal.Footer>

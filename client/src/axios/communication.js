@@ -9,7 +9,7 @@ export const postComms = async (heading, body, file) => {
       data: file,
       withCredentials: true,
     });
-    fileData = fileData.data.filename ? fileData.data.filename : null;
+    fileData = fileData.data.key ? fileData.data.key : null;
     await Axios({
       method: "post",
       url: "http://localhost:5000/0900e5b2/communication",

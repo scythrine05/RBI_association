@@ -1,4 +1,9 @@
-@media (max-width: 768px) {
+.cards-front {
+  background: red;
+  padding: 0;
+}
+
+@media only screen and (max-width: 768px) {
   .card-title {
     font-size: 23px;
   }
