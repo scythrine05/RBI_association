@@ -6,7 +6,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.use(
   cors({
@@ -27,7 +27,7 @@ app.use("/polls", require("./routes/polls"));
 app.use("/profile", require("./routes/profile"));
 
 app.get("/", (req, res) => {
-  res.render("home");
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 const port = process.env.PORT || 5000;
