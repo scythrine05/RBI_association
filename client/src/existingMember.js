@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { getData, existingUser } from "./axios/signup";
+import { Redirect } from "react-router-dom";
 import Loading from "react-fullscreen-loading";
 import Swal from "sweetalert2";
 
@@ -16,6 +17,12 @@ export default function NewMember() {
   const [message, setMessage] = useState("");
   const [msgState, setMsgState] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [redirect, setRedirect] = useState(0);
+
+  const Rd = () => {
+    if (redirect === 1) return <Redirect to="/" />;
+    return null;
+  };
 
   const setData = (e) => {
     setUserData({ ...userData, [e.target.id]: e.target.value });
@@ -48,7 +55,7 @@ export default function NewMember() {
           "Check your Email for password",
           "success"
         ).then(() => {
-          window.location.reload();
+          setRedirect(1);
         });
         //Reseting Form and State
         setUserData(initState);
@@ -69,6 +76,7 @@ export default function NewMember() {
   };
   return (
     <React.Fragment>
+      <Rd />
       <Loading
         loading={loading}
         background="rgba(0,0,0,0.8)"

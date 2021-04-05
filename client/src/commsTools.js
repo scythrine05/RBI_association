@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form, Alert } from "react-bootstrap";
 import { Pen, Eye } from "react-bootstrap-icons";
 import { FullView } from "./fullView";
+import { Redirect } from "react-router-dom";
 import { postComms } from "./axios/communication";
 import Loading from "react-fullscreen-loading";
 import Swal from "sweetalert2";
@@ -14,6 +15,12 @@ export function CreateNotice(props) {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [msgState, setMsgState] = useState(0);
+  const [redirect, setRedirect] = useState(0);
+
+  const Rd = () => {
+    if (redirect === 1) return <Redirect to="/communication" />;
+    return null;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +32,7 @@ export function CreateNotice(props) {
         setLoading(true);
         await postComms(heading, body, newFile);
         Swal.fire("Posted", "", "success").then(() => {
-          window.location.reload();
+          setRedirect(1);
         });
       }
     } catch (e) {
@@ -41,73 +48,76 @@ export function CreateNotice(props) {
     return null;
   };
   return (
-    <Modal
-      {...props}
-      size="lg"
-      backdrop="static"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Loading
-        loading={loading}
-        background="rgba(0,0,0,0.8)"
-        loaderColor="#3498db"
-      />
-      <Modal.Header closeButton>
-        <Modal.Title
-          style={{ fontSize: "30px" }}
-          id="contained-modal-title-vcenter"
-        >
-          Create Notice
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Msg state={msgState} />
-        <Form onSubmit={handleSubmit}>
-          <Form.Group
-            style={{ textAlign: "left" }}
-            controlId="formBasicHeading"
+    <React.Fragment>
+      <Rd />
+      <Modal
+        {...props}
+        size="lg"
+        backdrop="static"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Loading
+          loading={loading}
+          background="rgba(0,0,0,0.8)"
+          loaderColor="#3498db"
+        />
+        <Modal.Header closeButton>
+          <Modal.Title
+            style={{ fontSize: "30px" }}
+            id="contained-modal-title-vcenter"
           >
-            <Form.Control
-              type="text"
-              placeholder="Heading"
-              value={heading}
-              onChange={(e) => {
-                setHeading(e.target.value);
-              }}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicBody">
-            <Form.Control
-              placeholder="Body"
-              as="textarea"
-              rows={10}
-              value={body}
-              onChange={(e) => {
-                setBody(e.target.value);
-              }}
-            />
-            <Form.Group>
-              <Form.File
-                id="FormControlAttachment1"
-                name="file"
+            Create Notice
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Msg state={msgState} />
+          <Form onSubmit={handleSubmit}>
+            <Form.Group
+              style={{ textAlign: "left" }}
+              controlId="formBasicHeading"
+            >
+              <Form.Control
+                type="text"
+                placeholder="Heading"
+                value={heading}
                 onChange={(e) => {
-                  setFile(e.target.files[0]);
+                  setHeading(e.target.value);
                 }}
               />
             </Form.Group>
-          </Form.Group>
-          <Button
-            type="submit"
-            style={{ margiTop: "20px", float: "right" }}
-            variant=""
-          >
-            <Pen />
-          </Button>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer> </Modal.Footer>
-    </Modal>
+            <Form.Group controlId="formBasicBody">
+              <Form.Control
+                placeholder="Body"
+                as="textarea"
+                rows={10}
+                value={body}
+                onChange={(e) => {
+                  setBody(e.target.value);
+                }}
+              />
+              <Form.Group>
+                <Form.File
+                  id="FormControlAttachment1"
+                  name="file"
+                  onChange={(e) => {
+                    setFile(e.target.files[0]);
+                  }}
+                />
+              </Form.Group>
+            </Form.Group>
+            <Button
+              type="submit"
+              style={{ margiTop: "20px", float: "right" }}
+              variant=""
+            >
+              <Pen />
+            </Button>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer> </Modal.Footer>
+      </Modal>
+    </React.Fragment>
   );
 }
 

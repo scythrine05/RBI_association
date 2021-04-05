@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { newUser } from "./axios/signup";
+import { Redirect } from "react-router-dom";
 import Loading from "react-fullscreen-loading";
 import Swal from "sweetalert2";
 
@@ -16,7 +17,12 @@ export default function NewMember() {
   const [msgState, setMsgState] = useState(0);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [redirect, setRedirect] = useState(0);
 
+  const Rd = () => {
+    if (redirect === 1) return <Redirect to="/" />;
+    return null;
+  };
   const setData = (e) => {
     setUserData({ ...userData, [e.target.id]: e.target.value });
   };
@@ -40,18 +46,12 @@ export default function NewMember() {
         setUserData(initState);
         setMsgState(0);
         Swal.fire("Form submitted", "Check your Email", "success").then(() => {
-          window.location.reload();
+          setRedirect(1);
         });
       } else {
         setUserData(initState);
-        setMsgState(0);
-        Swal.fire(
-          "Account Exists",
-          "The account with SamadhanID already registered",
-          "error"
-        ).then(() => {
-          window.location.reload();
-        });
+        setMsgState(3);
+        setMessage("The Account already exists");
       }
       setLoading(false);
     }
@@ -60,11 +60,14 @@ export default function NewMember() {
     if (props.state === 1) return <Alert variant="danger"> {message} </Alert>;
     else if (props.state === 2)
       return <Alert variant="success"> {message} </Alert>;
+    else if (props.state === 3)
+      return <Alert variant="danger"> {message} </Alert>;
     return null;
   };
 
   return (
     <React.Fragment>
+      <Rd />
       <Loading
         loading={loading}
         background="rgba(0,0,0,0.8)"

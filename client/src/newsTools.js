@@ -4,6 +4,7 @@ import { Pen, Eye } from "react-bootstrap-icons";
 import { FullView } from "./fullView";
 import { postNews } from "./axios/news";
 import Loading from "react-fullscreen-loading";
+import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export function CreateNewsLetter(props) {
@@ -12,6 +13,12 @@ export function CreateNewsLetter(props) {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [msgState, setMsgState] = useState(0);
+  const [redirect, setRedirect] = useState(0);
+
+  const Rd = () => {
+    if (redirect === 1) return <Redirect to="/news" />;
+    return null;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +30,7 @@ export function CreateNewsLetter(props) {
         setLoading(true);
         await postNews(heading, body, newFile);
         Swal.fire("Posted", "", "success").then(() => {
-          window.location.reload();
+          setRedirect(1);
         });
       }
     } catch (e) {
@@ -40,6 +47,7 @@ export function CreateNewsLetter(props) {
   };
   return (
     <React.Fragment>
+      <Rd />
       <Modal
         {...props}
         size="lg"
