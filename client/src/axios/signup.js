@@ -3,7 +3,7 @@ import Axios from "axios";
 export const getData = (id) =>
   Axios({
     method: "post",
-    url: "http://localhost:5000/signup/getdata",
+    url: "http://localhost:5000/0900e5b2/signup/getdata",
     headers: "",
     data: {
       SamadhanID: id,
@@ -19,7 +19,7 @@ export const getData = (id) =>
 export const newUser = (userData) =>
   Axios({
     method: "post",
-    url: "http://localhost:5000/signup/newuser",
+    url: "http://localhost:5000/0900e5b2/signup/newuser",
     headers: "",
     data: {
       userData: userData,
@@ -35,7 +35,7 @@ export const newUser = (userData) =>
 export const existingUser = (userData) =>
   Axios({
     method: "post",
-    url: "http://localhost:5000/signup/existinguser",
+    url: "http://localhost:5000/0900e5b2/signup/existinguser",
     headers: "",
     data: {
       userData: userData,

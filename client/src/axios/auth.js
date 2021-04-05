@@ -3,7 +3,7 @@ import Axios from "axios";
 export const authCheck = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/auth",
+    url: "http://localhost:5000/0900e5b2/auth",
     headers: "",
     withCredentials: true,
   })

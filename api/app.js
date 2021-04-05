@@ -15,18 +15,18 @@ app.use(
   })
 );
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use("/login", require("./routes/login"));
-app.use("/signup", require("./routes/signup"));
-app.use("/auth", require("./routes/auth"));
-app.use("/members", require("./routes/members"));
-app.use("/team", require("./routes/team"));
-app.use("/communication", require("./routes/communication"));
-app.use("/news", require("./routes/news"));
-app.use("/gallery", require("./routes/gallery"));
-app.use("/polls", require("./routes/polls"));
-app.use("/profile", require("./routes/profile"));
+app.use("/0900e5b2/login", require("./routes/login"));
+app.use("/0900e5b2/signup", require("./routes/signup"));
+app.use("/0900e5b2/auth", require("./routes/auth"));
+app.use("/0900e5b2/members", require("./routes/members"));
+app.use("/0900e5b2/team", require("./routes/team"));
+app.use("/0900e5b2/communication", require("./routes/communication"));
+app.use("/0900e5b2/news", require("./routes/news"));
+app.use("/0900e5b2/gallery", require("./routes/gallery"));
+app.use("/0900e5b2/polls", require("./routes/polls"));
+app.use("/0900e5b2/profile", require("./routes/profile"));
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 

@@ -4,7 +4,7 @@ export const postImages = async (file) => {
   try {
     let fileData = await Axios({
       method: "post",
-      url: "http://localhost:5000/gallery/upload",
+      url: "http://localhost:5000/0900e5b2/gallery/upload",
       headers: "",
       data: file,
       withCredentials: true,
@@ -12,7 +12,7 @@ export const postImages = async (file) => {
     fileData = fileData.data.filename ? fileData.data.filename : null;
     await Axios({
       method: "post",
-      url: "http://localhost:5000/gallery",
+      url: "http://localhost:5000/0900e5b2/gallery",
       headers: "",
       data: {
         File: fileData,

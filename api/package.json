@@ -4,8 +4,8 @@
   "description": "RBI_Association backend api",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "startDev": "nodemon app.js"
+    "start": "node app",
+    "startDev": "nodemon app"
   },
   "author": "Hardik and Rohan",
   "license": "ISC",

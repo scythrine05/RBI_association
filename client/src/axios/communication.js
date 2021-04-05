@@ -4,7 +4,7 @@ export const postComms = async (heading, body, file) => {
   try {
     let fileData = await Axios({
       method: "post",
-      url: "http://localhost:5000/communication/upload",
+      url: "http://localhost:5000/0900e5b2/communication/upload",
       headers: "",
       data: file,
       withCredentials: true,
@@ -12,7 +12,7 @@ export const postComms = async (heading, body, file) => {
     fileData = fileData.data.filename ? fileData.data.filename : null;
     await Axios({
       method: "post",
-      url: "http://localhost:5000/communication",
+      url: "http://localhost:5000/0900e5b2/communication",
       headers: "",
       data: {
         Heading: heading,
@@ -29,7 +29,7 @@ export const postComms = async (heading, body, file) => {
 export const getComms = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/communication",
+    url: "http://localhost:5000/0900e5b2/communication",
     withCredentials: true,
   })
     .then((res) => {
@@ -42,7 +42,7 @@ export const getComms = () =>
 export const getFComms = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/communication/front",
+    url: "http://localhost:5000/0900e5b2/communication/front",
     withCredentials: true,
   })
     .then((res) => {

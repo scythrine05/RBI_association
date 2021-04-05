@@ -3,7 +3,7 @@ import Axios from "axios";
 export const pendingMembers = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/members/pending",
+    url: "http://localhost:5000/0900e5b2/members/pending",
     headers: "",
     withCredentials: true,
   })
@@ -17,7 +17,7 @@ export const pendingMembers = () =>
 export const approvedMembers = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/members/approved",
+    url: "http://localhost:5000/0900e5b2/members/approved",
     headers: "",
     withCredentials: true,
   })
@@ -31,7 +31,7 @@ export const approvedMembers = () =>
 export const admin = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/members/admin",
+    url: "http://localhost:5000/0900e5b2/members/admin",
     headers: "",
     withCredentials: true,
   })
