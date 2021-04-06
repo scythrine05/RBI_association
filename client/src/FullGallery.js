@@ -55,12 +55,12 @@ export default function FullGallery() {
         d["width"] = 3.3;
         d["height"] = 3;
         delete d["ImageFile"];
+        return (d["key"] = i);
       });
       let newData = data.filter((e) => {
         return e.UploadDate.split("-")[0] === year;
       });
       setIData(newData);
-      console.log(newData);
     });
   }, [year]);
 
