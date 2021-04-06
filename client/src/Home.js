@@ -22,9 +22,7 @@ export default function Home() {
         <Jumbotron
           name={["Welcome To"]}
           subname="RBI Officers' Association"
-          background={
-            '"https://cdn2.hubspot.net/hubfs/3987289/microsoft_teams_top_business_benefits-2.jpg"'
-          }
+          background={"/Home.jpg"}
         />
       </div>
       <Container className="my-3">

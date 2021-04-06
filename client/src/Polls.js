@@ -18,9 +18,7 @@ export default class Polls extends Component {
           <Jumbotron
             name={["Polls"]}
             subname="Polls and Voting"
-            background={
-              '"https://www.regus.co.in/work-india/wp-content/uploads/sites/86/2019/11/shutterstock_633364835_How-to-open-meeting-with-impact_resize-to-1024px-x-400px-landscape.jpg"'
-            }
+            background={"/Polls.jpg"}
           />
         </div>
         <Container>

@@ -107,9 +107,7 @@ export default function Profile() {
         <Jumbotron
           name={["Profile"]}
           subname="Your Information"
-          background={
-            '"https://freshome.com/wp-content/uploads/2014/12/paint_GettyImages-1149521093-2048x1365.jpg"'
-          }
+          background={"/Profile.jpg"}
         />
       </div>
       <Container>

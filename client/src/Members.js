@@ -57,9 +57,7 @@ export default function Members() {
         <Jumbotron
           name={["Members"]}
           subname="Pending Members List"
-          background={
-            '"https://blogs.staffs.ac.uk/student-blogs/files/2015/12/Students-sitting-together-on-campus-working-on-projects.png"'
-          }
+          background={"/Member.png"}
         />
       </div>
       <Container>

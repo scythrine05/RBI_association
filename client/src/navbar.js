@@ -63,7 +63,7 @@ export default function navbar() {
             <NavLink
               className="nav-link"
               exact
-              to="/Gallery"
+              to="/gallery"
               activeStyle={{ color: "#3498db" }}
             >
               {" "}

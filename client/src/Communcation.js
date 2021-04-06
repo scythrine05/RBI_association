@@ -73,9 +73,7 @@ export default function Communcation() {
         <Jumbotron
           name={["Communication"]}
           subname="Notices and Alerts"
-          background={
-            '"https://www.vpi-inc.com/wp-content/uploads/2019/02/BLOG_Workplace_Communications_1902.jpg"'
-          }
+          background={"/Comms.jpg"}
         />
       </div>
       <Container>

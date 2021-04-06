@@ -20,9 +20,7 @@ export default function Home() {
         <Jumbotron
           name={["Team"]}
           subname="Meet Our whole Team"
-          background={
-            '"https://www.coburgbanks.co.uk/wp-content/uploads/2017/09/teamwork-2.jpg"'
-          }
+          background={"/Team.jpg"}
         />
       </div>
       <Container className="my-3">

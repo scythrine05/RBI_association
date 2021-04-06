@@ -18,9 +18,7 @@ export default function Home() {
         <Jumbotron
           name={["Suggestion"]}
           subname="Suggestion and Feedback"
-          background={
-            '"https://cdn0.careeraddict.com/uploads/article/32158/001suggestion1.jpg"'
-          }
+          background={"Suggest.jpg"}
         />
       </div>
       <div className="body">

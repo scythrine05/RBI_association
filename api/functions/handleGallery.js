@@ -4,7 +4,15 @@
 const pool = require("../database/dbPool");
 
 //Get All Images
-const getAllImages = async () => {};
+const getAllImages = async () => {
+  let sql = "select * from gallery order by UploadDate desc";
+  try {
+    let requiredData = await pool.query(sql);
+    return requiredData;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 
 const getAllYearImages = async (year) => {};
 

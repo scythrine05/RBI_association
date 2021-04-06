@@ -33,47 +33,49 @@ export default function AddPhoto(props) {
     return null;
   };
   return (
-    <Modal
-      {...props}
-      size="lg"
-      backdrop="static"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Loading
-        loading={loading}
-        background="rgba(0,0,0,0.8)"
-        loaderColor="#3498db"
-      />
-      <Modal.Header closeButton>
-        <Modal.Title
-          style={{ textAlign: "center", fontSize: "30px" }}
-          id="contained-modal-title-vcenter"
-        >
-          Add Photo
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Msg state={msgState} />
-        <Form onSubmit={handleSubmit}>
-          <Form.Group>
-            <Form.File
-              id="exampleFormControlFile1"
-              onChange={(e) => {
-                setFile(e.target.files[0]);
-              }}
-            />
-          </Form.Group>
-          <Button
-            type="submit"
-            style={{ margiTop: "20px", float: "right" }}
-            variant=""
+    <React.Fragment>
+      <Modal
+        {...props}
+        size="lg"
+        backdrop="static"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Loading
+          loading={loading}
+          background="rgba(0,0,0,0.8)"
+          loaderColor="#3498db"
+        />
+        <Modal.Header closeButton>
+          <Modal.Title
+            style={{ textAlign: "center", fontSize: "30px" }}
+            id="contained-modal-title-vcenter"
           >
-            Add
-          </Button>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer> </Modal.Footer>
-    </Modal>
+            Add Photo
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Msg state={msgState} />
+          <Form onSubmit={handleSubmit}>
+            <Form.Group>
+              <Form.File
+                id="exampleFormControlFile1"
+                onChange={(e) => {
+                  setFile(e.target.files[0]);
+                }}
+              />
+            </Form.Group>
+            <Button
+              type="submit"
+              style={{ margiTop: "20px", float: "right" }}
+              variant=""
+            >
+              Add
+            </Button>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer> </Modal.Footer>
+      </Modal>
+    </React.Fragment>
   );
 }
