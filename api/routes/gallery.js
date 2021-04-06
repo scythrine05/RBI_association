@@ -45,7 +45,6 @@ router.use(passport.authenticate("jwt", { session: false }));
 
 router.get("/", (req, res) => {
   //Get All Images with handleGallery(getAllImages function)
-  console.log("hey");
   gallery
     .getAllImages()
     .then((results) => res.status(200).json(results))

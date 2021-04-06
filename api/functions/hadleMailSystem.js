@@ -12,6 +12,22 @@ let transporter = nodemailer.createTransport({
   },
 });
 
+const suggestion = async (id, data) => {
+  let mail = {
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
+    subject: "RBIOA(Suggestion)",
+    html: `<h1 style = 'text-align:center'>RBI Officers' Association</h1><br/><h3 style='text-align:center'>Suggestion Form</h3><br/><p style ='text-align:center'>SamadhanID: ${id}</p><br/><p style ='text-align:center'>Name: ${data.Name}</p><br/><p style ='text-align:center'>Email: ${data.Email}</p><br/><p style ='text-align:center'>Subject: ${data.Subject}</p><br/><p style ='text-align:center'>Message: ${data.Message}</p><hr/>`,
+  };
+
+  try {
+    await transporter.sendMail(mail);
+    return;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
 const newUserEmail = async (email) => {
   let mail = {
     from: process.env.EMAIL_USER,
@@ -76,6 +92,7 @@ const existingUserEmail = async (email, password) => {
   }
 };
 module.exports = {
+  suggestion,
   newUserEmail,
   newUserEmailApproved,
   newUserEmailDisapproved,

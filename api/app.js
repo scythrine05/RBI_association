@@ -24,6 +24,7 @@ app.use("/0900e5b2/communication", require("./routes/communication"));
 app.use("/0900e5b2/news", require("./routes/news"));
 app.use("/0900e5b2/gallery", require("./routes/gallery"));
 app.use("/0900e5b2/polls", require("./routes/polls"));
+app.use("/0900e5b2/suggest", require("./routes/suggestion"));
 app.use("/0900e5b2/profile", require("./routes/profile"));
 
 app.get("/*", (req, res) => {
