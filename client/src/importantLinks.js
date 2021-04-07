@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./css/importantLinks.css";
 import { Container } from "react-bootstrap";
 
+import "./css/importantLinks.css";
+
 export default class SimpleSlider extends React.Component {
   render() {
     var settings = {
@@ -41,7 +43,9 @@ export default class SimpleSlider extends React.Component {
     return (
       <div className="slider">
         <Container>
-          <h1 style={{ textAlign: "center" }}>Important Links</h1>
+          <h1 className="iL-h1" style={{ textAlign: "center" }}>
+            Important Links
+          </h1>
           <Slider {...settings}>
             <img
               src="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2016/08/passport-app-india-screens.jpg"

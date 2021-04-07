@@ -31,7 +31,7 @@ export function CreateNotice(props) {
         newFile.append("file", file);
         setLoading(true);
         await postComms(heading, body, newFile);
-        Swal.fire("Posted", "", "success").then(() => {
+        Swal.fire("<h4>Posted</h4>", "", "success").then(() => {
           setRedirect(1);
         });
       }
@@ -64,7 +64,7 @@ export function CreateNotice(props) {
         />
         <Modal.Header closeButton>
           <Modal.Title
-            style={{ fontSize: "30px" }}
+            style={{ fontSize: "3.5vh" }}
             id="contained-modal-title-vcenter"
           >
             Create Notice
@@ -126,18 +126,18 @@ export function Cards(props) {
   return (
     <div>
       <Alert variant="info" style={{ borderRadius: "0px" }}>
-        <Alert.Heading style={{ fontSize: "1.8vh" }}>
+        <Alert.Heading className="alert-head" style={{ fontSize: "1.8vh" }}>
           {props.date}
         </Alert.Heading>
-        <h2 style={{ textAlign: "center", fontSize: "3.8vh" }}>
-          {props.heading.length > 20
-            ? props.heading.substring(0, 20) + "..."
+        <h2 style={{ textAlign: "center", fontSize: "3.3vh" }}>
+          {props.heading.length > 10
+            ? props.heading.substring(0, 10) + "..."
             : props.heading}
         </h2>
         <hr />
         <p style={{ fontSize: "2.3vh" }}>
-          {props.paragraph.length > 50
-            ? props.paragraph.substring(0, 50) + "..."
+          {props.paragraph.length > 20
+            ? props.paragraph.substring(0, 20) + "..."
             : props.paragraph}
         </p>
         <hr />

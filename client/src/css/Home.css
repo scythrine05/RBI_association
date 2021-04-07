@@ -27,6 +27,10 @@ section {
     height: 45px;
     width: 45px;
   }
+
+  .contact {
+    font-size: 4.3vh;
+  }
 }
 
 .container {

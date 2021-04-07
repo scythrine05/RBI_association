@@ -45,7 +45,11 @@ export default function NewMember() {
       if (idCheck !== 409) {
         setUserData(initState);
         setMsgState(0);
-        Swal.fire("Form submitted", "Check your Email", "success").then(() => {
+        Swal.fire(
+          "<h4>Form submitted</h4>",
+          "<h6>Check your Email</h6>",
+          "success"
+        ).then(() => {
           setRedirect(1);
         });
       } else {

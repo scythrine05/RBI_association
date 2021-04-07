@@ -22,7 +22,7 @@ export default function NewPassword() {
         try {
           setLoading(true);
           await newPassword(oldPass, newPass);
-          Swal.fire("Done", "Password is all set", "success");
+          Swal.fire("<h4>Done</h4>", "<h6>Password is all set</h6>", "success");
           setMsgState(0);
         } catch (e) {
           setMsgState(3);

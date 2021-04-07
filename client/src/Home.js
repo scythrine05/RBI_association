@@ -37,7 +37,9 @@ export default function Home() {
         <SAssoc />
         <section>
           {" "}
-          <h1 syle={{ textAlign: "center" }}>Contact Us</h1>
+          <h1 className="contact" syle={{ textAlign: "center" }}>
+            Contact Us
+          </h1>
           <Alert variant="success">
             <p style={{ fontSize: "16.7px" }}>Email: abc@gmail.com </p>
             <hr />

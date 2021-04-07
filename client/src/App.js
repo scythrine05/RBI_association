@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "./css/App.css";
 
 import { Sugar } from "react-preloaders";
 
@@ -18,6 +17,8 @@ import Profile from "./Profile";
 import Members from "./Members";
 import FullTeam from "./FullTeam";
 import NewPassword from "./NewPassword";
+
+import "./css/App.css";
 
 export default function App() {
   const { auth } = useContext(authContext);

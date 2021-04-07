@@ -20,7 +20,7 @@ const FormPage = () => {
       } else {
         setLoading(true);
         await postSuggest(name, email, subject, message);
-        Swal.fire("Sent", "Message sent", "success");
+        Swal.fire("<h4>Sent</h4>", "<h6>Message sent</h6>", "success");
         setMsgState(0);
         setMessage("");
       }

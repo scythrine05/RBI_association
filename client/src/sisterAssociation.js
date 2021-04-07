@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./css/sisterAssociation.css";
 import { Container, Alert } from "react-bootstrap";
 
+import "./css/sisterAssociation.css";
+
 export default class SimpleSlider extends React.Component {
   render() {
     var settings = {
@@ -41,7 +43,9 @@ export default class SimpleSlider extends React.Component {
     return (
       <div className="slider">
         <Container>
-          <h1 style={{ textAlign: "center" }}>Sister Association</h1>
+          <h1 className="sis-h1" style={{ textAlign: "center" }}>
+            Sister Association
+          </h1>
           <Slider {...settings}>
             <Alert className="title_slide" variant="warning">
               Association 1

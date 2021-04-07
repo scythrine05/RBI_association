@@ -10,4 +10,7 @@
   .card-text {
     font-size: 15px;
   }
+  .alert-head {
+    font-size: 2vh;
+  }
 }

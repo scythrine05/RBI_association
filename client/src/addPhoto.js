@@ -16,7 +16,7 @@ export default function AddPhoto(props) {
       newFile.append("file", file);
       setLoading(true);
       await postImages(newFile);
-      Swal.fire("Posted", "", "success").then(() => {
+      Swal.fire("<h4>Posted</h4>", "", "success").then(() => {
         window.location.reload();
       });
     } catch (e) {
@@ -48,7 +48,7 @@ export default function AddPhoto(props) {
         />
         <Modal.Header closeButton>
           <Modal.Title
-            style={{ textAlign: "center", fontSize: "30px" }}
+            style={{ textAlign: "center", fontSize: "3.5vh" }}
             id="contained-modal-title-vcenter"
           >
             Add Photo

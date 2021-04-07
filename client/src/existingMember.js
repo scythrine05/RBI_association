@@ -51,8 +51,8 @@ export default function NewMember() {
         await existingUser(userData);
 
         Swal.fire(
-          "Form verified",
-          "Check your Email for password",
+          "<h4>Form verified</h4>",
+          "<h6>Check your Email for password</h6>",
           "success"
         ).then(() => {
           setRedirect(1);

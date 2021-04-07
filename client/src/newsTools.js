@@ -29,7 +29,7 @@ export function CreateNewsLetter(props) {
         newFile.append("file", file);
         setLoading(true);
         await postNews(heading, body, newFile);
-        Swal.fire("Posted", "", "success").then(() => {
+        Swal.fire("<h4>Posted</h4>", "", "success").then(() => {
           setRedirect(1);
         });
       }
@@ -62,7 +62,7 @@ export function CreateNewsLetter(props) {
         />
         <Modal.Header closeButton>
           <Modal.Title
-            style={{ fontSize: "30px" }}
+            style={{ fontSize: "3.5vh" }}
             id="contained-modal-title-vcenter"
           >
             Create News Letter
