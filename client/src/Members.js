@@ -23,9 +23,16 @@ export default function Members() {
     if (!pData.length)
       return (
         <React.Fragment>
-          <td className="empty" colSpan="4">
-            <Spinner animation="grow" />
-          </td>
+          <tr>
+            <td className="empty" colSpan="5">
+              <Spinner animation="grow" />
+            </td>
+          </tr>
+          <tr>
+            <td className="empty" colSpan="5">
+              {/* Empty margin */}
+            </td>
+          </tr>
         </React.Fragment>
       );
     else {

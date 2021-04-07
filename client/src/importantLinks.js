@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./css/importantLinks.css";
-import { Container } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 
 import "./css/importantLinks.css";
 
@@ -33,7 +33,7 @@ export default class SimpleSlider extends React.Component {
           settings: {
             vertical: true,
             verticalScroll: true,
-            slidesToShow: 1,
+            slidesToShow: 2,
             slidesToScroll: 1,
             initialSlide: 1,
           },
@@ -47,55 +47,21 @@ export default class SimpleSlider extends React.Component {
             Important Links
           </h1>
           <Slider {...settings}>
-            <img
-              src="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2016/08/passport-app-india-screens.jpg"
-              width="100"
-              height="100"
-              alt="RBIOA logo"
-              className="img_slide d-inline-block align-top"
-            />
-            <img
-              src="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2016/08/passport-app-india-screens.jpg"
-              width="100"
-              height="100"
-              alt="RBIOA logo"
-              className="img_slide d-inline-block align-top"
-            />
-            <img
-              src="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2016/08/Narendra-Modi-App-SS-1.jpg"
-              width="100"
-              height="100"
-              className="img_slide d-inline-block align-top"
-              alt="RBIOA logo"
-            />
-            <img
-              src="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2016/08/yourstory_AppFriday_IncredibleIndia_InsideArticle1.jpg"
-              width="100"
-              height="100"
-              className="img_slide d-inline-block align-top"
-              alt="RBIOA logo"
-            />
-            <img
-              src="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2016/08/Grameen_Vidhutikaran.png"
-              width="100"
-              height="100"
-              className="img_slide d-inline-block align-top"
-              alt="RBIOA logo"
-            />
-            <img
-              src="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2016/09/khoyapaya1.jpg"
-              width="100"
-              height="100"
-              className="img_slide d-inline-block align-top"
-              alt="RBIOA logo"
-            />
-            <img
-              src="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2016/09/digital-india-m-kavach-gallery-1.jpg"
-              width="100"
-              height="100"
-              className="img_slide d-inline-block align-top"
-              alt="RBIOA logo"
-            />
+            <Alert className="title_slide" variant="warning">
+              Link 1
+            </Alert>
+            <Alert className="title_slide" variant="warning">
+              Link 2
+            </Alert>
+            <Alert className="title_slide" variant="warning">
+              Link 3
+            </Alert>
+            <Alert className="title_slide" variant="warning">
+              Link 4
+            </Alert>
+            <Alert className="title_slide" variant="warning">
+              Link 5
+            </Alert>
           </Slider>
         </Container>
       </div>
