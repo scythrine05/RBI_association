@@ -37,15 +37,15 @@ export default function Home() {
         <SAssoc />
         <section>
           {" "}
-          <h1 className="contact" syle={{ textAlign: "center" }}>
+          <h1 className="contact-h1" syle={{ textAlign: "center" }}>
             Contact Us
           </h1>
-          <Alert variant="success">
-            <p style={{ fontSize: "16.7px" }}>Email: abc@gmail.com </p>
+          <Alert variant="success" className="contact-body">
+            <p>Email: abc@gmail.com </p>
             <hr />
-            <p style={{ fontSize: "16.7px" }}>Phone: 729310310884 </p>
+            <p>Phone: 729310310884 </p>
             <hr />
-            <p style={{ fontSize: "16.7px" }}>
+            <p>
               Headquarter: near jj shop, Andheri, Mumbai, Maharastra, 830023{" "}
             </p>
           </Alert>

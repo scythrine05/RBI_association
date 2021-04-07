@@ -15,7 +15,7 @@ export default function Communcation() {
     if (!cData.length)
       return (
         <React.Fragment>
-          <div style={{ textAlign: "center", marginBottom: "2%" }}>
+          <div style={{ textAlign: "center", marginBottom: "5em" }}>
             <Spinner animation="grow" />
           </div>
         </React.Fragment>
