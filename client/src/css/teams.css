@@ -6,4 +6,10 @@ h1 {
   h1 {
     font-size: 30px;
   }
+  .font-weight-bold {
+    font-size: 2.8vh;
+  }
+  .text-uppercase {
+    font-size: 2vh;
+  }
 }

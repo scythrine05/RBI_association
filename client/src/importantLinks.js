@@ -15,13 +15,13 @@ export default class SimpleSlider extends React.Component {
       autoplay: true,
       infinite: true,
       speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 2,
       arrows: false,
-      slidesToShow: 6,
-      adjustHeight: true,
-      slidesToScroll: 1,
+      centerMode: true,
       responsive: [
         {
-          breakpoint: 600,
+          breakpoint: 800,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
@@ -32,10 +32,9 @@ export default class SimpleSlider extends React.Component {
           breakpoint: 500,
           settings: {
             vertical: true,
-            verticalScroll: true,
-            slidesToShow: 2,
-            slidesToScroll: 1,
             initialSlide: 1,
+            slidesToShow: 1,
+            slidesToScroll: 1,
           },
         },
       ],
