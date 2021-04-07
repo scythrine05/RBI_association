@@ -31,4 +31,4 @@
 - [x] Crete an Account
 - [x] Contact Us Functionality
 - [x] Profile Page Functionality
-- [ ] Suggestion Page
+- [x] Suggestion Page
