@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
 }
-.option {
+.each-option {
   width: 50%;
   margin-top: 2vh;
   display: flex;
@@ -19,8 +19,12 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .option {
+  .each-option {
     font-size: 2vh;
     flex-direction: column;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
   }
 }

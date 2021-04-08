@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import Loading from "react-fullscreen-loading";
-import { PlusCircle, X, Pen } from "react-bootstrap-icons";
+import { Plus, X, Pen } from "react-bootstrap-icons";
 import { postPolls, votePolls } from "./axios/polls";
 import Swal from "sweetalert2";
 
@@ -119,15 +119,13 @@ export function CreatePolls(props) {
                     onClick={() => handleRemove(idx)}
                     style={{ marginBottom: "10px", marginTop: "10px" }}
                   >
-                    <p>
-                      <X />
-                    </p>
+                    <X />
                   </Button>
                 </div>
               );
             })}
             <Button type="button" onClick={() => handleAdd()}>
-              <PlusCircle />
+              <Plus />
             </Button>
             <Button
               type="submit"
@@ -174,7 +172,7 @@ export function PollsCards(props) {
                 <Button
                   onClick={optionVote}
                   variant={y}
-                  className="option"
+                  className="each-option"
                   key={indx}
                   disabled={x}
                 >
