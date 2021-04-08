@@ -14,8 +14,6 @@ const getAllImages = async () => {
   }
 };
 
-const getAllYearImages = async (year) => {};
-
 const postImage = async (imageData) => {
   let date = new Date();
   let sql = "insert into gallery(ImageFile, UploadDate) values(?,?)";
@@ -29,6 +27,5 @@ const postImage = async (imageData) => {
 
 module.exports = {
   getAllImages,
-  getAllYearImages,
   postImage,
 };

@@ -9,6 +9,8 @@ import { logoutUser } from "./axios/login";
 import { Link } from "react-router-dom";
 import { CreateNotice } from "./commsTools";
 import { CreateNewsLetter } from "./newsTools";
+import { CreatePolls } from "./pollsTools";
+
 import {
   Newspaper,
   People,
@@ -22,6 +24,7 @@ export default function Profile() {
   const [userData, setUserData] = useState("");
   const [commsModalShow, setCommsModalShow] = useState(false);
   const [newsModalShow, setNewsModalShow] = useState(false);
+  const [pollsModalShow, setPollsModalShow] = useState(false);
   const { setAuthData } = useContext(authContext);
 
   const Loading = () => {
@@ -82,7 +85,11 @@ export default function Profile() {
               </Button>
             </div>
             <div>
-              <Button size="lg" variant="">
+              <Button
+                size="lg"
+                variant=""
+                onClick={() => setPollsModalShow(true)}
+              >
                 <BarChart />
               </Button>
             </div>
@@ -118,6 +125,10 @@ export default function Profile() {
         <CreateNewsLetter
           show={newsModalShow}
           onHide={() => setNewsModalShow(false)}
+        />
+        <CreatePolls
+          show={pollsModalShow}
+          onHide={() => setPollsModalShow(false)}
         />
         <div className="card-container">
           <Loading />

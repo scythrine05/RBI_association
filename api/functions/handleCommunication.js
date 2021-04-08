@@ -15,16 +15,16 @@ const getAllComms = async () => {
 };
 
 //Get All Communication of Particular Year
-const getAllYearComms = async (year) => {
-  let sql =
-    "select * from communication where Year(Date) = ? order by Date desc";
-  try {
-    let requiredData = await pool.query(sql, [year]);
-    return requiredData;
-  } catch (e) {
-    throw new Error(e);
-  }
-};
+// const getAllYearComms = async (year) => {
+//   let sql =
+//     "select * from communication where Year(Date) = ? order by Date desc";
+//   try {
+//     let requiredData = await pool.query(sql, [year]);
+//     return requiredData;
+//   } catch (e) {
+//     throw new Error(e);
+//   }
+// };
 
 //Get Front Communication for Homepage
 const getFComms = async () => {
@@ -58,7 +58,6 @@ const postComms = async (Id, commsData) => {
 
 module.exports = {
   getAllComms,
-  getAllYearComms,
   getFComms,
   postComms,
 };

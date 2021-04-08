@@ -1,0 +1,13 @@
+.polls-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.option {
+  width: 50%;
+  margin-top: 2vh;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
