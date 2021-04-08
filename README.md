@@ -24,7 +24,7 @@
 - [x] Session Authorization
 - [x] News CRUD
 - [x] Communication CRUD
-- [ ] Polls CRUD
+- [x] Polls CRUD
 - [x] File Upload Functionality
 - [x] Gallery Picture Upload
 - [x] Members Page Functionality
