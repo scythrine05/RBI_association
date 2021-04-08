@@ -54,10 +54,9 @@ const postPolls = async (id, question, options) => {
     await pool.query(sql3);
     await pool.query(sql4);
     await pool.query(sql5);
-    options.map(async (data, indx) => {
-      await pool.query(sql2, [data.value, results.insertId]);
-    });
-
+    for (i = 0; i < options.length; i++) {
+      await pool.query(sql2, [options[i].value, results.insertId]);
+    }
     return;
   } catch (e) {
     console.log(e);
