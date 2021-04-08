@@ -119,7 +119,9 @@ export function CreatePolls(props) {
                     onClick={() => handleRemove(idx)}
                     style={{ marginBottom: "10px", marginTop: "10px" }}
                   >
-                    <X />
+                    <p>
+                      <X />
+                    </p>
                   </Button>
                 </div>
               );

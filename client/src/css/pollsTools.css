@@ -9,5 +9,18 @@
   margin-top: 2vh;
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  height: auto;
+  overflow: hidden;
+  white-space: pre-wrap;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .option {
+    font-size: 2vh;
+    flex-direction: column;
+  }
 }
