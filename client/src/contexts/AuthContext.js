@@ -13,11 +13,12 @@ const AuthProvider = ({ children }) => {
         await authCheck();
         setAuth(1);
       } catch (e) {
+        console.clear();
         setAuth(0);
       }
     }
     fetchAuth();
-  });
+  }, []);
 
   const setAuthData = async (val) => {
     setAuth(val);
