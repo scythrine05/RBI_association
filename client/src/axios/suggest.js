@@ -1,10 +1,14 @@
 import Axios from "axios";
+const apiUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_PROD_API_URL
+    : process.env.REACT_APP_DEV_API_URL;
 
 export const postSuggest = async (name, email, subject, message) => {
   try {
     await Axios({
       method: "post",
-      url: "http://localhost:5000/0900e5b2/suggest",
+      url: `${apiUrl}/0900e5b2/suggest`,
       headers: "",
       data: {
         Name: name,
@@ -22,7 +26,7 @@ export const postSuggest = async (name, email, subject, message) => {
 export const getData = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/0900e5b2/suggest/data",
+    url: `${apiUrl}/0900e5b2/suggest/data`,
     headers: "",
     withCredentials: true,
   })

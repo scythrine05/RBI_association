@@ -1,10 +1,13 @@
 import Axios from "axios";
-
+const apiUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_PROD_API_URL
+    : process.env.REACT_APP_DEV_API_URL;
 export const postPolls = async (question, options) => {
   try {
     await Axios({
       method: "post",
-      url: "http://localhost:5000/0900e5b2/polls",
+      url: `${apiUrl}/0900e5b2/polls`,
       headers: "",
       data: {
         Question: question,
@@ -20,7 +23,7 @@ export const postPolls = async (question, options) => {
 export const getPolls = () =>
   Axios({
     method: "get",
-    url: "http://localhost:5000/0900e5b2/polls",
+    url: `${apiUrl}/0900e5b2/polls`,
     withCredentials: true,
   })
     .then((res) => {
@@ -33,7 +36,7 @@ export const getPolls = () =>
 export const votePolls = (option, id) =>
   Axios({
     method: "post",
-    url: "http://localhost:5000/0900e5b2/polls/vote",
+    url: `${apiUrl}/0900e5b2/polls/vote`,
     withCredentials: true,
     data: {
       PId: id,

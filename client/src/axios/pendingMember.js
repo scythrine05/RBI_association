@@ -1,9 +1,12 @@
 import Axios from "axios";
-
+const apiUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_PROD_API_URL
+    : process.env.REACT_APP_DEV_API_URL;
 export const approve = (Id) =>
   Axios({
     method: "post",
-    url: "http://localhost:5000/0900e5b2/members/pending/approve",
+    url: `${apiUrl}/0900e5b2/members/pending/approve`,
     headers: "",
     withCredentials: true,
     data: {
@@ -20,7 +23,7 @@ export const approve = (Id) =>
 export const disapprove = (Id) =>
   Axios({
     method: "post",
-    url: "http://localhost:5000/0900e5b2/members/pending/disapprove",
+    url: `${apiUrl}/0900e5b2/members/pending/disapprove`,
     headers: "",
     withCredentials: true,
     data: {

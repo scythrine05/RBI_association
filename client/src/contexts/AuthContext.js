@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
       }
     }
     fetchAuth();
-  }, []);
+  });
 
   const setAuthData = async (val) => {
     setAuth(val);

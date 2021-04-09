@@ -1,9 +1,12 @@
 import Axios from "axios";
-
+const apiUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_PROD_API_URL
+    : process.env.REACT_APP_DEV_API_URL;
 export const loginUser = (email, password) =>
   Axios({
     method: "post",
-    url: "http://localhost:5000/0900e5b2/login",
+    url: `${apiUrl}/0900e5b2/login`,
     headers: "",
     data: {
       Email: email,
@@ -18,6 +21,6 @@ export const loginUser = (email, password) =>
       throw e;
     });
 export const logoutUser = () =>
-  Axios.delete("http://localhost:5000/0900e5b2/login", {
+  Axios.delete(`${apiUrl}/0900e5b2/login`, {
     withCredentials: true,
   });
