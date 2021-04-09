@@ -17,7 +17,7 @@ app.use(
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use("/0900e5b2/login", require("./routes/login"));
 app.use("/0900e5b2/signup", require("./routes/signup"));
-app.use("/08z1euop/auth", require("./routes/auth"));
+app.use("/0900e5b2/auth", require("./routes/auth"));
 app.use("/0900e5b2/members", require("./routes/members"));
 app.use("/0900e5b2/team", require("./routes/team"));
 app.use("/0900e5b2/communication", require("./routes/communication"));

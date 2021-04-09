@@ -7,7 +7,7 @@ const apiUrl =
 export const authCheck = () =>
   Axios({
     method: "get",
-    url: `${apiUrl}/08z1euop/auth`,
+    url: `${apiUrl}/0900e5b2/auth`,
     headers: "",
     withCredentials: true,
   })
