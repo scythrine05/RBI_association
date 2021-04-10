@@ -23,7 +23,7 @@ export function CreateNewsLetter(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (heading === "" && body === "") setMsgState(1);
+      if (heading === "" || body === "") setMsgState(1);
       else {
         const newFile = new FormData();
         newFile.append("file", file);
