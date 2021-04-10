@@ -4,7 +4,7 @@ import { authCheck } from "../axios/auth";
 export const authContext = createContext({});
 
 const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState(1);
+  const [auth, setAuth] = useState(0);
   // we will use loading later
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
       }
     }
     fetchAuth();
-  });
+  }, []);
 
   const setAuthData = async (val) => {
     setAuth(val);

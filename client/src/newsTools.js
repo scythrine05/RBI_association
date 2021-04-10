@@ -23,7 +23,7 @@ export function CreateNewsLetter(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (heading === "") setMsgState(1);
+      if (heading === "" && body === "") setMsgState(1);
       else {
         const newFile = new FormData();
         newFile.append("file", file);
@@ -40,7 +40,7 @@ export function CreateNewsLetter(props) {
   };
   const Msg = (props) => {
     if (props.state === 1)
-      return <Alert variant="danger"> Heading is Required </Alert>;
+      return <Alert variant="danger"> Fields Empty </Alert>;
     if (props.state === 2)
       return <Alert variant="danger">Error: Check file Type </Alert>;
     return null;
