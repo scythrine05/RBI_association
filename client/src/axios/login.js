@@ -18,6 +18,7 @@ export const loginUser = (email, password) =>
       return;
     })
     .catch((e) => {
+      console.clear();
       throw e;
     });
 export const logoutUser = () =>
