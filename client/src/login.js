@@ -41,6 +41,7 @@ export default function Log() {
 
   const onLogOut = () => {
     logoutUser();
+    setAuthData(0);
   }; //clearing the context
 
   return (
