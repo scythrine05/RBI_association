@@ -22,7 +22,7 @@ const cookieConfig = {
   httpOnly: true,
   maxAge: 90000000,
   overwrite: true,
-  secure: false, // true in production
+  secure: true, // true in production
 };
 
 // Global Middlewares
