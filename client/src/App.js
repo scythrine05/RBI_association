@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <div>
-      <Sugar color="#3498db" animation="slide-right" time={500} />
+      <Sugar color="#3498db" animation="slide-right" time={2000} />
       <BrowserRouter>
         <Switch>
           <Route

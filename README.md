@@ -1,34 +1,26 @@
 # RBI_Officers_Association Website
 
-## Developers: Hardik Goyal and Rohan Murmu
+RBIOA is an organization under Reserved bank of India.
 
-### Frontend / Client Side:
+The [RBIOA Website](rbioa.org.in) has technologies as follows:
 
-- [x] Static NavBar: Home, News, Polls, Profile
-- [x] Preloader
-- [x] Login Button -> Logout Button (after logged in)
-- [x] All Routes protected by authentication
-- [x] Members button: Only for the logged in admin on Home Page
-- [x] Storing Cookie data in frontend to remember user
-- [x] Pages:
-  - [x] Home: Description, Short_Gallery, Imp_Link, Team, Contact_Us_Suggestions, Details_Of_Association(If reqd.);
-  - [x] Register: Form;
-  - [x] Gallery: Photos onClicked Modal appears;
-  - [x] News: NewsLetter, Editor_on_top onClicked Modal appears ;
-  - [x] Polls: Polls,Editor_on_top onClicked Modal appears ;
-  - [x] Profile: Predefined Format of Details in a Form.
+### Frontend Technology
 
-### Backend / Server Side:
+[React.js](https://reactjs.org/) - An open-source front-end JavaScript library for building user interfaces or UI components.
 
-- [x] Login Authentication
-- [x] Session Authorization
-- [x] News CRUD
-- [x] Communication CRUD
-- [x] Polls CRUD
-- [x] File Upload Functionality
-- [x] Gallery Picture Upload
-- [x] Members Page Functionality
-- [x] Crete an Account
-- [x] Contact Us Functionality
-- [x] Profile Page Functionality
-- [x] Suggestion Page
+### Backend Technology
+
+[Express.js](https://expressjs.com/) - A back end web application framework for [Node.js](https://nodejs.org/en/), released as free and open-source software under the MIT License.
+
+### Database
+
+[Mysql](https://www.mysql.com/) - An open-source relational database management system.
+
+### Dev Ops
+
+App Configuration via Github on [Digital Ocean](https://www.digitalocean.com/) - An American cloud infrastructure provider headquartered in New York City with data centers worldwide.
+
+### Developers:
+
+[Hardik Goyal](https://github.com/hardik-goyal)
+[Rohan Murmu](https://github.com/scythrine05)
