@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { Sugar } from "react-preloaders";
 
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import { authContext } from "./contexts/AuthContext";
 
@@ -47,7 +47,7 @@ export default function App() {
             component={NewPassword}
           />
           <PrivateRoute exact path="/members" component={Members} />
-          <Redirect to="/" />
+          <Route path="" component={Home} />
         </Switch>
       </BrowserRouter>
     </div>

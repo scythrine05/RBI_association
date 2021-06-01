@@ -9,6 +9,11 @@ export default function AddPhoto(props) {
   const [msgState, setMsgState] = useState(0);
   const [loading, setLoading] = useState(false);
 
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_PROD_API_URL
+      : process.env.REACT_APP_DEV_CLIENT_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -16,8 +21,8 @@ export default function AddPhoto(props) {
       newFile.append("file", file);
       setLoading(true);
       await postImages(newFile);
-      Swal.fire("<h4>Posted</h4>", "", "success").then(() => {
-        window.location.reload();
+      Swal.fire("<h4>Posted</h4>", "Redirect to Home", "success").then(() => {
+        window.location = apiUrl;
       });
     } catch (e) {
       setMsgState(2);

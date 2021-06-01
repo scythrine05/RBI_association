@@ -148,6 +148,10 @@ export function PollsCards(props) {
     if (props.active === 1 && props.done === 0) return pollsOption(false);
     else return pollsOption(true, "secondary");
   };
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_PROD_API_URL
+      : process.env.REACT_APP_DEV_CLIENT_URL;
   const pollsOption = (x, y) => {
     return (
       <Container className="polls-options">
@@ -155,7 +159,11 @@ export function PollsCards(props) {
           const optionVote = async () => {
             setSpin(true);
             await votePolls(data.option, props.id);
-            window.location.reload();
+            Swal.fire("<h4>Voted</h4>", "Redirect to Home", "success").then(
+              () => {
+                window.location = apiUrl;
+              }
+            );
           };
           return (
             <React.Fragment>

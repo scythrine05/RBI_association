@@ -48,7 +48,7 @@ const postPolls = async (id, question, options) => {
     let sql4 = `create event myevt${results.insertId} on schedule at CURRENT_TIMESTAMP + INTERVAL 1 MINUTE do drop table if exists Poll${results.insertId}`;
     let sql5 = `create event myevt${
       results.insertId + 100
-    } on schedule at CURRENT_TIMESTAMP + INTERVAL 1 MINUTE do update polls set Active = 0 where PollsID = ${
+    } on schedule at CURRENT_TIMESTAMP + INTERVAL 1 DAY do update polls set Active = 0 where PollsID = ${
       results.insertId
     }`;
     await pool.query(sql3);
