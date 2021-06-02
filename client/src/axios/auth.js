@@ -6,7 +6,7 @@ const apiUrl =
 
 export const authCheck = () =>
   Axios({
-    method: "get",
+    method: "post",
     url: `${apiUrl}/0900e5b2/auth`,
     headers: "",
     withCredentials: true,

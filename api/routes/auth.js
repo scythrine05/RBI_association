@@ -17,7 +17,7 @@ router.use(
 router.use(passport.initialize());
 router.use(passport.authenticate("jwt", { session: false }));
 
-router.get("/", (req, res) => {
+router.post("/", (req, res) => {
   res.send(req.user);
 });
 
