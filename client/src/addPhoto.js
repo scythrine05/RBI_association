@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { Button, Modal, Form, Alert } from "react-bootstrap";
 import { postImages } from "./axios/gallery";
 import Loading from "react-fullscreen-loading";
+import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function AddPhoto(props) {
   const [file, setFile] = useState(null);
   const [msgState, setMsgState] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [redirect, setRedirect] = useState(0);
 
-  const apiUrl =
-    process.env.NODE_ENV === "production"
-      ? process.env.REACT_APP_PROD_API_URL
-      : process.env.REACT_APP_DEV_CLIENT_URL;
-
+  const Rd = () => {
+    if (redirect === 1) return <Redirect to="/" />;
+    return null;
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -22,7 +23,7 @@ export default function AddPhoto(props) {
       setLoading(true);
       await postImages(newFile);
       Swal.fire("<h4>Posted</h4>", "Redirect to Home", "success").then(() => {
-        window.location = apiUrl;
+        setRedirect(1);
       });
     } catch (e) {
       setMsgState(2);
@@ -39,6 +40,7 @@ export default function AddPhoto(props) {
   };
   return (
     <React.Fragment>
+      <Rd />
       <Modal
         {...props}
         size="lg"

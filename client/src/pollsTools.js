@@ -144,14 +144,15 @@ export function CreatePolls(props) {
 
 export function PollsCards(props) {
   const [spin, setSpin] = useState(false);
+  const [redirect, setRedirect] = useState(0);
+  const Rd = () => {
+    if (redirect === 1) return <Redirect to="/" />;
+    return null;
+  };
   const CheckActive = () => {
     if (props.active === 1 && props.done === 0) return pollsOption(false);
     else return pollsOption(true, "secondary");
   };
-  const apiUrl =
-    process.env.NODE_ENV === "production"
-      ? process.env.REACT_APP_PROD_API_URL
-      : process.env.REACT_APP_DEV_CLIENT_URL;
   const pollsOption = (x, y) => {
     return (
       <Container className="polls-options">
@@ -161,7 +162,7 @@ export function PollsCards(props) {
             await votePolls(data.option, props.id);
             Swal.fire("<h4>Voted</h4>", "Redirect to Home", "success").then(
               () => {
-                window.location = apiUrl;
+                setRedirect(1);
               }
             );
           };
@@ -196,6 +197,7 @@ export function PollsCards(props) {
   };
   return (
     <div>
+      <Rd />
       <Alert variant="info" style={{ borderRadius: "0px" }}>
         <Alert.Heading className="alert-head" style={{ fontSize: "1.8vh" }}>
           {props.date}
