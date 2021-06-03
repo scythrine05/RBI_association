@@ -5,12 +5,12 @@
 
 @media only screen and (max-width: 768px) {
   thead tr th {
-    font-size: 2.2vh;
+    font-size: 2vh;
   }
   tbody {
-    font-size: 2.2vh;
+    font-size: 2vh;
   }
   tbody span {
-    font-size: 2vh;
+    font-size: 1.7vh;
   }
 }

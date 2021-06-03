@@ -21,6 +21,8 @@
 @media only screen and (max-width: 768px) {
   .each-option {
     font-size: 2vh;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;

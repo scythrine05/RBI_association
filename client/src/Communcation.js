@@ -71,7 +71,7 @@ export default function Communcation() {
       </header>{" "}
       <div>
         <Jumbotron
-          name={["Communication"]}
+          name={["Notice"]}
           subname="Notices and Alerts"
           background={"/Comms.jpg"}
         />
