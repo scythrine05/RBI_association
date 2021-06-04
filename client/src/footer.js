@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./css/footer.css";
 
 export default function footer() {
@@ -9,11 +11,13 @@ export default function footer() {
         <font size="1">
           <br />
           <br /> ·
-          <h8 style={{ marginRight: "5px", marginLeft: "5px" }}>
-            {" "}
-            Developed by Hardik Goyal and Rohan Murmu{" "}
-          </h8>
-          ·{" "}
+          <Link exact to="/developers">
+            <h8 style={{ marginRight: "5px", marginLeft: "5px" }}>
+              {" "}
+              Developers{" "}
+            </h8>
+          </Link>
+          ·
         </font>
       </h6>
     </div>

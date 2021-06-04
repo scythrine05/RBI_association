@@ -10,6 +10,20 @@
   padding-top: 20px;
 }
 
+.footer a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.666);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
 .footer_text {
   font-weight: 400;
   color: white;

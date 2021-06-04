@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import { Cards } from "./commsTools";
+import { FCards } from "./commsTools";
 import { Spinner } from "react-bootstrap";
 import { getFComms } from "./axios/communication";
 import "./css/latest.css";
@@ -22,7 +22,7 @@ export default function MultipleItems() {
         <Slider {...settings}>
           {cData.map((data, i) => {
             return (
-              <Cards
+              <FCards
                 key={i}
                 heading={data.Heading}
                 paragraph={data.Body}

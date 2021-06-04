@@ -202,6 +202,7 @@ export function PollsCards(props) {
         <Alert.Heading className="alert-head" style={{ fontSize: "1.8vh" }}>
           {props.date}
         </Alert.Heading>
+        <hr />
         <h2 style={{ textAlign: "center", fontSize: "3.3vh" }}>
           {props.question}
         </h2>

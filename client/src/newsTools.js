@@ -137,6 +137,7 @@ export function News(props) {
           <Card.Title style={{ textAlign: "center", fontSize: "3.8vh" }}>
             {props.heading}
           </Card.Title>
+          <hr />
           <Card.Text>
             <p style={{ fontSize: "2.3vh" }}>
               {props.paragraph.length > 50

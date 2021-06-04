@@ -17,6 +17,7 @@ import Profile from "./Profile";
 import Members from "./Members";
 import FullTeam from "./FullTeam";
 import NewPassword from "./NewPassword";
+import Developers from "./Developers";
 
 import "./css/App.css";
 
@@ -35,6 +36,7 @@ export default function App() {
           />
           <Route exact path="/" component={Home} />
           <Route exact path="/fullteam" component={FullTeam} />
+          <Route exact path="/developers" component={Developers} />
           <PrivateRoute exact path="/gallery" component={FullGallery} />
           <PrivateRoute exact path="/news" component={Newsletter} />
           <PrivateRoute exact path="/communication" component={Communication} />

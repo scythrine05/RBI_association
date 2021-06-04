@@ -129,6 +129,42 @@ export function Cards(props) {
         <Alert.Heading className="alert-head" style={{ fontSize: "1.8vh" }}>
           {props.date}
         </Alert.Heading>
+        <hr />
+        <h2 style={{ textAlign: "center", fontSize: "3.3vh" }}>
+          {props.heading}
+        </h2>
+        <hr />
+        <p style={{ fontSize: "2.3vh" }}>
+          {props.paragraph.length > 50
+            ? props.paragraph.substring(0, 50) + "..."
+            : props.paragraph}
+        </p>
+        <hr />
+        <Button variant="" onClick={() => setModalShow(true)}>
+          <Eye />
+        </Button>
+        <FullView
+          img={props.img}
+          date={props.date}
+          heading={props.heading}
+          paragraph={props.paragraph}
+          attach={props.attach}
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
+      </Alert>
+    </div>
+  );
+}
+
+export function FCards(props) {
+  const [modalShow, setModalShow] = React.useState(false);
+  return (
+    <div>
+      <Alert variant="info" style={{ borderRadius: "0px" }}>
+        <Alert.Heading className="alert-head" style={{ fontSize: "1.8vh" }}>
+          {props.date}
+        </Alert.Heading>
         <h2 style={{ textAlign: "center", fontSize: "3.3vh" }}>
           {props.heading.length > 10
             ? props.heading.substring(0, 10) + "..."
