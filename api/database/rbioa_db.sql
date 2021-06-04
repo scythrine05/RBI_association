@@ -1,76 +1,101 @@
-CREATE SCHEMA `rbioa_db` ;
+USE `defaultdb`;
 
-CREATE TABLE `rbioa_db`.`pendingmember` (
-  `SamadhanID` INT NOT NULL,
-  `Email` VARCHAR(64) NOT NULL,
-  `Name` TINYTEXT NOT NULL,
-  `OfficeLocation` VARCHAR(64) NULL,
+--
+-- Table structure for table `approvedmember`
+--
+
+CREATE TABLE `approvedmember` (
+  `SamadhanID` varchar(6) NOT NULL,
+  `Email` varchar(64) NOT NULL,
+  `Name` tinytext,
+  `OfficeLocation` varchar(64) DEFAULT NULL,
+  `Password` varchar(64) DEFAULT NULL,
+  `IsAdmin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`SamadhanID`),
-  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
+  UNIQUE KEY `Email_UNIQUE` (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `rbioa_db`.`approvedmember` (
-  `SamadhanID` INT NOT NULL,
-  `Email` VARCHAR(64) NOT NULL,
-  `Name` TINYTEXT NOT NULL,
-  `OfficeLocation` VARCHAR(64) NULL,
-  `Password` VARCHAR(64) NOT NULL,
-  `IsAdmin` BOOLEAN NOT NULL DEFAULT 0,
-  PRIMARY KEY (`SamadhanID`),
-  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
 
-CREATE TABLE `rbioa_db`.`news` (
-  `NewsID` INT NOT NULL,
-  `Date` DATETIME NULL,
-  `Data` JSON NULL,
-  `AuthorID` INT NULL,
-  PRIMARY KEY (`NewsID`),
-  INDEX `SamadhanID_idx` (`AuthorID` ASC) VISIBLE,
-  FOREIGN KEY (`AuthorID`)
-  REFERENCES `rbioa_db`.`approvedmember` (`SamadhanID`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION);
+--
+-- Table structure for table `communication`
+--
 
-CREATE TABLE `rbioa_db`.`communication` (
-  `CommsID` INT NOT NULL,
-  `Date` DATETIME NULL,
-  `Data` JSON NULL,
-  `AuthorID` INT NULL,
+CREATE TABLE `communication` (
+  `CommsID` int NOT NULL AUTO_INCREMENT,
+  `Date` datetime DEFAULT NULL,
+  `AuthorID` varchar(6) NOT NULL,
+  `Heading` text NOT NULL,
+  `Body` text,
+  `Attach` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`CommsID`),
-  INDEX `SamadhanID_idx` (`AuthorID` ASC) VISIBLE,
-  FOREIGN KEY (`AuthorID`)
-  REFERENCES `rbioa_db`.`approvedmember` (`SamadhanID`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION);
+  KEY `SamadhanID_idx` (`AuthorID`),
+  CONSTRAINT `communication_ibfk_1` FOREIGN KEY (`AuthorID`) REFERENCES `approvedmember` (`SamadhanID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `rbioa_db`.`polls` (
-  `PollsID` INT NOT NULL,
-  `Question` TINYTEXT NOT NULL,
-  `Date` DATETIME NULL,
+--
+-- Table structure for table `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `ImageFile` varchar(64) NOT NULL,
+  `UploadDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`ImageFile`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `NewsID` int NOT NULL AUTO_INCREMENT,
+  `Date` datetime DEFAULT NULL,
+  `AuthorID` varchar(6) NOT NULL,
+  `Heading` text NOT NULL,
+  `Body` text,
+  `Attach` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`NewsID`),
+  KEY `SamadhanID_idx` (`AuthorID`),
+  CONSTRAINT `news_ibfk_1` FOREIGN KEY (`AuthorID`) REFERENCES `approvedmember` (`SamadhanID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `pendingmember`
+--
+
+CREATE TABLE `pendingmember` (
+  `SamadhanID` varchar(6) NOT NULL,
+  `Email` varchar(64) NOT NULL,
+  `Name` tinytext NOT NULL,
+  `OfficeLocation` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`SamadhanID`),
+  UNIQUE KEY `Email_UNIQUE` (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `polls`
+--
+
+CREATE TABLE `polls` (
+  `PollsID` int NOT NULL AUTO_INCREMENT,
+  `Question` tinytext NOT NULL,
+  `Date` datetime DEFAULT NULL,
+  `AuthorID` varchar(6) DEFAULT NULL,
+  `Active` tinyint(1) NOT NULL,
   PRIMARY KEY (`PollsID`),
-  INDEX `SamadhanID_idx` (`AuthorID` ASC) VISIBLE,
-  FOREIGN KEY (`AuthorID`)
-  REFERENCES `rbioa_db`.`approvedmember` (`SamadhanID`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION);
+  KEY `AuthorID` (`AuthorID`),
+  CONSTRAINT `polls_ibfk_1` FOREIGN KEY (`AuthorID`) REFERENCES `approvedmember` (`SamadhanID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `rbioa_db`.`pollsoption` (
-  `PollsID` INT NOT NULL,
-  `PollsOptions` VARCHAR(64) NOT NULL,
-  `Votes` INT NULL DEFAULT 0,
-  FOREIGN KEY (`PollsID`)
-  REFERENCES `rbioa_db`.`polls` (`PollsID`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION);
+--
+-- Table structure for table `pollsoption`
+--
 
-CREATE TABLE `rbioa_db`.`gallery` (
-  `ImageFile` VARCHAR(64) NOT NULL,
-  `UploadDate` DATETIME NULL,
-  PRIMARY KEY (`ImageFile`));
+CREATE TABLE `pollsoption` (
+  `PollsID` int NOT NULL,
+  `PollsOptions` varchar(64) NOT NULL,
+  `Votes` int DEFAULT '0',
+  PRIMARY KEY (`PollsID`),
+  KEY `PollsID` (`PollsID`),
+  CONSTRAINT `pollsoption_ibfk_1` FOREIGN KEY (`PollsID`) REFERENCES `polls` (`PollsID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `rbioa_db`.`team` (
-  `MemberID` INT NOT NULL,
-  PRIMARY KEY (`MemberID`),
-  FOREIGN KEY (`MemberID`)
-  REFERENCES `rbioa_db`.`approvedmember` (`SamadhanID`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION);
