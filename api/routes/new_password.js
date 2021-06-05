@@ -20,7 +20,6 @@ router.use(passport.authenticate("jwt", { session: false }));
 //Routing
 
 router.post("/", (req, res) => {
-  console.log("here");
   changePassword
     .changeUserPassword(req.user.Id, req.body.oldPass, req.body.newPass)
     .then(() => res.sendStatus(200))

@@ -94,8 +94,7 @@ CREATE TABLE `pollsoption` (
   `PollsID` int NOT NULL,
   `PollsOptions` varchar(64) NOT NULL,
   `Votes` int DEFAULT '0',
-  PRIMARY KEY (`PollsID`),
+  PRIMARY KEY (`PollsID`, `PollsOptions`),
   KEY `PollsID` (`PollsID`),
   CONSTRAINT `pollsoption_ibfk_1` FOREIGN KEY (`PollsID`) REFERENCES `polls` (`PollsID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-

@@ -6,7 +6,7 @@ const pool = require("../database/dbPool");
 //Get All Polls
 const getAllPolls = async (id) => {
   let sql =
-    'select polls.PollsID, polls.Question, pollsoption.Answer, polls.Date, polls.AuthorID, polls.Active from polls inner join (select PollsID,  JSON_ARRAYAGG(JSON_OBJECT ("option", PollsOptions, "votes", Votes)) Answer from pollsoption group by PollsID) pollsoption on polls.PollsID = pollsoption.PollsID order by Date desc';
+    "select polls.PollsID, polls.Question, pollsoption.Answer, polls.Date, polls.AuthorID, polls.Active from polls inner join (select PollsID,JSON_ARRAYAGG(JSON_OBJECT ('option', PollsOptions, 'votes', Votes)) Answer from pollsoption group by PollsID) pollsoption on polls.PollsID = pollsoption.PollsID order by Date desc";
   try {
     let requiredData = await pool.query(sql);
     for (i = 0; i < requiredData.length; i++) {
@@ -26,7 +26,7 @@ const getAllPolls = async (id) => {
 const votePoll = async (id, data) => {
   let sql =
     "update pollsoption set Votes = Votes+1 where PollsID = ? AND PollsOptions = ?";
-  let sql2 = `insert into Poll${data.PId}(SamadhanID) values(?)`;
+  let sql2 = `insert into Poll${data.PId}(VoterID) values(?)`;
   try {
     await pool.query(sql, [data.PId, data.Option]);
     await pool.query(sql2, [id]);
@@ -44,7 +44,7 @@ const postPolls = async (id, question, options) => {
   let sql2 = "insert into pollsoption(PollsOptions, PollsID) values(?, ?)";
   try {
     let results = await pool.query(sql, [question, date, id, 1]);
-    let sql3 = `create table Poll${results.insertId} (SamadhanID int not null, foreign key(SamadhanID) references approvedmember(SamadhanID))`;
+    let sql3 = `create table Poll${results.insertId} (VoterID varchar(6) not null, primary key(VoterID), foreign key(VoterID) references approvedmember(SamadhanID))ENGINE=InnoDB DEFAULT CHARSET=utf8`;
     let sql4 = `create event myevt${results.insertId} on schedule at CURRENT_TIMESTAMP + INTERVAL 1 DAY do drop table if exists Poll${results.insertId}`;
     let sql5 = `create event myevt${
       results.insertId + 100
@@ -66,7 +66,7 @@ const postPolls = async (id, question, options) => {
 
 //Vote poll
 const checkVote = async (pid, uid) => {
-  let sql = `select * from Poll${pid} where SamadhanID = ?`;
+  let sql = `select * from Poll${pid} where VoterID = ?`;
   let data = await pool.query(sql, [uid]);
   return data;
 };
