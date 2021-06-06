@@ -79,9 +79,13 @@ export default function FullGallery() {
         />
       </div>
       <Container style={{ marginBottom: "12em" }}>
-        <Button size="lg" variant="" onClick={() => setModalShow(true)}>
+        <button
+          className="primary"
+          size="lg"
+          onClick={() => setModalShow(true)}
+        >
           <Image />
-        </Button>
+        </button>
 
         <Form>
           <Form.Group controlId="exampleForm.SelectCustom">

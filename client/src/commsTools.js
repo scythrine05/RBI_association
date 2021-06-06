@@ -140,9 +140,9 @@ export function Cards(props) {
             : props.paragraph}
         </p>
         <hr />
-        <Button variant="" onClick={() => setModalShow(true)}>
+        <button className="primary" onClick={() => setModalShow(true)}>
           <Eye />
-        </Button>
+        </button>
         <FullView
           img={props.img}
           date={props.date}
@@ -177,9 +177,13 @@ export function FCards(props) {
             : props.paragraph}
         </p>
         <hr />
-        <Button variant="" onClick={() => setModalShow(true)}>
+        <button
+          className="primary"
+          variant=""
+          onClick={() => setModalShow(true)}
+        >
           <Eye />
-        </Button>
+        </button>
         <FullView
           img={props.img}
           date={props.date}

@@ -11,9 +11,9 @@ export function FullView(props) {
           href={`https://rbioa-assets.sgp1.digitaloceanspaces.com/Attachments/${props.attach}`}
           download={props.attach}
         >
-          <Button>
+          <button className="primary">
             <Paperclip />
-          </Button>
+          </button>
         </a>
       );
     return null;

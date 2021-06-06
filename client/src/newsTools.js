@@ -145,9 +145,9 @@ export function News(props) {
                 : props.paragraph}
             </p>
           </Card.Text>
-          <Button variant="" onClick={() => setModalShow(true)}>
+          <button className="primary" onClick={() => setModalShow(true)}>
             <Eye />
-          </Button>
+          </button>
           <FullView
             date={props.date}
             heading={props.heading}

@@ -46,9 +46,13 @@ export default function Log() {
 
   return (
     <>
-      <Button size="m" variant="" onClick={auth === 0 ? handleShow : onLogOut}>
+      <button
+        size="m"
+        className="primary"
+        onClick={auth === 0 ? handleShow : onLogOut}
+      >
         {auth === 0 ? "Login" : "Logout"}
-      </Button>
+      </button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

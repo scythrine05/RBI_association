@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
 import "./css/Profile.css";
-import { Container, Button, Spinner } from "react-bootstrap";
+import { Container, Spinner, Button } from "react-bootstrap";
+import { MDBBtn } from "mdbreact";
 import Footer from "./footer";
 import { userProfile } from "./axios/profile";
 import { logoutUser } from "./axios/login";
@@ -50,51 +51,47 @@ export default function Profile() {
   const CheckAdmin = () => {
     if (userData.IsAdmin === 1)
       return (
-        <React.Fragment>
+        <>
           <h1>
             <PatchCheckFill color="#3498db" />
           </h1>
           <div className="post-area">
             <div>
               <Link to="/members">
-                <Button
-                  size="lg"
-                  variant=""
-                  onClick={() => setCommsModalShow(true)}
-                >
+                <button className="primary" size="lg">
                   <People />
-                </Button>
+                </button>
               </Link>
             </div>
             <div>
-              <Button
+              <button
+                className="primary"
                 size="lg"
-                variant=""
                 onClick={() => setNewsModalShow(true)}
               >
                 <Newspaper />
-              </Button>
+              </button>
             </div>
             <div>
-              <Button
+              <button
+                className="primary"
                 size="lg"
-                variant=""
                 onClick={() => setCommsModalShow(true)}
               >
                 <Sticky />
-              </Button>
+              </button>
             </div>
             <div>
-              <Button
+              <button
+                className="primary"
                 size="lg"
-                variant=""
                 onClick={() => setPollsModalShow(true)}
               >
                 <BarChart />
-              </Button>
+              </button>
             </div>
           </div>
-        </React.Fragment>
+        </>
       );
     return null;
   };
