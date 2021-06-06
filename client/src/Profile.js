@@ -3,7 +3,6 @@ import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
 import "./css/Profile.css";
 import { Container, Spinner, Button } from "react-bootstrap";
-import { MDBBtn } from "mdbreact";
 import Footer from "./footer";
 import { userProfile } from "./axios/profile";
 import { logoutUser } from "./axios/login";
@@ -46,7 +45,7 @@ export default function Profile() {
     fetchData().then((data) => {
       setUserData(data);
     });
-  }, [userData]);
+  }, []);
 
   const CheckAdmin = () => {
     if (userData.IsAdmin === 1)

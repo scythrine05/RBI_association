@@ -85,7 +85,7 @@ export function CreatePolls(props) {
         />
         <Modal.Header closeButton>
           <Modal.Title
-            style={{ fontSize: "3.5vh" }}
+            style={{ fontSize: "25px" }}
             id="contained-modal-title-vcenter"
           >
             Create Polls

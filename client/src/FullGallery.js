@@ -6,7 +6,7 @@ import ScrollToTop from "react-scroll-up";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { Image } from "react-bootstrap-icons";
-import { Container, Button, Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { getImages } from "./axios/gallery";
 import AddPhoto from "./addPhoto";
 

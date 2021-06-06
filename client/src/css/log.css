@@ -11,6 +11,7 @@ a {
 
 .modal-title {
   color: rgba(0, 0, 0, 0.68);
+  font-size: 24px;
 }
 
 a:hover {
@@ -21,10 +22,7 @@ a:hover {
   font-size: large;
   font-weight: 500;
 }
-@media (max-width: 768px) {
-  .modal-title {
-    font-size: 18px;
-  }
+@media only screen and (max-width: 768px) {
   .form-label {
     font-size: 14x;
   }
