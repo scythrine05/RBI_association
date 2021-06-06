@@ -51,7 +51,7 @@ export default function FullGallery() {
       data.map((d, i) => {
         d[
           "src"
-        ] = `https://rbioa.sgp1.digitaloceanspaces.com/gallery/${d["ImageFile"]}`;
+        ] = `https://rbioa-assets.sgp1.digitaloceanspaces.com/Gallery/${d["ImageFile"]}`;
         d["width"] = 3.3;
         d["height"] = 3;
         delete d["ImageFile"];

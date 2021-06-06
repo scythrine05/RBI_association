@@ -8,7 +8,7 @@ export function FullView(props) {
     if (props.attach)
       return (
         <a
-          href={`https://rbioa.sgp1.digitaloceanspaces.com/${props.attach}`}
+          href={`https://rbioa-assets.sgp1.digitaloceanspaces.com/Attachments/${props.attach}`}
           download={props.attach}
         >
           <Button>

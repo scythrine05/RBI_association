@@ -13,7 +13,7 @@ const router = Router();
 
 //Multer setup
 
-const spacesEndpoint = new aws.Endpoint("sgp1.digitaloceanspaces.com/gallery");
+const spacesEndpoint = new aws.Endpoint("sgp1.digitaloceanspaces.com/Gallery");
 const s3 = new aws.S3({
   endpoint: spacesEndpoint,
   accessKeyId: process.env.ACCESS_KEY_ID,
@@ -23,7 +23,7 @@ const s3 = new aws.S3({
 const upload = multer({
   storage: multerS3({
     s3: s3,
-    bucket: "rbioa",
+    bucket: "rbioa-assets",
     acl: "public-read",
     key: (req, file, cb) => {
       cb(null, Date.now() + path.extname(file.originalname));
