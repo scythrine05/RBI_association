@@ -17,7 +17,7 @@ export default function Home() {
         <nav>
           <Navbar />
         </nav>
-      </header>{" "}
+      </header>
       <div>
         <Jumbotron
           name={["Welcome To"]}
@@ -41,12 +41,11 @@ export default function Home() {
             Contact Us
           </h1>
           <Alert variant="success" className="contact-body">
-            <p>Email: abc@gmail.com </p>
-            <hr />
-            <p>Phone: 729310310884 </p>
+            <p>Email : rbioamumbai@gmail.com@gmail.com </p>
             <hr />
             <p>
-              Headquarter: near jj shop, Andheri, Mumbai, Maharastra, 830023{" "}
+              Office : RBI Officers’ Association, Reserve Bank of India, 3rd
+              Floor, Main Building, Mumbai – 400 001
             </p>
           </Alert>
         </section>

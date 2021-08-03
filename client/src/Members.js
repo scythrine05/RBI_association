@@ -14,18 +14,33 @@ export default function Members() {
   const PendingData = async () => {
     try {
       let data = await pendingMembers();
-      return data;
+      return data.length ? data : { status: "empty" };
     } catch (e) {
       console.log(e);
     }
   };
   const Pending = () => {
-    if (!pData.length)
+    if (!pData.length && !pData.status)
       return (
         <React.Fragment>
           <tr>
             <td className="empty" colSpan="5">
-              <Spinner animation="grow" />
+              <Spinner animation="border" role="status" />
+            </td>
+          </tr>
+          <tr>
+            <td className="empty" colSpan="5">
+              {/* Empty margin */}
+            </td>
+          </tr>
+        </React.Fragment>
+      );
+    else if (pData.status)
+      return (
+        <React.Fragment>
+          <tr>
+            <td className="empty" colSpan="5">
+              <p>No Request</p>
             </td>
           </tr>
           <tr>
@@ -50,16 +65,17 @@ export default function Members() {
   };
   useEffect(() => {
     PendingData().then((data) => {
+      console.log(data);
       setPData(data);
     });
-  }, [pData]);
+  }, []);
   return (
     <React.Fragment>
       <header>
         <nav>
           <Navbar />
         </nav>
-      </header>{" "}
+      </header>
       <div>
         <Jumbotron
           name={["Members"]}

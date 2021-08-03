@@ -39,12 +39,12 @@ router.post("/newuser", (req, res) => {
     .catch((e) => console.log(e));
 });
 
-router.post("/existinguser", (req, res) => {
-  signUser
-    .existingUser(req.body.userData)
-    .then(() => res.sendStatus(200))
-    .catch((e) => res.status(404).send(e));
-});
+// router.post("/existinguser", (req, res) => {
+//   signUser
+//     .existingUser(req.body.userData)
+//     .then(() => res.sendStatus(200))
+//     .catch((e) => res.status(404).send(e));
+// });
 
 //Exporting
 module.exports = router;

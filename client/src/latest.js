@@ -13,7 +13,7 @@ export default function MultipleItems() {
       return (
         <React.Fragment>
           <div style={{ textAlign: "center", marginBottom: "2%" }}>
-            <Spinner animation="grow" />
+            <Spinner animation="border" role="status" />
           </div>
         </React.Fragment>
       );

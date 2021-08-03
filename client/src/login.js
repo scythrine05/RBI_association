@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Button, Modal, Form, Alert } from "react-bootstrap";
+import { Button, Modal, Form, Alert, InputGroup } from "react-bootstrap";
+import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
 import { authContext } from "./contexts/AuthContext";
 import { loginUser, logoutUser } from "./axios/login";
 import "./css/log.css";
@@ -8,6 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function Log() {
   const [show, setShow] = useState(false);
+  const [showPass, setShowPass] = useState(false);
 
   const handleClose = () => {
     setMsgState(0);
@@ -74,20 +76,21 @@ export default function Log() {
                 }}
               />
             </Form.Group>
-            <Form.Group
-              style={{ textAlign: "left" }}
-              controlId="formBasicPassword"
-            >
-              <Form.Label>Password</Form.Label>
+
+            <Form.Label>Password</Form.Label>
+            <InputGroup className="mb-3">
               <Form.Control
-                type="password"
+                type={showPass ? "text" : "password"}
                 value={password}
                 placeholder="Password"
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
               />
-            </Form.Group>
+              <Button onClick={() => setShowPass(!showPass)}>
+                {showPass ? <EyeSlashFill /> : <EyeFill />}
+              </Button>
+            </InputGroup>
             <Button variant="" type="submit">
               Login
             </Button>

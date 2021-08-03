@@ -2,9 +2,9 @@
 
 //Importing
 const handleData = require("./handleUserData");
-const crypto = require("crypto");
+//const crypto = require("crypto");
 const handleMail = require("./hadleMailSystem");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 
 const newUser = async (userData) => {
   try {
@@ -20,22 +20,23 @@ const newUser = async (userData) => {
     throw new Error(e);
   }
 };
-const existingUser = async (userData) => {
-  let Password = crypto.randomBytes(8).toString("hex");
-  try {
-    //Creating Existing with handleUserData(existingUser function)
-    let hashedPassword = await bcrypt.hash(Password, 10);
-    userData.Password = hashedPassword;
-    await handleData.existingUser(userData);
-    await handleMail.existingUserEmail(userData.Email, Password);
-    return;
-  } catch (e) {
-    console.log(e);
-    throw new Error(e);
-  }
-};
+// const existingUser = async (userData) => {
+//   let Password = crypto.randomBytes(8).toString("hex");
+//   console.log(Password);
+//   try {
+//     Creating Existing with handleUserData(existingUser function)
+//     let hashedPassword = await bcrypt.hash(Password, 10);
+//     userData.Password = hashedPassword;
+//     await handleData.existingUser(userData);
+//     await handleMail.existingUserEmail(userData.Email, Password);
+//     return;
+//   } catch (e) {
+//     console.log(e);
+//     throw new Error(e);
+//   }
+// };
 
 module.exports = {
   newUser,
-  existingUser,
+  // existingUser,
 };

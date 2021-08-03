@@ -12,13 +12,19 @@ export default function Communcation() {
   const [year, setYear] = useState("2021");
 
   const Comms = () => {
-    if (!cData.length)
+    if (!cData.length && !cData.status)
       return (
         <React.Fragment>
           <div style={{ textAlign: "center", marginBottom: "5em" }}>
-            <Spinner animation="grow" />
+            <Spinner animation="border" role="status" />
           </div>
         </React.Fragment>
+      );
+    else if (cData.status === "empty")
+      return (
+        <div style={{ textAlign: "center", marginTop: "5%" }}>
+          <p style={{ fontSize: "3vh" }}>No post Yet</p>
+        </div>
       );
     else {
       let data = cData.filter((e) => {
@@ -52,7 +58,7 @@ export default function Communcation() {
     const CommsData = async () => {
       try {
         let data = await getComms();
-        return data;
+        return data.length ? data : { status: "empty" };
       } catch (e) {
         throw e;
       }

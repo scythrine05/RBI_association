@@ -13,10 +13,26 @@ export default function teams() {
       <MDBCard className="my-5 px-5 pb-5 text-center">
         <MDBCardBody>
           <MDBRow>
-            <TeamMember />
-            <TeamMember />
-            <TeamMember />
-            <TeamMember />
+            <TeamMember
+              name="Anoop V Raj"
+              post="Secretary"
+              img="AnoopVRaj.jpg"
+            />
+            <TeamMember
+              name="Jaikar Mishra"
+              post="Secretary"
+              img="JaikarMishra.jpg"
+            />
+            <TeamMember
+              name="Madhav N. Kale"
+              post="Vice President"
+              img="MadhavN.Kale.jpg"
+            />
+            <TeamMember
+              name="Nitin Jain"
+              post="Treasurer"
+              img="NitinJain.png"
+            />
           </MDBRow>
         </MDBCardBody>
         <MDBCardFooter>

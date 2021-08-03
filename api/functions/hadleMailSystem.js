@@ -33,8 +33,7 @@ const newUserEmail = async (email) => {
     from: process.env.EMAIL_USER,
     to: email,
     subject: "RBIOA (Registered)",
-    html:
-      "<h1 style = 'text-align:center'>RBI Officers' Association</h1><br/><p style='text-align:center'>Your Account has been Registered Successfully</p><br/><p style ='text-align:center'>We will soon response on your request</p><hr/>",
+    html: "<h1 style = 'text-align:center'>RBI Officers' Association</h1><br/><p style='text-align:center'>Your Account has been Registered Successfully</p><br/><p style ='text-align:center'>We will soon respond on your request</p><hr/>",
   };
 
   try {

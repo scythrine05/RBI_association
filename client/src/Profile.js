@@ -28,7 +28,7 @@ export default function Profile() {
   const { setAuthData } = useContext(authContext);
 
   const Loading = () => {
-    if (userData === "") return <Spinner animation="grow" />;
+    if (userData === "") return <Spinner animation="border" role="status" />;
     return null;
   };
 

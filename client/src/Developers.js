@@ -14,7 +14,7 @@ export default function Home() {
         <nav>
           <Navbar />
         </nav>
-      </header>{" "}
+      </header>
       <div>
         <Jumbotron
           name={["Developers"]}
@@ -30,15 +30,17 @@ export default function Home() {
                 <MDBCol md="4" lg="6" className="float-left">
                   <img
                     tag="img"
-                    src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
+                    src="teams/profile.jpg"
                     className="rounded-circle z-depth-1 img-fluid"
                     alt="Sample avatar"
                   />
                 </MDBCol>
+
                 <MDBCol md="8" lg="6" className="float-right">
                   <br />
                   <br />
                   <br />
+
                   <h4 className="font-weight-bold mb-3">Hardik Goyal</h4>
                   <SocialIcon
                     style={{ transform: "scale(0.7,0.7)", cursor: "pointer" }}
@@ -66,7 +68,7 @@ export default function Home() {
                 <MDBCol md="4" lg="6" className="float-left">
                   <img
                     tag="img"
-                    src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
+                    src="teams/profile.jpg"
                     className="rounded-circle z-depth-1 img-fluid"
                     alt="Sample avatar"
                   />

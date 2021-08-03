@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const FormPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("1");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [msgState, setMsgState] = useState(0);
@@ -61,25 +61,19 @@ const FormPage = () => {
           <Form.Label>Full Name</Form.Label>
           <Form.Control type="text" placeholder={name} readOnly />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="exampleForm.ControlInput2">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder={email} readOnly />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="exampleForm.ControlInput3">
           <Form.Label>Subject</Form.Label>
           <Form.Control
-            as="select"
-            custom
+            type="text"
+            placeholder="subject"
             onChange={(e) => {
               setSubject(e.target.value);
             }}
-          >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Form.Control>
+          />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Message</Form.Label>
@@ -96,7 +90,7 @@ const FormPage = () => {
         </Form.Group>
         <Button type="submit" variant="" size="lg">
           Send
-        </Button>{" "}
+        </Button>
       </Form>
     </React.Fragment>
   );

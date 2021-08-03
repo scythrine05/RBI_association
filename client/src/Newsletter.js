@@ -12,13 +12,19 @@ export default function Newsletter() {
   const [year, setYear] = useState("2021");
 
   const Newz = () => {
-    if (!nData.length)
+    if (!nData.length && !nData.status)
       return (
         <React.Fragment>
           <div style={{ textAlign: "center", marginBottom: "5em" }}>
-            <Spinner animation="grow" />
+            <Spinner animation="border" role="status" />
           </div>
         </React.Fragment>
+      );
+    else if (nData.status === "empty")
+      return (
+        <div style={{ textAlign: "center", marginTop: "5%" }}>
+          <p style={{ fontSize: "3vh" }}>No post Yet</p>
+        </div>
       );
     else {
       let data = nData.filter((e) => {
@@ -52,7 +58,7 @@ export default function Newsletter() {
     const NewsData = async () => {
       try {
         let data = await getNews();
-        return data;
+        return data.length ? data : { status: "empty" };
       } catch (e) {
         throw e;
       }
