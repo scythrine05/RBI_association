@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, "build")));
 
 app.use(
   cors({
-    origin: [`http://localhost:3000`, "http://localhost:5000"],
+    origin: ["http://localhost:3000", "http://localhost:5000"],
     credentials: true,
   })
 );
@@ -28,7 +28,7 @@ app.use("/0900e5b2/suggest", require("./routes/suggestion"));
 app.use("/0900e5b2/profile", require("./routes/profile"));
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "/build/index.html"));
 });
 
 const port = process.env.PORT || 5000;
