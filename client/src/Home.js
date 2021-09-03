@@ -36,12 +36,11 @@ export default function Home() {
         <ILinks />
         <SAssoc />
         <section>
-          {" "}
           <h1 className="contact-h1" syle={{ textAlign: "center" }}>
             Contact Us
           </h1>
           <Alert variant="success" className="contact-body">
-            <p>Email : rbioamumbai@gmail.com@gmail.com </p>
+            <p>Email : rbioamumbai@gmail.com@gmail.com</p>
             <hr />
             <p>
               Office : RBI Officers’ Association, Reserve Bank of India, 3rd

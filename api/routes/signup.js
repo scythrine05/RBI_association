@@ -16,12 +16,12 @@ router.use(
 );
 
 //Routing
-router.post("/getdata", (req, res) => {
+router.post("/checkid", (req, res) => {
   handleData
     .findApprovedById(req.body.SamadhanID)
     .then((results) => {
       if (results != null) {
-        res.status(200).send(results[0].Email);
+        res.sendStatus(200).send(results);
       } else {
         res.status(200).send(null);
       }
@@ -39,12 +39,12 @@ router.post("/newuser", (req, res) => {
     .catch((e) => console.log(e));
 });
 
-// router.post("/existinguser", (req, res) => {
-//   signUser
-//     .existingUser(req.body.userData)
-//     .then(() => res.sendStatus(200))
-//     .catch((e) => res.status(404).send(e));
-// });
+router.post("/existinguser", (req, res) => {
+  signUser
+    .existingUser(req.body.userData)
+    .then(() => res.sendStatus(200))
+    .catch((e) => res.status(404).send(e));
+});
 
 //Exporting
 module.exports = router;
