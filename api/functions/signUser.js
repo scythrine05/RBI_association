@@ -22,7 +22,6 @@ const newUser = async (userData) => {
 };
 const existingUser = async (userData) => {
   let Password = crypto.randomBytes(8).toString("hex");
-  console.log(Password);
   try {
     //Creating Existing with handleUserData(existingUser function)
     let hashedPassword = await bcrypt.hash(Password, 10);

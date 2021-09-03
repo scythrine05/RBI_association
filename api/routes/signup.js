@@ -21,7 +21,7 @@ router.post("/checkid", (req, res) => {
     .findApprovedById(req.body.SamadhanID)
     .then((results) => {
       if (results != null) {
-        res.sendStatus(200).send(results);
+        res.status(200).send(results);
       } else {
         res.status(200).send(null);
       }
