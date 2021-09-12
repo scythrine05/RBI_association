@@ -30,8 +30,7 @@ export default function navbar() {
               to="/"
               activeStyle={{ color: "#3498db" }}
             >
-              {" "}
-              Home{" "}
+              Home
             </NavLink>
             <NavLink
               className="nav-link"
@@ -39,8 +38,7 @@ export default function navbar() {
               to="/news"
               activeStyle={{ color: "#3498db" }}
             >
-              {" "}
-              News/Events{" "}
+              News/Events
             </NavLink>
             <NavLink
               className="nav-link"
@@ -48,8 +46,7 @@ export default function navbar() {
               to="/communication"
               activeStyle={{ color: "#3498db" }}
             >
-              {" "}
-              Communication{" "}
+              Communication
             </NavLink>
             <NavLink
               className="nav-link"
@@ -57,8 +54,7 @@ export default function navbar() {
               to="/polls"
               activeStyle={{ color: "#3498db" }}
             >
-              {" "}
-              Polls{" "}
+              Polls
             </NavLink>
             <NavLink
               className="nav-link"
@@ -66,8 +62,7 @@ export default function navbar() {
               to="/gallery"
               activeStyle={{ color: "#3498db" }}
             >
-              {" "}
-              Gallery{" "}
+              Gallery
             </NavLink>
             <NavLink
               className="nav-link"
@@ -75,8 +70,7 @@ export default function navbar() {
               to="/suggestion"
               activeStyle={{ color: "#3498db" }}
             >
-              {" "}
-              Suggestion{" "}
+              Suggestion
             </NavLink>
             <NavLink
               className="nav-link"
@@ -84,8 +78,7 @@ export default function navbar() {
               to="/profile"
               activeStyle={{ color: "#3498db" }}
             >
-              {" "}
-              Profile{" "}
+              Profile
             </NavLink>
           </Nav>
         </Navbar.Collapse>

@@ -13,6 +13,7 @@
 
 .footer a {
   text-decoration: none;
+  margin-top: 10px;
   color: rgba(255, 255, 255, 0.666);
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -32,9 +33,17 @@
 .footer_text {
   margin-bottom: 20px;
 }
+.extra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media (max-width: 768px) {
   .footer_text {
     font-size: 12px;
+  }
+  .extra {
+    flex-direction: column;
   }
 }

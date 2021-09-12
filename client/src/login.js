@@ -1,5 +1,12 @@
 import React, { useState, useContext } from "react";
-import { Button, Modal, Form, Alert, InputGroup } from "react-bootstrap";
+import {
+  Button,
+  Modal,
+  Form,
+  Alert,
+  InputGroup,
+  Spinner,
+} from "react-bootstrap";
 import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
 import { authContext } from "./contexts/AuthContext";
 import { loginUser, logoutUser } from "./axios/login";
@@ -19,11 +26,13 @@ export default function Log() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [msgState, setMsgState] = useState(0);
 
   const { setAuthData, auth } = useContext(authContext);
   const onFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await loginUser(email, password);
       setMsgState(0);
@@ -32,6 +41,7 @@ export default function Log() {
     } catch (error) {
       setMsgState(1);
     }
+    setLoading(false);
     setPassword("");
   };
 
@@ -49,9 +59,10 @@ export default function Log() {
   return (
     <>
       <button
-        size="m"
+        size="sm"
         className="primary"
         onClick={auth === 0 ? handleShow : onLogOut}
+        style={{ fontSize: "2vh" }}
       >
         {auth === 0 ? "Login" : "Logout"}
       </button>
@@ -92,7 +103,11 @@ export default function Log() {
               </Button>
             </InputGroup>
             <Button variant="" type="submit">
-              Login
+              {loading ? (
+                <Spinner size="sm" animation="border" variant="dark" />
+              ) : (
+                "Login"
+              )}
             </Button>
             <Link to="/signup">
               <Form.Text>Create an Account</Form.Text>
