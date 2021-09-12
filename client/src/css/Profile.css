@@ -9,6 +9,7 @@
   max-width: 100%;
   text-align: center;
   margin-bottom: 100px;
+  overflow: hidden;
 }
 
 .name {
@@ -63,10 +64,12 @@ button.primary.ghost {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 5vh;
+  flex-wrap: wrap;
+  margin-top: 4vh;
 }
 .post-area div {
   margin-left: 2%;
+  margin-top: 2vh;
 }
 
 @media (max-width: 768px) {

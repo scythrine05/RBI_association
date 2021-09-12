@@ -8,7 +8,7 @@ import { authContext } from "./contexts/AuthContext";
 
 import NewAccount from "./NewAccount";
 import Home from "./Home";
-import FullGallery from "./FullGallery";
+import {FullGallery} from "./FullGallery";
 import Newsletter from "./Newsletter";
 import Communication from "./Communcation";
 import Polls from "./Polls";
@@ -23,7 +23,7 @@ import "./css/App.css";
 
 export default function App() {
   const { auth } = useContext(authContext);
-
+  
   return (
     <div>
       <Sugar color="#3498db" animation="slide-right" time={2000} />

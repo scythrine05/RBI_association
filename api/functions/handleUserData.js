@@ -36,11 +36,12 @@ const newUser = async (newData) => {
 //Create Existing User
 const existingUser = async (newData) => {
   let sql =
-    "update approvedmember set  Password = ?, Name = ? , OfficeLocation = ? where SamadhanID = ?";
+    "update approvedmember set  Password = ?, Name = ? , Email=?, OfficeLocation = ? where SamadhanID = ?";
   try {
     await pool.query(sql, [
       newData.Password,
       newData.Name,
+      newData.Email,
       newData.OfficeLocation,
       newData.SamadhanID,
     ]);

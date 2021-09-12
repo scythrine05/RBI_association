@@ -23,6 +23,7 @@ const FormPage = () => {
         Swal.fire("<h4>Sent</h4>", "<h6>Message sent</h6>", "success");
         setMsgState(0);
         setMessage("");
+        setSubject("");
       }
     } catch (e) {
       setMsgState(2);

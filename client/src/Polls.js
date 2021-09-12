@@ -94,8 +94,11 @@ export default function Polls() {
               onChange={(e) => setYear(e.target.value)}
               custom
             >
-              <option>2022</option>
-              <option selected={true}>2021</option>
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+            <option>2022</option>
+            <option selected={true}>2021</option>
             </Form.Control>
           </Form.Group>
         </Form>

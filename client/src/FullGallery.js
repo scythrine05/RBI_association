@@ -5,13 +5,10 @@ import Jumbotron from "./jumbotron";
 import ScrollToTop from "react-scroll-up";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { Image } from "react-bootstrap-icons";
 import { Container, Form } from "react-bootstrap";
 import { getImages } from "./axios/gallery";
-import AddPhoto from "./addPhoto";
 
-export default function FullGallery() {
-  const [modalShow, setModalShow] = React.useState(false);
+ export function FullGallery() {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const [iData, setIData] = useState([]);
@@ -70,7 +67,7 @@ export default function FullGallery() {
         <nav>
           <Navbar />
         </nav>
-      </header>{" "}
+      </header>
       <div>
         <Jumbotron
           name={["Gallery"]}
@@ -79,14 +76,6 @@ export default function FullGallery() {
         />
       </div>
       <Container style={{ marginBottom: "12em" }}>
-        <button
-          className="primary"
-          size="lg"
-          onClick={() => setModalShow(true)}
-        >
-          <Image />
-        </button>
-
         <Form>
           <Form.Group controlId="exampleForm.SelectCustom">
             <Form.Label>Year</Form.Label>
@@ -96,12 +85,14 @@ export default function FullGallery() {
               size="lg"
               custom
             >
-              <option>2022</option>
-              <option selected={true}>2021</option>
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+            <option>2022</option>
+            <option selected={true}>2021</option>
             </Form.Control>
           </Form.Group>
         </Form>
-        <AddPhoto show={modalShow} onHide={() => setModalShow(false)} />
         <Empty />
         <Gallery photos={iData} onClick={openLightbox} />
         <ModalGateway>
@@ -133,4 +124,8 @@ export default function FullGallery() {
       </ScrollToTop>
     </React.Fragment>
   );
+}
+
+export function GalleryTools() {
+
 }

@@ -12,7 +12,7 @@ export default function AddPhoto(props) {
   const [redirect, setRedirect] = useState(0);
 
   const Rd = () => {
-    if (redirect === 1) return <Redirect to="/" />;
+    if (redirect === 1) return <Redirect to="/gallery" />;
     return null;
   };
   const handleSubmit = async (e) => {
@@ -22,7 +22,7 @@ export default function AddPhoto(props) {
       newFile.append("file", file);
       setLoading(true);
       await postImages(newFile);
-      Swal.fire("<h4>Posted</h4>", "Redirect to Home", "success").then(() => {
+      Swal.fire("<h4>Posted</h4>", "Redirect to Gallery", "success").then(() => {
         setRedirect(1);
       });
     } catch (e) {

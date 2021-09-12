@@ -28,6 +28,26 @@ export default function Home() {
           <MDBCardBody>
             <MDBRow>
               <TeamMember
+                name="A.Krishna Gopal"
+                post="President"
+                img="AKrishnaGopal.jpg"
+              />
+              <TeamMember
+              name="Madhav N. Kale"
+              post="Vice President"
+              img="MadhavN.Kale.jpg"
+            />
+              <TeamMember
+                name="Rajesh Singh"
+                post="Vice President"
+                img="RajeshSingh.jpg"
+              />
+            <TeamMember
+                name="Jeet Pathak"
+                post="General Secretary"
+                img="JeetPathak.JPG"
+              />
+              <TeamMember
                 name="Anoop V Raj"
                 post="Secretary"
                 img="AnoopVRaj.jpg"
@@ -38,14 +58,24 @@ export default function Home() {
                 img="JaikarMishra.jpg"
               />
               <TeamMember
-                name="Madhav N. Kale"
-                post="Vice President"
-                img="MadhavN.Kale.jpg"
+                name="Shashidharan P."
+                post="Secretary"
+                img="ShashidharanP.jpg"
+              />
+              <TeamMember
+                name="Amit Kumar"
+                post="Secretary,Mumbai"
+                img="AmitKumar.jpeg"
               />
               <TeamMember
                 name="Nitin Jain"
                 post="Treasurer"
                 img="NitinJain.png"
+              />
+              <TeamMember
+                name="Baljinder Singh"
+                post="Member, Central Committee"
+                img="BaljinderSingh.jpeg"
               />
               <TeamMember
                 name="Aravind M"
@@ -91,31 +121,6 @@ export default function Home() {
                 name="Sudhir Kumar Pandey"
                 post="CC Member"
                 img="SudhirKumarPandey.jpg"
-              />
-              <TeamMember
-                name="Amit Kumar"
-                post="Secretary,Mumbai"
-                img="AmitKumar.jpeg"
-              />
-              <TeamMember
-                name="Baljinder Singh"
-                post="Member, Central Committee"
-                img="BaljinderSingh.jpeg"
-              />
-              <TeamMember
-                name="Jeet Pathak"
-                post="General Secretary"
-                img="JeetPathak.JPG"
-              />
-              <TeamMember
-                name="Rajesh Singh"
-                post="Vice President"
-                img="RajeshSingh.jpg"
-              />
-              <TeamMember
-                name="Shashidharan P."
-                post="Secretary"
-                img="ShashidharanP.jpg"
               />
             </MDBRow>
           </MDBCardBody>

@@ -1,20 +1,21 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { Paperclip } from "react-bootstrap-icons";
 import "./css/fullView.css";
 
 export function FullView(props) {
   const CheckAttach = () => {
     if (props.attach)
       return (
+        <>
         <a
           href={`https://rbioa-assets.sgp1.digitaloceanspaces.com/Attachments/${props.attach}`}
           download={props.attach}
         >
-          <button className="primary">
-            <Paperclip />
+          <button style={{fontSize:'2vh'}} className="primary">
+        {props.attach}
           </button>
         </a>
+        </>
       );
     return null;
   };

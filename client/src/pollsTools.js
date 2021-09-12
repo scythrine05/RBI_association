@@ -27,10 +27,19 @@ export function CreatePolls(props) {
     return null;
   };
 
+  const hasDuplicate = (arrayObj, colName) => {
+   var hash = Object.create(null);
+   return arrayObj.some((arr) => {
+      return arr[colName] && (hash[arr[colName]] || !(hash[arr[colName]] = true));
+   });
+};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+      let isDuplicate = hasDuplicate(fields, "value");
     try {
       if (question === "") setMsgState(1);
+      else if(isDuplicate) setMsgState(3);
       else {
         setLoading(true);
         await postPolls(question, fields);
@@ -66,6 +75,8 @@ export function CreatePolls(props) {
       return <Alert variant="danger">Question is Required </Alert>;
     if (props.state === 2)
       return <Alert variant="danger">Error: Check file Type </Alert>;
+      if (props.state === 3)
+      return <Alert variant="danger">Options cannot be Duplicated</Alert>;
     return null;
   };
   return (

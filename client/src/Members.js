@@ -65,7 +65,6 @@ export default function Members() {
   };
   useEffect(() => {
     PendingData().then((data) => {
-      console.log(data);
       setPData(data);
     });
   }, []);

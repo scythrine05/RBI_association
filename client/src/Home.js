@@ -8,7 +8,7 @@ import Content from "./content";
 import Latest from "./latest";
 import Team from "./teams";
 import ILinks from "./importantLinks";
-import SAssoc from "./sisterAssociation";
+// import SAssoc from "./sisterAssociation";
 import Footer from "./footer";
 export default function Home() {
   return (
@@ -34,13 +34,13 @@ export default function Home() {
         </div>
         <Team />
         <ILinks />
-        <SAssoc />
+        {/* <SAssoc /> */}
         <section>
           <h1 className="contact-h1" syle={{ textAlign: "center" }}>
             Contact Us
           </h1>
           <Alert variant="success" className="contact-body">
-            <p>Email : rbioamumbai@gmail.com@gmail.com</p>
+            <p>Email : mail@rbioa.org.in</p>
             <hr />
             <p>
               Office : RBI Officers’ Association, Reserve Bank of India, 3rd

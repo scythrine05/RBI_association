@@ -28,7 +28,7 @@ const upload = multer({
     bucket: "rbioa-assets",
     acl: "public-read",
     key: (req, file, cb) => {
-      cb(null, Date.now() + path.extname(file.originalname));
+      cb(null, Date.now() + "__" + file.originalname);
     },
   }),
 }).single("file");

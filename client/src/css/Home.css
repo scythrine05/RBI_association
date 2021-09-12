@@ -13,8 +13,11 @@ section {
   white-space: pre-wrap;
   text-align: center;
 }
+.contact-body{
+  padding-top: 20px;
+}
 .contact-body > p {
-  font-size: 2vh;
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
@@ -37,7 +40,7 @@ section {
   }
 
   .contact-body > p {
-    font-size: 1.8vh;
+    font-size: 11px;
   }
 }
 

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { CreateNotice } from "./commsTools";
 import { CreateNewsLetter } from "./newsTools";
 import { CreatePolls } from "./pollsTools";
+import AddPhoto from "./addPhoto";
 
 import {
   Newspaper,
@@ -17,6 +18,7 @@ import {
   Sticky,
   BarChart,
   PatchCheckFill,
+  Image
 } from "react-bootstrap-icons";
 import { authContext } from "./contexts/AuthContext";
 
@@ -25,6 +27,7 @@ export default function Profile() {
   const [commsModalShow, setCommsModalShow] = useState(false);
   const [newsModalShow, setNewsModalShow] = useState(false);
   const [pollsModalShow, setPollsModalShow] = useState(false);
+  const [imageModalShow, setImageModalShow] = useState(false);
   const { setAuthData } = useContext(authContext);
 
   const Loading = () => {
@@ -89,6 +92,15 @@ export default function Profile() {
                 <BarChart />
               </button>
             </div>
+              <div>
+            <button
+              className="primary"
+              size="lg"
+              onClick={() => setImageModalShow(true)}
+        >
+          <Image />
+        </button>
+            </div>
           </div>
         </>
       );
@@ -105,7 +117,7 @@ export default function Profile() {
         <nav>
           <Navbar />
         </nav>
-      </header>{" "}
+      </header>
       <div>
         <Jumbotron
           name={["Profile"]}
@@ -126,6 +138,7 @@ export default function Profile() {
           show={pollsModalShow}
           onHide={() => setPollsModalShow(false)}
         />
+        <AddPhoto show={imageModalShow} onHide={() => setImageModalShow(false)} />
         <div className="card-container">
           <Loading />
           <h3 className="name">{userData.Name}</h3>

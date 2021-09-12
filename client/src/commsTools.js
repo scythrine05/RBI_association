@@ -162,16 +162,16 @@ export function FCards(props) {
   return (
     <div>
       <Alert variant="info" style={{ borderRadius: "0px" }}>
-        <Alert.Heading className="alert-head" style={{ fontSize: "1.8vh" }}>
+        <Alert.Heading className="alert-date" >
           {props.date}
         </Alert.Heading>
-        <h2 style={{ textAlign: "center", fontSize: "3.3vh" }}>
+        <h2 className="alert-head">
           {props.heading.length > 10
             ? props.heading.substring(0, 10) + "..."
             : props.heading}
         </h2>
         <hr />
-        <p style={{ fontSize: "2.3vh" }}>
+        <p className="alert-para">
           {props.paragraph.length > 20
             ? props.paragraph.substring(0, 20) + "..."
             : props.paragraph}

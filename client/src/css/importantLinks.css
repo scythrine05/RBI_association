@@ -18,6 +18,9 @@
   margin-top: 100px;
   margin-bottom: 100px;
 }
+.title_slide{
+  text-align: center;
+}
 
 @media (max-width: 768px) {
   .slick-slide {

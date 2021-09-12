@@ -38,11 +38,13 @@ export default function NewMember() {
       setMsgState(1);
       setMessage("Fields should not be Empty");
       return null;
-    } else if (userData.Email.split("@")[1] !== "rbi.org.in") {
+    } 
+    else if (userData.Email.split("@")[1] !== "rbi.org.in") {
       setMsgState(1);
       setMessage("Please use an @rbi.org.in email address.");
       return null;
-    } else {
+    } // Comment in Development
+    else {
       e.target.reset();
       setLoading(true);
       let idCheck = await newUser(userData);

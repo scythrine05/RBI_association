@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { approve, disapprove } from "./axios/pendingMember";
+import Loading from "react-fullscreen-loading";
 import { Button, Spinner } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 export default function PendingMembers(props) {
   const [loading, setLoading] = useState(false);
+  const [redirect, setRedirect] = useState(0);
+
   const approved = async () => {
     setLoading(true);
     try {
@@ -11,6 +16,9 @@ export default function PendingMembers(props) {
     } catch (e) {
       console.log(e);
     }
+     Swal.fire("<h4>Approved</h4>","", "success").then(() => {
+          setRedirect(1);
+        });
     setLoading(false);
   };
   const disapproved = async () => {
@@ -20,10 +28,25 @@ export default function PendingMembers(props) {
     } catch (e) {
       console.log(e);
     }
+     Swal.fire("<h4>Removed</h4>", "", "success").then(() => {
+          setRedirect(1);
+        });
     setLoading(false);
   };
+
+    const Rd = () => {
+    if (redirect === 1) return <Redirect to="/profile" />;
+    return null;
+  };
+
   return (
     <React.Fragment>
+    <Loading
+        loading={loading}
+        background="rgba(0,0,0,0.8)"
+        loaderColor="#3498db"
+      />
+    <Rd/>
       <tr>
         <td>{props.Id}</td>
         <td>{props.Name}</td>
@@ -44,7 +67,7 @@ export default function PendingMembers(props) {
               />
             )}
             {!loading && <span>Approve</span>}
-          </Button>{" "}
+          </Button>
           <Button
             style={{ background: "red" }}
             variant="danger"
@@ -60,7 +83,7 @@ export default function PendingMembers(props) {
               />
             )}
             {!loading && <span>Disapprove</span>}
-          </Button>{" "}
+          </Button>
         </td>
       </tr>
     </React.Fragment>
