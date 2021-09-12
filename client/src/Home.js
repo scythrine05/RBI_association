@@ -3,7 +3,7 @@ import Navbar from "./navbar";
 import ScrollToTop from "react-scroll-up";
 import Jumbotron from "./jumbotron";
 import "./css/Home.css";
-import { Container, Alert } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Content from "./content";
 import Contact from "./contact";
 import Latest from "./latest";

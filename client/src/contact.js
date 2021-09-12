@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { postContact } from "./axios/suggest";
 import { Form, Button, Alert, Container } from "react-bootstrap";
 import Loading from "react-fullscreen-loading";

@@ -9,6 +9,7 @@
 .impLinks {
   width: 90%;
   margin: 0 auto;
+  height: 100%;
 }
 .img_slide {
   border: 1px double #3498db;
@@ -18,8 +19,10 @@
   margin-top: 100px;
   margin-bottom: 100px;
 }
-.title_slide{
+.title_slide {
   text-align: center;
+  margin: 0 auto;
+  font-size: 2.25vh;
 }
 
 @media (max-width: 768px) {
