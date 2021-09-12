@@ -126,15 +126,11 @@ export function Cards(props) {
   return (
     <div>
       <Alert variant="info" style={{ borderRadius: "0px" }}>
-        <Alert.Heading className="alert-head" style={{ fontSize: "1.8vh" }}>
-          {props.date}
-        </Alert.Heading>
+        <Alert.Heading className="alert-date">{props.date}</Alert.Heading>
         <hr />
-        <h2 style={{ textAlign: "center", fontSize: "3.3vh" }}>
-          {props.heading}
-        </h2>
+        <h2 className="alert-head">{props.heading}</h2>
         <hr />
-        <p style={{ fontSize: "2.3vh" }}>
+        <p className="alert-body">
           {props.paragraph.length > 50
             ? props.paragraph.substring(0, 50) + "..."
             : props.paragraph}
@@ -162,9 +158,7 @@ export function FCards(props) {
   return (
     <div>
       <Alert variant="info" style={{ borderRadius: "0px" }}>
-        <Alert.Heading className="alert-date" >
-          {props.date}
-        </Alert.Heading>
+        <Alert.Heading className="alert-date">{props.date}</Alert.Heading>
         <h2 className="alert-head">
           {props.heading.length > 10
             ? props.heading.substring(0, 10) + "..."

@@ -7,6 +7,8 @@ import Loading from "react-fullscreen-loading";
 import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
 
+import "./css/commsTools.css";
+
 export function CreateNewsLetter(props) {
   const [heading, setHeading] = useState("");
   const [body, setBody] = useState("");
@@ -127,19 +129,12 @@ export function News(props) {
           marginBottom: "50px",
         }}
       >
-        <Card.Header
-          className="card-header"
-          style={{ textAlign: "center", fontSize: "1.8vh" }}
-        >
-          {props.date}
-        </Card.Header>
+        <Card.Header className="alert-date">{props.date}</Card.Header>
         <Card.Body>
-          <Card.Title style={{ textAlign: "center", fontSize: "3.8vh" }}>
-            {props.heading}
-          </Card.Title>
+          <Card.Title className="alert-head">{props.heading}</Card.Title>
           <hr />
           <Card.Text>
-            <p style={{ fontSize: "2.3vh" }}>
+            <p className="alert-body">
               {props.paragraph.length > 50
                 ? props.paragraph.substring(0, 50) + "..."
                 : props.paragraph}

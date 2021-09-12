@@ -74,6 +74,7 @@ const FormPage = () => {
             onChange={(e) => {
               setSubject(e.target.value);
             }}
+            value={subject}
           />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">

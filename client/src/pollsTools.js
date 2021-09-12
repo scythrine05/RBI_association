@@ -14,6 +14,7 @@ import { postPolls, votePolls } from "./axios/polls";
 import Swal from "sweetalert2";
 
 import "./css/pollsTools.css";
+import "./css/commsTools.css";
 
 export function CreatePolls(props) {
   const [loading, setLoading] = useState(false);
@@ -28,18 +29,20 @@ export function CreatePolls(props) {
   };
 
   const hasDuplicate = (arrayObj, colName) => {
-   var hash = Object.create(null);
-   return arrayObj.some((arr) => {
-      return arr[colName] && (hash[arr[colName]] || !(hash[arr[colName]] = true));
-   });
-};
+    var hash = Object.create(null);
+    return arrayObj.some((arr) => {
+      return (
+        arr[colName] && (hash[arr[colName]] || !(hash[arr[colName]] = true))
+      );
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      let isDuplicate = hasDuplicate(fields, "value");
+    let isDuplicate = hasDuplicate(fields, "value");
     try {
       if (question === "") setMsgState(1);
-      else if(isDuplicate) setMsgState(3);
+      else if (isDuplicate) setMsgState(3);
       else {
         setLoading(true);
         await postPolls(question, fields);
@@ -75,7 +78,7 @@ export function CreatePolls(props) {
       return <Alert variant="danger">Question is Required </Alert>;
     if (props.state === 2)
       return <Alert variant="danger">Error: Check file Type </Alert>;
-      if (props.state === 3)
+    if (props.state === 3)
       return <Alert variant="danger">Options cannot be Duplicated</Alert>;
     return null;
   };
@@ -210,13 +213,9 @@ export function PollsCards(props) {
     <div>
       <Rd />
       <Alert variant="info" style={{ borderRadius: "0px" }}>
-        <Alert.Heading className="alert-head" style={{ fontSize: "1.8vh" }}>
-          {props.date}
-        </Alert.Heading>
+        <Alert.Heading className="alert-date">{props.date}</Alert.Heading>
         <hr />
-        <h2 style={{ textAlign: "center", fontSize: "3.3vh" }}>
-          {props.question}
-        </h2>
+        <h2 className="alert-head">{props.question}</h2>
         <hr />
         <CheckActive />
         <hr />

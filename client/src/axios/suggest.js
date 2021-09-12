@@ -23,6 +23,24 @@ export const postSuggest = async (name, email, subject, message) => {
   }
 };
 
+export const postContact = async (name, email, message) => {
+  try {
+    await Axios({
+      method: "post",
+      url: `${apiUrl}/0900e5b2/suggest/contact`,
+      headers: "",
+      data: {
+        Name: name,
+        Email: email,
+        Message: message,
+      },
+      withCredentials: true,
+    });
+  } catch (e) {
+    throw e;
+  }
+};
+
 export const getData = () =>
   Axios({
     method: "get",

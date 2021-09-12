@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "./static/css/main.a832ae7a.chunk.css",
-    "main.js": "./static/js/main.2bba8303.chunk.js",
-    "main.js.map": "./static/js/main.2bba8303.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.8b0ae790.js",
-    "runtime-main.js.map": "./static/js/runtime-main.8b0ae790.js.map",
-    "static/css/2.b5b4d28c.chunk.css": "./static/css/2.b5b4d28c.chunk.css",
-    "static/js/2.3cdfccb2.chunk.js": "./static/js/2.3cdfccb2.chunk.js",
-    "static/js/2.3cdfccb2.chunk.js.map": "./static/js/2.3cdfccb2.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.e1926cc3a04a131c5218d2edc587970f.js": "./precache-manifest.e1926cc3a04a131c5218d2edc587970f.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/2.b5b4d28c.chunk.css.map": "./static/css/2.b5b4d28c.chunk.css.map",
-    "static/css/main.a832ae7a.chunk.css.map": "./static/css/main.a832ae7a.chunk.css.map",
-    "static/js/2.3cdfccb2.chunk.js.LICENSE.txt": "./static/js/2.3cdfccb2.chunk.js.LICENSE.txt",
-    "static/media/slick-theme.css": "./static/media/slick.f97e3bbf.svg"
+    "main.css": "/static/css/main.fad890a9.chunk.css",
+    "main.js": "/static/js/main.09d5bbd2.chunk.js",
+    "main.js.map": "/static/js/main.09d5bbd2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.09b85ec0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.09b85ec0.js.map",
+    "static/css/2.1c9ef103.chunk.css": "/static/css/2.1c9ef103.chunk.css",
+    "static/js/2.7e59d7fd.chunk.js": "/static/js/2.7e59d7fd.chunk.js",
+    "static/js/2.7e59d7fd.chunk.js.map": "/static/js/2.7e59d7fd.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.2a2527677bd108dfb0eb92de8eecbdab.js": "/precache-manifest.2a2527677bd108dfb0eb92de8eecbdab.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.1c9ef103.chunk.css.map": "/static/css/2.1c9ef103.chunk.css.map",
+    "static/css/main.fad890a9.chunk.css.map": "/static/css/main.fad890a9.chunk.css.map",
+    "static/js/2.7e59d7fd.chunk.js.LICENSE.txt": "/static/js/2.7e59d7fd.chunk.js.LICENSE.txt",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8b0ae790.js",
-    "static/css/2.b5b4d28c.chunk.css",
-    "static/js/2.3cdfccb2.chunk.js",
-    "static/css/main.a832ae7a.chunk.css",
-    "static/js/main.2bba8303.chunk.js"
+    "static/js/runtime-main.09b85ec0.js",
+    "static/css/2.1c9ef103.chunk.css",
+    "static/js/2.7e59d7fd.chunk.js",
+    "static/css/main.fad890a9.chunk.css",
+    "static/js/main.09d5bbd2.chunk.js"
   ]
 }

@@ -5,6 +5,7 @@ import Jumbotron from "./jumbotron";
 import "./css/Home.css";
 import { Container, Alert } from "react-bootstrap";
 import Content from "./content";
+import Contact from "./contact";
 import Latest from "./latest";
 import Team from "./teams";
 import ILinks from "./importantLinks";
@@ -35,20 +36,8 @@ export default function Home() {
         <Team />
         <ILinks />
         {/* <SAssoc /> */}
-        <section>
-          <h1 className="contact-h1" syle={{ textAlign: "center" }}>
-            Contact Us
-          </h1>
-          <Alert variant="success" className="contact-body">
-            <p>Email : mail@rbioa.org.in</p>
-            <hr />
-            <p>
-              Office : RBI Officers’ Association, Reserve Bank of India, 3rd
-              Floor, Main Building, Mumbai – 400 001
-            </p>
-          </Alert>
-        </section>
       </Container>
+      <Contact />
       <footer>
         <Footer />
       </footer>

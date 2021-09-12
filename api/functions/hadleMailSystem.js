@@ -5,15 +5,15 @@ const nodemailer = require("nodemailer");
 //Configuring Transporter
 
 let transporter = nodemailer.createTransport({
-    host: "smtpout.secureserver.net",  
-    secure: true,
-    secureConnection: false, // TLS requires secureConnection to be false
-    tls: {
-        ciphers:'SSLv3'
-    },
-    requireTLS:true,
-    port: 465,
-    debug: true,
+  host: "smtpout.secureserver.net",
+  secure: true,
+  secureConnection: false, // TLS requires secureConnection to be false
+  tls: {
+    ciphers: "SSLv3",
+  },
+  requireTLS: true,
+  port: 465,
+  debug: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD,
@@ -25,7 +25,7 @@ const suggestion = async (id, data) => {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
     subject: "RBIOA(Suggestion)",
-    html: `<<div style="color:#232023;padding: 10px;border:solid #232023 2px;background-color: #fff;">
+    html: `<div style="color:#232023;padding: 10px;border:solid #232023 2px;background-color: #fff;">
         <h1>
             RBI Officers' Association
         </h1>
@@ -40,6 +40,48 @@ const suggestion = async (id, data) => {
             Email: ${data.Email}
             <br />
             Subject: ${data.Subject}
+            <br />
+            <br/>
+            Message:<br/><br/>
+             ${data.Message}
+            <br />
+            <br />
+            <hr />
+            <p style="color: #808080;">
+                rbioa.org.in
+                <br />
+                <span style="font-size: 10px;">
+                    © 2021 RBIOA India , All Rights Reserved
+                </span>
+            </p>
+        </h5>
+    </div>`,
+  };
+
+  try {
+    await transporter.sendMail(mail);
+    return;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
+const contact = async (data) => {
+  let mail = {
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
+    subject: "RBIOA(Contact)",
+    html: `<div style="color:#232023;padding: 10px;border:solid #232023 2px;background-color: #fff;">
+        <h1>
+            RBI Officers' Association
+        </h1>
+        <h2>
+            Contact Form
+        </h2>
+        <h5>
+            Name: ${data.Name}
+            <br />
+            Email: ${data.Email}
             <br />
             <br/>
             Message:<br/><br/>
@@ -234,4 +276,5 @@ module.exports = {
   newUserEmailApproved,
   newUserEmailDisapproved,
   existingUserEmail,
+  contact,
 };

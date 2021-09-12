@@ -14,6 +14,18 @@ router.use(
     extended: true,
   })
 );
+
+router.post("/contact", (req, res) => {
+  handleMail
+    .contact(req.body)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch(() => {
+      res.status(404).send(e);
+    });
+});
+
 router.use(passport.initialize());
 router.use(passport.authenticate("jwt", { session: false }));
 
