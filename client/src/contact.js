@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { postContact } from "./axios/suggest";
 import { Form, Button, Alert, Container } from "react-bootstrap";
 import Loading from "react-fullscreen-loading";
-import Recaptcha from "react-recaptcha";
+import Recaptcha from "react-google-recaptcha";
 import Swal from "sweetalert2";
 
 const FormPage = () => {
@@ -12,6 +12,7 @@ const FormPage = () => {
   const [loading, setLoading] = useState(false);
   const [verify, setVerify] = useState(false);
   const [msgState, setMsgState] = useState(0);
+  const recaptchaRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,8 +27,10 @@ const FormPage = () => {
         setName("");
         setEmail("");
         setMessage("");
+        recaptchaRef.current.reset();
       }
     } catch (e) {
+      console.log(e);
       setMsgState(2);
     }
     setLoading(false);
@@ -40,9 +43,6 @@ const FormPage = () => {
     return null;
   };
 
-  const loadCaptcha = () => {
-    console.log("https://www.google.com/recaptcha/about/");
-  };
   return (
     <React.Fragment>
       <Loading
@@ -95,9 +95,8 @@ const FormPage = () => {
               />
               <Recaptcha
                 sitekey={process.env.REACT_APP_RECAPTCHA_KEY}
-                render="explicit"
-                onloadCallback={loadCaptcha}
-                verifyCallback={() => setVerify(true)}
+                onChange={() => setVerify(true)}
+                ref={recaptchaRef}
               />
             </Form.Group>
             <Msg />
