@@ -22,6 +22,7 @@
     "react-images": "^1.1.7",
     "react-photo-gallery": "^8.0.0",
     "react-preloaders": "^3.0.3",
+    "react-recaptcha": "^2.3.10",
     "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
