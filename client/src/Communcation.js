@@ -74,7 +74,7 @@ export default function Communcation() {
         <nav>
           <Navbar />
         </nav>
-      </header>{" "}
+      </header>
       <div>
         <Jumbotron
           name={["Notice"]}

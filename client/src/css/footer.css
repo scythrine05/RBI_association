@@ -8,7 +8,7 @@
   width: 100%;
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 8em;
 }
 
 .footer a {
@@ -33,17 +33,22 @@
 .footer_text {
   margin-bottom: 20px;
 }
-.extra {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.location {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 12px;
 }
-
 @media (max-width: 768px) {
   .footer_text {
     font-size: 12px;
   }
+
   .extra {
     flex-direction: column;
+  }
+  .location {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 10px;
   }
 }
