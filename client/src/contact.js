@@ -97,6 +97,7 @@ const FormPage = () => {
                 sitekey={process.env.REACT_APP_RECAPTCHA_KEY}
                 onChange={() => setVerify(true)}
                 ref={recaptchaRef}
+                size="compact"
               />
             </Form.Group>
             <Msg />
