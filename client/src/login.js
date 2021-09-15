@@ -62,7 +62,6 @@ export default function Log() {
         size="sm"
         className="primary"
         onClick={auth === 0 ? handleShow : onLogOut}
-        style={{ fontSize: "2vh" }}
       >
         {auth === 0 ? "Login" : "Logout"}
       </button>

@@ -54,9 +54,7 @@ const FormPage = () => {
       <br />
 
       <Container className="my-3">
-        <h1 className="iL-h1" style={{ textAlign: "center" }}>
-          Contact Us
-        </h1>
+        <h1 style={{ textAlign: "center" }}>Contact Us</h1>
         <section style={{ textAlign: "left" }}>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="exampleForm.ControlInput1">

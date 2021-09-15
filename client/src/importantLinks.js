@@ -42,9 +42,7 @@ export default class SimpleSlider extends React.Component {
     return (
       <div className="slider">
         <Container>
-          <h1 className="iL-h1" style={{ textAlign: "center" }}>
-            Important Links
-          </h1>
+          <h1 style={{ textAlign: "center" }}>Important Links</h1>
           <Slider {...settings}>
             <Alert className="title_slide" variant="warning">
               Link 1

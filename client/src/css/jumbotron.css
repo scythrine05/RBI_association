@@ -1,5 +1,5 @@
 .header {
-  height: 65vh;
+  height: 30em;
   background-size: cover;
   background-position: top;
   position: relative;
@@ -7,7 +7,7 @@
 
 .page-heading {
   position: absolute;
-  top: 40%;
+  top: 50%;
   text-align: center;
   left: 50%;
   transform: translate(-50%, -50%);

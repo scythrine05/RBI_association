@@ -22,17 +22,18 @@
 .title_slide {
   text-align: center;
   margin: 0 auto;
-  font-size: 2.25vh;
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
   .slick-slide {
     margin: 0 8px;
   }
-
   .img_slide {
   }
-  .iL-h1 {
-    font-size: 4.3vh;
+  .title_slide {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 12.7px;
   }
 }
