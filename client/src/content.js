@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/content.css";
+import { Link } from "react-router-dom";
 
 export default function content() {
   return (
@@ -14,9 +15,9 @@ export default function content() {
         rules provided in the constitution of RBIOA.
         <br />
         <br />
-        <a href="about_rbioa.pdf" download>
+        <Link exact to="/about">
           Read More
-        </a>
+        </Link>
       </p>
     </div>
   );

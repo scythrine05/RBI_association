@@ -8,7 +8,8 @@ import { authContext } from "./contexts/AuthContext";
 
 import NewAccount from "./NewAccount";
 import Home from "./Home";
-import {FullGallery} from "./FullGallery";
+import About from "./About";
+import { FullGallery } from "./FullGallery";
 import Newsletter from "./Newsletter";
 import Communication from "./Communcation";
 import Polls from "./Polls";
@@ -23,7 +24,7 @@ import "./css/App.css";
 
 export default function App() {
   const { auth } = useContext(authContext);
-  
+
   return (
     <div>
       <Sugar color="#3498db" animation="slide-right" time={2000} />
@@ -37,6 +38,7 @@ export default function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/fullteam" component={FullTeam} />
           <Route exact path="/developers" component={Developers} />
+          <Route exact path="/about" component={About} />
           <PrivateRoute exact path="/gallery" component={FullGallery} />
           <PrivateRoute exact path="/news" component={Newsletter} />
           <PrivateRoute exact path="/communication" component={Communication} />
